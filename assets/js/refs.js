@@ -1,0 +1,45 @@
+/* References and study designs, taken verbatim from the approved deck (slides 23, 28, 30, 35, 41-43). */
+const REFS = {
+ "1": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12712773/#ijd70070-sec-0011%3A~%3Atext%3D1.1.%20Epidemiology%2Cadolescence%20%5B14%5D",
+ "2": "https://www.ncbi.nlm.nih.gov/books/NBK459173/#:~:text=Pathophysiology,Inflammation",
+ "3": "https://onlinelibrary.wiley.com/doi/10.1111/j.1468-3083.2004.00946.x",
+ "4": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7642029/",
+ "5": "https://pubmed.ncbi.nlm.nih.gov/37276154/",
+ "6": "https://www.researchgate.net/publication/387018868_Addressing_the_Unmet_Need_in_Acne_Management_A_Novel_Dermocosmetics_Guideline_Tailored_to_Asian_Patient_Subgroups",
+ "7": "https://pubmed.ncbi.nlm.nih.gov/38300170/",
+ "8": "https://www.ncbi.nlm.nih.gov/books/NBK573056/",
+ "9": "https://www.niams.nih.gov/health-topics/acne/diagnosis-treatment-and-steps-to-take#%3A~%3Atext%3DTreatment%20for%20Acne%2Cand%20prevent%20scarring",
+ "10": "https://www.aad.org/member/clinical-quality/guidelines/acne",
+ "11": "https://pubmed.ncbi.nlm.nih.gov/38300170/",
+ "12": "https://www.jaad.org/article/S0190-9622%2823%2903389-3/fulltext",
+ "13": "https://www.aad.org/member/clinical-quality/guidelines/acne",
+ "14": "https://pubmed.ncbi.nlm.nih.gov/38300170/",
+ "15": "https://www.jaad.org/article/S0190-9622(23)03389-3/fulltext",
+ "16": "https://www.nice.org.uk/guidance/ng198/chapter/Recommendations",
+ "17": "https://drive.google.com/file/d/1n3W3_X_JH6mauoeskZHv_R_iXY7plzqz/view?usp=sharing",
+ "18": "https://drive.google.com/file/d/1AYUR1aRaWhqgmrzAnmiBenyRQaHmevAp/view?usp=sharing",
+ "19": "https://www.ncbi.nlm.nih.gov/books/NBK482509/#%3A~%3Atext%3DAdapalene%20is%20a%20third%2Dgeneration%20topical%2Ccomedones%2C%20and%20has%20anti%2Dinflammatory%20effects",
+ "20": "https://pubmed.ncbi.nlm.nih.gov/16702497/",
+ "21": "https://pubmed.ncbi.nlm.nih.gov/16443054/",
+ "22": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11472206/",
+ "23": "https://www.researchgate.net/publication/26805019_A_North_American_Study_of_Adapalene-Benzoyl_Peroxide_Combination_Gel_in_the_Treatment_of_Acne",
+ "24": "https://pubmed.ncbi.nlm.nih.gov/19746769/",
+ "25": "https://www.nhs.uk/medicines/isotretinoin-roaccutane/#:~:text=Side%20effects%20of,the%20dizziness%20stops.",
+ "26": "https://pubmed.ncbi.nlm.nih.gov/29537444/",
+ "27": "https://www.nice.org.uk/guidance/ng198/chapter/recommendations#%3A~%3Atext%3DTo%20reduce%20the%20risk%20of%20skin%20irritation%20associated%20with%20topical%20treatments%2C%20such%20as%20benzoyl%20peroxide%20or%20retinoids%2C%20start%20with%20alternate%2Dday%20or%20short%2Dcontact%20application%20(for%20example%20washing%20off%20after%20an%20hour).%20If%20tolerated%2C%20progress%20to%20using%20a%20standard%20application",
+ "28": "https://www.aad.org/member/clinical-quality/guidelines/acne",
+ "29": "https://www.nice.org.uk/guidance/ng198/chapter/recommendations#:~:text=First%2Dline%20treatment,to%20severe%20acne.",
+ "30": "https://pubmed.ncbi.nlm.nih.gov/17941361/",
+ "31": "https://www.medscape.com/viewarticle/569154?form=fpf#:~:text=Adapalene%20and%20benzoyl,inflammation%20in%20AV",
+ "32": "https://www.drugs.com/dosage/adapalene-benzoyl-peroxide-topical.html",
+ "33": "https://pubmed.ncbi.nlm.nih.gov/34086519/",
+ "34": "https://www.ahdbonline.com/issues/2014/january-february-2014-vol-7-no-1/1641-fixed-dose-combination-gel-of-adapalene-and-benzoyl-peroxide-plus-doxycycline-100-mg-versus-oral-isotretinoin-for-the-treatment-of-severe-acne-efficacy-and-cost-analysis",
+ "35": "https://www.researchgate.net/publication/410789119_AdapaleneBenzoyl_Peroxide_Versus_Retinoid_Monotherapy_for_Acne_Maintenance_Evidence_Relapse_Prevention_And_Practical_Selection"
+};
+
+const DESIGNS = {
+ "review": "Systematic review of 8 randomized controlled trials (2007–2022), 4,596 participants (52.8% female), evaluating adapalene 0.1% or 0.3% combined with benzoyl peroxide 2.5% fixed-dose gel versus monotherapy/vehicle comparators. Trials assessed percent reduction in lesion counts and adverse event rates as primary outcomes; most were multicenter, double-blind, randomized, parallel-group, 12-week studies (some with longer follow-up). (22)",
+ "longterm": "A 12-month, multicenter, open-label, single-arm study conducted across 28 U.S. centers in 452 patients with acne vulgaris. Participants received adapalene 0.1%/benzoyl peroxide 2.5% fixed-dose combination gel once daily. Long-term efficacy and safety were assessed through lesion-count reduction, subject assessment of acne, adverse events, and cutaneous tolerability. (30)",
+ "week1": "A 12-week, multicenter, randomized, double-blind, parallel-group, active- and vehicle-controlled study conducted across 60 centers in the United States, Puerto Rico, and Canada. A total of 1,668 patients with moderate facial acne were randomized 1:1:1:1 to once-daily adapalene 0.1%/BPO 2.5% fixed-dose combination, adapalene 0.1% monotherapy, BPO 2.5% monotherapy, or vehicle. Efficacy was assessed by success rate and percentage reduction in inflammatory, non-inflammatory, and total lesion counts at Weeks 1, 2, 4, 8, and 12. (23), (24)",
+ "doxy": "Phase 4, 12-week, single-arm, open-label, multicenter study (N=186) in males and females aged ≥12 years with severe (nonnodulocystic, nonconglobate) inflammatory acne vulgaris (IGA 4, ≤4 nodulocystic lesions), considered oral isotretinoin candidates at baseline. All"
+};

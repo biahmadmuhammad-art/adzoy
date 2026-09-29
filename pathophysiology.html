@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Pathophysiology · Adzoy™ Gel</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%23A33B9E%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/main.css?v=55">
+  <link rel="stylesheet" href="assets/css/pages.css?v=55">
+</head>
+<body class="chapter" data-prev="prevalence.html" data-next="quality-of-life.html" data-next-label="Quality of life">
+  <canvas id="mosaic" aria-hidden="true"></canvas>
+  <main class="stage">
+
+    <section class="scene opener" data-stop="chapter" data-veil=".55">
+      <div class="wrap">
+        <div>
+          <p class="chap" data-a="up"><b>Chapter 02</b> Acne vulgaris</p>
+          <h1 class="title" data-a="rise">Acne Vulgaris Pathophysiology</h1>
+          <p class="sub" data-a="up">What happens inside the follicle, step by step.</p>
+        </div>
+        <div class="hexframe" data-a="zoom" data-at=".1">
+          <div class="inner"><img src="assets/img/content/acne-face.jpg" alt="Young woman with facial acne"></div>
+          <svg class="outline" viewBox="0 0 86.6 100" preserveAspectRatio="none"><path d="M43.3 0L86.6 25V75L43.3 100L0 75V25Z"/></svg>
+          <i class="facet f1"></i><i class="facet f2"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene step-text" data-stop="drivers">
+      <div class="wrap">
+        <p class="eyebrow" data-a="up">Acne pathophysiology</p>
+        <h2 data-a="rise" style="font-size:calc(var(--u)*4.6);margin-top:calc(var(--u)*1)">The 4 drivers of acne<sup data-ref="2"></sup></h2>
+        <div class="drivers" data-a="each">
+          <div><i data-icon="drop"></i>Sebum overproduction</div>
+          <div><i data-icon="layers"></i>Follicular hyperkeratinization</div>
+          <div><i data-icon="bacteria"></i><span><i>Cutibacterium acnes</i> colonization</span></div>
+          <div><i data-icon="flame"></i>Inflammation</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene step-text" data-stop="sebum">
+      <div class="wrap">
+        <p class="step-num" data-a="up">01</p>
+        <i data-icon="drop" data-a="pop"></i>
+        <h2 data-a="rise">Sebum overproduction</h2>
+        <p class="lead" data-a="up">Androgen-driven excess oil production.<sup data-ref="2"></sup></p>
+      </div>
+    </section>
+
+    <section class="scene step-text" data-stop="keratin">
+      <div class="wrap">
+        <p class="step-num" data-a="up">02</p>
+        <i data-icon="layers" data-a="pop"></i>
+        <h2 data-a="rise">Follicular hyperkeratinization</h2>
+        <p class="lead" data-a="up">Keratin build-up → clogged follicle.<sup data-ref="2"></sup></p>
+      </div>
+    </section>
+
+    <section class="scene step-text" data-stop="bacteria">
+      <div class="wrap">
+        <p class="step-num" data-a="up">03</p>
+        <i data-icon="bacteria" data-a="pop"></i>
+        <h2 data-a="rise"><i>Cutibacterium acnes</i> colonization</h2>
+        <p class="lead" data-a="up">Proliferation within the sebum-rich follicle.<sup data-ref="2"></sup></p>
+      </div>
+    </section>
+
+    <section class="scene step-text" data-stop="inflammation">
+      <div class="wrap">
+        <p class="step-num" data-a="up">04</p>
+        <i data-icon="flame" data-a="pop"></i>
+        <h2 data-a="rise">Inflammation</h2>
+        <p class="lead" data-a="up">Immune activation → inflammatory lesions.<sup data-ref="2"></sup></p>
+      </div>
+    </section>
+
+    <!-- Follicle cross-section: stays on screen and gains one driver per swipe -->
+    <div class="follicle-wrap" aria-hidden="true">
+      <svg viewBox="0 0 520 640">
+        <defs>
+          <linearGradient id="derm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDEEF4"/><stop offset="1" stop-color="#F3CFE0"/></linearGradient>
+          <linearGradient id="epi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2B6D0"/><stop offset="1" stop-color="#E9A2C3"/></linearGradient>
+          <radialGradient id="inflamG"><stop offset="0" stop-color="#FF4F76" stop-opacity=".75"/><stop offset=".55" stop-color="#FF7A98" stop-opacity=".35"/><stop offset="1" stop-color="#FF9BB2" stop-opacity="0"/></radialGradient>
+          <clipPath id="skinClip"><rect x="20" y="100" width="480" height="520" rx="30"/></clipPath>
+        </defs>
+        <g clip-path="url(#skinClip)">
+          <rect class="dermis" x="20" y="100" width="480" height="520" fill="url(#derm)"/>
+          <path d="M20 132 Q140 112 260 126 T500 122 V196 Q380 210 260 200 T20 202 Z" fill="url(#epi)"/>
+          <g class="inflam-pulse"><ellipse class="inflam" cx="262" cy="380" rx="215" ry="250" fill="url(#inflamG)" opacity="0"/></g>
+        </g>
+        <path class="f-line corneum" d="M20 132 Q140 112 260 126 T500 122" stroke="#fff" stroke-width="6" fill="none"/>
+        <rect x="20" y="100" width="480" height="520" rx="30" fill="none" stroke="#fff" stroke-width="3" class="f-line"/>
+        <g class="gland">
+          <path class="duct" d="M298 318 C320 310 332 304 350 302" stroke="#E2C36E" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <circle cx="374" cy="298" r="30"/><circle cx="402" cy="332" r="27"/><circle cx="368" cy="352" r="25"/><circle cx="402" cy="280" r="20"/>
+        </g>
+        <path class="canal" d="M226 128 C226 210 220 300 222 420 C224 500 206 540 214 572 C224 612 300 612 310 572 C318 540 300 500 302 420 C304 300 298 210 298 128 Z" fill="#FFF6FA"/>
+        <g class="sebum"></g>
+        <g class="bact"></g>
+        <ellipse class="bulb" cx="262" cy="582" rx="40" ry="25" fill="#E6A7C6"/>
+        <path class="f-line hair" d="M262 585 C262 480 258 380 262 280 C266 180 272 100 290 30" stroke="#5B3450" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path class="f-line f-walls" d="M226 128 C226 210 220 300 222 420 C224 500 206 540 214 572 C224 612 300 612 310 572 C318 540 300 500 302 420 C304 300 298 210 298 128" fill="none" stroke="#D98BB4" stroke-width="4"/>
+        <g class="keratin">
+          <rect x="230" y="190" width="64" height="11" rx="5.5"/><rect x="233" y="176" width="58" height="11" rx="5.5"/><rect x="229" y="162" width="66" height="11" rx="5.5"/>
+          <rect x="231" y="148" width="62" height="11" rx="5.5"/><rect x="228" y="134" width="68" height="11" rx="5.5"/>
+          <ellipse class="plug" cx="262" cy="128" rx="40" ry="11"/>
+        </g>
+        <g class="immune">
+          <circle cx="110" cy="300" r="10"/><circle cx="420" cy="450" r="10"/><circle cx="120" cy="500" r="10"/><circle cx="440" cy="200" r="9"/><circle cx="90" cy="410" r="8"/>
+        </g>
+        <g class="labels">
+          <text class="lbl-f sm base" x="40" y="186">Epidermis</text>
+          <text class="lbl-f sm base" x="40" y="598">Dermis</text>
+          <text class="lbl-f sm base" x="400" y="398">Sebaceous gland</text>
+          <text class="lbl-f step l-sebum" x="330" y="480">Excess sebum</text>
+          <text class="lbl-f step l-keratin" x="310" y="92">Keratin plug</text>
+          <text class="lbl-f step l-bact" x="44" y="330"><tspan font-style="italic">C. acnes</tspan></text>
+          <text class="lbl-f step l-inflam" x="330" y="560">Inflammation</text>
+        </g>
+      </svg>
+    </div>
+
+  </main>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/Observer.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
+  <script src="assets/vendor/CustomEase.min.js"></script>
+  <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
+  <script src="assets/js/mosaic.js?v=55"></script>
+  <script src="assets/js/refs.js?v=55"></script>
+  <script src="assets/js/core.js?v=55"></script>
+  <script src="assets/js/charts.js?v=55"></script>
+  <script src="assets/js/scenes.js?v=55"></script>
+  <script>
+    // Fill the follicle with sebum droplets and bacteria (fixed positions so every run looks the same).
+    const NS = 'http://www.w3.org/2000/svg';
+    const add = (g, tag, attrs) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); g.appendChild(e); };
+    [[250,452,12],[278,460,10],[262,420,13],[240,388,10],[286,396,10],[258,356,12],[282,334,9],[246,318,10],[270,294,9],[290,304,7],[238,276,8],[262,250,9],[244,500,11],[276,510,10],[262,540,9]]
+      .forEach(([cx, cy, r]) => add($('.sebum'), 'circle', { cx, cy, r }));
+    [[244,236,20],[270,262,-30],[252,300,60],[284,280,10],[240,346,-15],[272,372,35],[256,402,-50],[288,430,15],[238,452,40],[266,480,-20],[250,520,70],[280,548,-35],[234,410,85],[290,360,-70],[262,330,5],[246,270,-60]]
+      .forEach(([x, y, r]) => add($('.bact'), 'rect', { x: x - 7, y: y - 2.5, width: 14, height: 5, rx: 2.5, transform: `rotate(${r} ${x} ${y})` }));
+    gsap.set('.sebum circle, .bact rect, .gland circle, .immune circle', { transformOrigin: '50% 50%' });
+    gsap.set('.sebum circle, .bact rect, .keratin > *, .immune circle, .labels .step', { autoAlpha: 0 });
+    gsap.to('.inflam-pulse', { scale: 1.06, transformOrigin: '262px 380px', duration: 1.4, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+
+    Scenes.run({
+      hooks: {
+        drivers(tl, t) {
+          tl.fromTo('.follicle-wrap', { autoAlpha: 0, x: 80 }, { autoAlpha: 1, x: 0, duration: 1, ease: 'power3.out' }, t)
+            .from('.f-line', { drawSVG: '0%', duration: 1.4, stagger: 0.1, ease: 'power2.inOut' }, t + 0.2)
+            .from('.gland circle', { scale: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(2)' }, t + 0.8)
+            .from('.labels .base', { autoAlpha: 0, duration: 0.5, stagger: 0.1 }, t + 1);
+        },
+        sebum(tl, t) {
+          tl.to('.gland circle', { scale: 1.16, fill: '#F6D57A', duration: 0.6, stagger: 0.06 }, t)
+            .to('.sebum circle', { autoAlpha: 1, duration: 0.01 }, t + 0.3)
+            .from('.sebum circle', { scale: 0, y: 30, duration: 0.55, stagger: 0.06, ease: 'back.out(2)' }, t + 0.3)
+            .to('.l-sebum', { autoAlpha: 1, duration: 0.5 }, t + 0.9);
+        },
+        keratin(tl, t) {
+          tl.to('.keratin > *', { autoAlpha: 1, duration: 0.01 }, t)
+            .from('.keratin rect', { y: -70, duration: 0.6, stagger: 0.1, ease: 'bounce.out' }, t)
+            .from('.plug', { scaleX: 0, transformOrigin: '50% 50%', duration: 0.5, ease: 'back.out(2)' }, t + 0.7)
+            .to('.l-keratin', { autoAlpha: 1, duration: 0.5 }, t + 0.8);
+        },
+        bacteria(tl, t) {
+          tl.to('.bact rect', { autoAlpha: 1, duration: 0.01 }, t)
+            .from('.bact rect', { scale: 0, duration: 0.45, stagger: { each: 0.05, from: 'random' }, ease: 'back.out(3)' }, t)
+            .to('.l-bact', { autoAlpha: 1, duration: 0.5 }, t + 0.7);
+        },
+        inflammation(tl, t) {
+          tl.to('.inflam', { opacity: 1, duration: 1 }, t)
+            .to('.f-walls', { stroke: '#E0245E', duration: 0.8 }, t)
+            .to('.immune circle', { autoAlpha: 1, duration: 0.01 }, t + 0.3)
+            .from('.immune circle', { x: (i) => [-60, 60, -60, 60, -60][i], scale: 0, duration: 0.9, stagger: 0.1 }, t + 0.3)
+            .to('.l-inflam', { autoAlpha: 1, duration: 0.5 }, t + 0.9);
+        },
+      },
+    });
+  </script>
+</body>
+</html>
