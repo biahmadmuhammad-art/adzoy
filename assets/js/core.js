@@ -20,6 +20,9 @@ const CHAPTERS = [
   { key: 'why', href: 'why-adzoy.html', n: '08', title: 'Why Adzoy™ Gel?', short: 'Why Adzoy', icon: 'shield', img: 'assets/img/menu/why.jpg' },
 ];
 
+/* Pages outside the chapter list, mapped to the chapter they belong to (for the dock). */
+const PAGE_CHAPTER = { 'index.html': 'home', 'strength-01.html': 'patients', 'strength-03.html': 'patients', 'majid.html': 'patients', 'sara.html': 'patients', 'omar.html': 'patients' };
+
 /* Stories that link out to evidence: ?from=<key> shows a pill back to the story. */
 const RETURN = { majid: ['majid.html#outcome', 'Majid’s story'], sara: ['sara.html#outcome', 'Sara’s story'], omar: ['omar.html#outcome', 'Omar’s story'] };
 
@@ -62,6 +65,7 @@ const ICONS = {
   wash: '<path d="M12 3c2.5 3.5 5 6 5 9a5 5 0 0 1-10 0c0-3 2.5-5.5 5-9z"/><path d="M4 21h16"/>',
   check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  home: '<path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/>',
   bolt: '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
   flakes: '<path d="M4 8.5c2.7-1.8 5.3 1.8 8 0s5.3-1.8 8 0M4 14c2.7-1.8 5.3 1.8 8 0s5.3-1.8 8 0"/><path d="M7 19.5l2.5-1.2M14 20l2.8-1"/>',
   pause: '<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>',
@@ -116,12 +120,17 @@ function chromeHTML() {
   const here = location.pathname.split('/').pop() || 'index.html';
   const items = CHAPTERS.map((c) => `<li><a href="${c.href}" data-href="${c.href}" data-key="${c.key}" class="${c.href.startsWith(here) ? 'here' : ''}"><span class="t"><em>${c.n}</em>${c.title}</span></a></li>`).join('');
   const imgs = CHAPTERS.map((c) => `<img data-key="${c.key}" class="${c.contain ? 'contain' : ''}" src="${c.img}" alt="">`).join('');
+  // Bottom dock: quick jumps between chapters without opening the full menu.
+  const cur = PAGE_CHAPTER[here] || (CHAPTERS.find((c) => c.href === here) || {}).key;
+  const dock = [{ key: 'home', href: 'index.html', short: 'Home', icon: 'home' }, ...CHAPTERS]
+    .map((c) => `<a class="dk${c.key === cur ? ' on' : ''}" href="${c.href}" data-href="${c.href}" aria-label="${c.title || c.short}"${c.key === cur ? ' aria-current="page"' : ''}>${icon(c.icon)}<span>${c.short}</span></a>`).join('');
   return `
   <div class="veil" aria-hidden="true"></div>
   <header class="hdr">
     <a class="brand" href="index.html" data-href="index.html" aria-label="Adzoy home"><span class="wm-sm">Adz<i data-hex></i>y<sup>™</sup></span></a>
     <button class="menu-btn" aria-label="Open menu"><span>Menu</span><b>+</b></button>
   </header>
+  <nav class="dock" aria-label="Chapters">${dock}</nav>
   <nav class="pager" aria-label="Sections">
     <button class="up" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
     <ul></ul>
@@ -282,6 +291,10 @@ const Stops = {
     const n = Math.max(1, this.names.length - 1);
     gsap.to('.pager .ring circle', { strokeDashoffset: 100 - (100 * this.cur) / n, duration: 0.8, ease: 'power2.inOut' });
     history.replaceState(null, '', '#' + this.names[this.cur]);
+    // Crowded sections ask the dock to shrink to the current chapter.
+    const sc = $$('.scene')[this.cur];
+    document.documentElement.classList.toggle('dock-min', !!sc && sc.dataset.dock === 'min');
+    document.documentElement.classList.remove('dock-open');
   },
   pause(on) { this.observer && (on ? this.observer.disable() : this.observer.enable()); },
 };
@@ -430,6 +443,14 @@ const Lightbox = {
 
 /* ---------- Links: in-page stops, other pages (with the wipe), unbuilt pages ---------- */
 function wireLinks() {
+  // A shrunk dock opens on the first tap instead of navigating; a tap elsewhere closes it.
+  document.addEventListener('click', (e) => {
+    const root = document.documentElement;
+    if (!root.classList.contains('dock-min')) return;
+    if (e.target.closest('.dock') && !root.classList.contains('dock-open')) {
+      e.preventDefault(); e.stopImmediatePropagation(); root.classList.add('dock-open');
+    } else if (!e.target.closest('.dock')) root.classList.remove('dock-open');
+  }, true);
   document.addEventListener('click', (e) => {
     const a = e.target.closest('[data-stop], [data-href], [data-soon]');
     if (!a) return;

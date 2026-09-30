@@ -81,7 +81,7 @@ const Scenes = (() => {
       tl.to(M, { dark, shift: `+=${i > 0 ? 1 : 0}`, duration: i > 0 ? 1.2 : 0.01, ease: 'power2.inOut' }, tm)
         .to('.veil', { autoAlpha: veil, duration: i > 0 ? 0.8 : 0.01, ease: 'none' }, tm)
         .to(root, {
-          '--hdr': dark ? '#F3EDFB' : '#2B1738', '--hdr-bg': dark ? 'rgba(243,237,251,.12)' : 'rgba(255,255,255,.7)',
+          '--hdr': dark ? '#F3EDFB' : '#2B1738', '--hdr-ink': dark ? '#2B1738' : '#FFFFFF', '--hdr-bg': dark ? 'rgba(243,237,251,.12)' : 'rgba(255,255,255,.7)',
           '--veil-tint': dark ? 'rgba(33,16,44,.42)' : 'rgba(248,244,253,.46)', duration: i > 0 ? 0.6 : 0.01, ease: 'none',
         }, tm);
       const tIn = i > 0 ? t0 + 0.6 : 0.05;

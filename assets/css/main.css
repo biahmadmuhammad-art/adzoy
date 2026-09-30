@@ -22,6 +22,7 @@
   --purple: #7B3F98;
   --hdr: #2B1738;
   --hdr-bg: rgba(255, 255, 255, .7);
+  --hdr-ink: #FFFFFF;
   --veil-tint: rgba(248, 244, 253, .46);
   --accent: #A3238F;
   --accent-2: #7B3F98;
@@ -401,7 +402,7 @@ h2 { font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
 
 /* "Next chapter" pill beside the pager, shown on the last stop */
 .next-pill {
-  position: fixed; z-index: 20; left: calc(var(--u) * 8.5); bottom: calc(var(--u) * 3.4);
+  position: fixed; z-index: 20; left: calc(var(--u) * 8.5); bottom: calc(var(--u) * 10.2);
   display: inline-flex; align-items: center; gap: .7em; padding: .55em .7em .55em 1.3em; border-radius: 99px;
   background: var(--plum); color: var(--lav); font-weight: 600; font-size: calc(var(--u) * 1.45);
   box-shadow: 0 16px 30px -14px rgba(43, 23, 56, .7); visibility: hidden; opacity: 0;
@@ -427,3 +428,36 @@ h2 { font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
 .back-pill .gi { --gs: calc(var(--u) * 3.2); transform: scaleX(-1); background: linear-gradient(135deg, #E095D0, #A33B9E); color: #fff; }
 .back-pill .gi::after { display: none; }
 .fig-sara .portrait img { height: 104%; }
+
+/* ---------- Bottom dock: frosted-glass chapter bar ---------- */
+.dock {
+  position: fixed; z-index: 20; left: 50%; bottom: calc(var(--u) * 2.4); transform: translateX(-50%);
+  display: flex; align-items: center; gap: calc(var(--u) * .35); padding: calc(var(--u) * .55);
+  border-radius: 99px; color: var(--hdr);
+  background: color-mix(in srgb, var(--hdr-bg) 70%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, .55);
+  box-shadow: 0 18px 40px -20px rgba(43, 23, 56, .55), inset 0 1px 0 rgba(255, 255, 255, .6);
+  transition: color .4s, background-color .4s;
+}
+.dk {
+  display: flex; align-items: center; gap: .5em; height: calc(var(--u) * 4.2); min-width: calc(var(--u) * 4.2);
+  padding: 0 calc(var(--u) * 1.05); justify-content: center; border-radius: 99px;
+  font-size: calc(var(--u) * 1.2); font-weight: 700; white-space: nowrap;
+  transition: background .35s, color .35s, transform .25s;
+}
+.dk svg { width: calc(var(--u) * 2.1); height: calc(var(--u) * 2.1); flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
+.dk span { display: none; }
+.dk:active { transform: scale(.92); }
+.dk.on { background: var(--hdr); color: var(--hdr-ink); padding: 0 calc(var(--u) * 1.5) 0 calc(var(--u) * 1.2); box-shadow: 0 8px 18px -8px rgba(43, 23, 56, .7); }
+.dk.on svg { opacity: 1; }
+.dk.on span { display: inline; }
+@media (hover: hover) { .dk:not(.on):hover { background: rgba(255, 255, 255, .45); } }
+
+/* Shrunk dock: only the current chapter, with a small chevron; opens on tap */
+.dk { transition: background .35s, color .35s, transform .25s, max-width .45s var(--ease), padding .45s var(--ease), opacity .3s; max-width: calc(var(--u) * 20); overflow: hidden; }
+html.dock-min:not(.dock-open) .dk:not(.on) { max-width: 0; min-width: 0; padding: 0; opacity: 0; pointer-events: none; }
+html.dock-min:not(.dock-open) .dock { gap: 0; }
+html.dock-min:not(.dock-open) .dk.on::after { content: ''; width: .45em; height: .45em; margin-left: .2em; border-top: 2px solid currentColor; border-left: 2px solid currentColor; transform: translateY(.15em) rotate(45deg); }
+/* On crowded sections the shrunk dock waits bottom-right, next to the PI badge, clear of the content */
+html.dock-min .dock { left: auto; right: calc(var(--u) * 14); transform: none; }

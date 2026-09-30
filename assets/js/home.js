@@ -52,7 +52,7 @@ function masterTimeline() {
     .to('.s-actives .pk-03', { xPercent: 30, yPercent: -130, rotation: 26, autoAlpha: 0, duration: 0.9, ease: 'power2.in' }, t + 0.05)
     .set('.s-actives', { autoAlpha: 0 }, t + 1)
     .to(M, { dark: 1, shift: 2, duration: 1.2, ease: 'power2.inOut' }, t + 0.15)
-    .to(root, { '--hdr': '#F3EDFB', '--hdr-bg': 'rgba(243,237,251,.12)', '--veil-tint': 'rgba(33,16,44,.42)', duration: 0.6, ease: 'none' }, t + 0.4)
+    .to(root, { '--hdr': '#F3EDFB', '--hdr-ink': '#2B1738', '--hdr-bg': 'rgba(243,237,251,.12)', '--veil-tint': 'rgba(33,16,44,.42)', duration: 0.6, ease: 'none' }, t + 0.4)
     .set('.s-statement', { autoAlpha: 1 }, t + 0.6)
     .fromTo(stWords, { color: 'rgba(243,237,251,0.13)' }, {
       color: (i, el) => (el.closest('.hl') ? '#F4A9DA' : '#F3EDFB'), duration: 0.15, stagger: 0.03, ease: 'none',
@@ -72,7 +72,7 @@ function masterTimeline() {
     .set('.s-statement', { autoAlpha: 0 }, t + 0.7)
     .to(M, { dark: 0, split: 1, duration: 1.1, ease: 'power2.inOut' }, t + 0.2)
     .to(M, { seam: 0.5, duration: 1.3, ease: 'power3.inOut' }, t + 0.5)
-    .to(root, { '--hdr': '#2B1738', '--hdr-bg': 'rgba(255,255,255,.7)', '--veil-tint': 'rgba(248,244,253,.3)', duration: 0.6, ease: 'none' }, t + 0.35)
+    .to(root, { '--hdr': '#2B1738', '--hdr-ink': '#FFFFFF', '--hdr-bg': 'rgba(255,255,255,.7)', '--veil-tint': 'rgba(248,244,253,.3)', duration: 0.6, ease: 'none' }, t + 0.35)
     .set('.s-strengths', { autoAlpha: 1 }, t + 0.5)
     .from('.s-strengths .seam', { scaleY: 0, duration: 1, ease: 'power3.inOut' }, t + 0.6)
     .from('.s-strengths .seam-hex', { scale: 0, rotation: -120, duration: 0.8, ease: 'back.out(1.7)' }, t + 1.1)
