@@ -401,15 +401,6 @@ h2 { font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
 }
 
 /* "Next chapter" pill beside the pager, shown on the last stop */
-.next-pill {
-  position: fixed; z-index: 20; left: calc(var(--u) * 8.5); bottom: calc(var(--u) * 10.2);
-  display: inline-flex; align-items: center; gap: .7em; padding: .55em .7em .55em 1.3em; border-radius: 99px;
-  background: var(--plum); color: var(--lav); font-weight: 600; font-size: calc(var(--u) * 1.45);
-  box-shadow: 0 16px 30px -14px rgba(43, 23, 56, .7); visibility: hidden; opacity: 0;
-}
-.next-pill small { font-size: .72em; letter-spacing: .14em; text-transform: uppercase; opacity: .6; }
-.next-pill .gi { --gs: calc(var(--u) * 3.6); background: linear-gradient(135deg, #E095D0, #A33B9E); color: #fff; }
-.next-pill .gi::after { display: none; }
 
 /* Reference numbers on the home page (outside chapter scenes) */
 .statement sup[data-ref] { color: #F4A9DA; font-weight: 800; cursor: pointer; }

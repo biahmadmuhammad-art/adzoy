@@ -123,14 +123,14 @@ function chromeHTML() {
   // Bottom dock: quick jumps between chapters without opening the full menu.
   const cur = PAGE_CHAPTER[here] || (CHAPTERS.find((c) => c.href === here) || {}).key;
   const dock = [{ key: 'home', href: 'index.html', short: 'Home', icon: 'home' }, ...CHAPTERS]
-    .map((c) => `<a class="dk${c.key === cur ? ' on' : ''}" href="${c.href}" data-href="${c.href}" aria-label="${c.title || c.short}"${c.key === cur ? ' aria-current="page"' : ''}>${icon(c.icon)}<span>${c.short}</span></a>`).join('');
+    .map((c) => `<a class="dk${c.key === cur ? ' on' : ''}" data-key="${c.key}" href="${c.href}" data-href="${c.href}" aria-label="${c.title || c.short}"${c.key === cur ? ' aria-current="page"' : ''}>${icon(c.icon)}<span>${c.short}</span></a>`).join('');
   return `
   <div class="veil" aria-hidden="true"></div>
   <header class="hdr">
     <a class="brand" href="index.html" data-href="index.html" aria-label="Adzoy home"><span class="wm-sm">Adz<i data-hex></i>y<sup>™</sup></span></a>
     <button class="menu-btn" aria-label="Open menu"><span>Menu</span><b>+</b></button>
   </header>
-  <nav class="dock" aria-label="Chapters">${dock}</nav>
+  <nav class="dock" aria-label="Chapters" data-page="${cur || ''}">${dock}</nav>
   <nav class="pager" aria-label="Sections">
     <button class="up" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
     <ul></ul>
@@ -139,7 +139,6 @@ function chromeHTML() {
       <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
     </button>
   </nav>
-  ${document.body.dataset.next ? `<a class="next-pill" href="${document.body.dataset.next}" data-href="${document.body.dataset.next}"><small>Next</small>${document.body.dataset.nextLabel}<i data-icon="arrow"></i></a>` : ''}
   ${RETURN[new URLSearchParams(location.search).get('from')] ? `<a class="back-pill" href="${RETURN[new URLSearchParams(location.search).get('from')][0]}" data-href="${RETURN[new URLSearchParams(location.search).get('from')][0]}"><i data-icon="arrow"></i>Back to ${RETURN[new URLSearchParams(location.search).get('from')][1]}</a>` : ''}
   <button class="pi-badge" data-panel="pi" aria-label="Prescribing information and safety">
     <svg class="spin" viewBox="0 0 100 100" aria-hidden="true">
@@ -286,13 +285,20 @@ const Stops = {
     $('.pager .up').classList.toggle('off', this.cur === 0 && !document.body.dataset.prev);
     const last = this.cur === this.names.length - 1;
     $('.pager .down').classList.toggle('off', last && !document.body.dataset.next);
-    const pill = $('.next-pill');
-    pill && gsap.to(pill, { autoAlpha: last ? 1 : 0, x: last ? 0 : -16, duration: 0.5, delay: last ? 0.8 : 0 });
     const n = Math.max(1, this.names.length - 1);
     gsap.to('.pager .ring circle', { strokeDashoffset: 100 - (100 * this.cur) / n, duration: 0.8, ease: 'power2.inOut' });
     history.replaceState(null, '', '#' + this.names[this.cur]);
     // Crowded sections ask the dock to shrink to the current chapter.
     const sc = $$('.scene')[this.cur];
+    const dock = $('.dock');
+    if (dock) {
+      const key = (sc && sc.dataset.chapter) || dock.dataset.page;
+      $$('.dk', dock).forEach((a) => {
+        const on = a.dataset.key === key;
+        a.classList.toggle('on', on);
+        on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
+      });
+    }
     document.documentElement.classList.toggle('dock-min', !!sc && sc.dataset.dock === 'min');
     document.documentElement.classList.remove('dock-open');
   },
