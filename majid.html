@@ -6,9 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Majid, 17 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%231780CA%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=59">
-  <link rel="stylesheet" href="assets/css/pages.css?v=59">
-  <link rel="stylesheet" href="assets/css/story.css?v=59">
+  <link rel="stylesheet" href="assets/css/main.css?v=65">
+  <link rel="stylesheet" href="assets/css/pages.css?v=65">
+  <link rel="stylesheet" href="assets/css/story.css?v=65">
 </head>
 <body class="chapter story w01" data-prev="strength-03.html" data-next="sara.html" data-next-label="Patient story: Sara">
   <canvas id="mosaic" aria-hidden="true"></canvas>
@@ -38,7 +38,7 @@
         <div class="photo-text">
           <p class="eyebrow" data-a="up">His story</p>
           <h2 data-a="rise">Months of breakouts, less confidence</h2>
-          <p class="lead" data-a="up">Majid presents with multiple facial comedones, papules and pustules, mainly on his forehead, cheeks and chin. His acne has persisted for several months and is beginning to affect his confidence and social interactions.</p>
+          <p class="lead" data-a="up">Majid presents with multiple facial comedones, papules and pustules, mainly on his forehead, cheeks and chin. His acne has persisted for several months and is beginning to affect his confidence and social interactions. He previously tried over-the-counter acne products and a single topical treatment, but the response was inadequate, so he is looking for a simple and effective regimen.</p>
         </div>
       </div>
     </section>
@@ -59,7 +59,6 @@
         <div class="face-frame" data-a="pop" data-noswipe>
           <img src="assets/story/majid/week0.webp" alt="Majid at week 0">
           <button class="spot" style="--x:49;--y:25" data-k="forehead" aria-label="Forehead"></button>
-          <button class="spot" style="--x:50;--y:46" data-k="nose" aria-label="Nose"></button>
           <button class="spot" style="--x:37;--y:52" data-k="cheek" aria-label="Right cheek"></button>
           <button class="spot" style="--x:63;--y:51" data-k="cheek" aria-label="Left cheek"></button>
           <button class="spot" style="--x:50;--y:67" data-k="chin" aria-label="Chin"></button>
@@ -87,12 +86,29 @@
       </div>
     </section>
 
+
+    <!-- Recommended (deck: "Recommended for Majid") -->
+    <section class="scene rec" data-stop="recommended">
+      <div class="wrap">
+        <div class="rec-head">
+          <p class="eyebrow" data-a="up">Recommended for Majid</p>
+          <h2 data-a="rise">Consider Adzoy™ 0.1% gel once daily</h2>
+          <figure class="rec-pack" data-a="pop"><img src="assets/img/packs/adzoy-01.png" alt="Adzoy pack"></figure>
+        </div>
+        <div class="card rec-card" data-a="up">
+          <h3>Why?</h3>
+          <ul class="rec-why" data-a="each-left"><li><i data-icon="check"></i><span>Effective for mild-to-moderate acne</span></li><li><i data-icon="check"></i><span>Treats both inflammatory and non-inflammatory lesions</span></li><li><i data-icon="check"></i><span>One fixed-dose topical gel for a simple once-daily routine</span></li><li><i data-icon="check"></i><span>Favorable tolerability profile, with adverse effects generally mild and resolving over time</span></li><li><i data-icon="check"></i><span>Consistent efficacy demonstrated across clinical studies</span></li></ul>
+          <div class="rec-ev"><small>Evidence</small><p>Clinical evidence supports the efficacy and tolerability of adapalene/BPO, with reductions in inflammatory and non-inflammatory acne lesions and adverse effects that were generally mild and resolved over time.<sup data-ref="22"></sup></p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 5 · Night routine -->
     <section class="scene s-photo s-routine" data-stop="routine" data-dark="1">
       <div class="photo" data-a="zoom"><img src="assets/story/majid/night.webp" alt="Majid applying gel at bedtime"></div>
       <div class="wrap">
         <div class="photo-text">
-          <p class="eyebrow" data-a="up">Majid’s routine<sup data-ref="17,18"></sup></p>
+          <p class="eyebrow" data-a="up">Majid’s routine<sup data-ref="17"></sup></p>
           <h2 data-a="rise">One gel, once a day, at bedtime</h2>
           <p class="lead" data-a="up">One fixed-dose topical gel for a simple once-daily routine.</p>
           <div class="routine" data-a="each">
@@ -117,7 +133,7 @@
       <div class="wrap">
         <p class="kicker" data-a="up">Week 4</p>
         <h2 data-a="rise">Inflamed lesions settling</h2>
-        <p class="lead" data-a="up">Adapalene/BPO reduces both inflammatory and non-inflammatory lesions, with significantly greater reductions than monotherapy as early as Week 1.<sup data-ref="23"></sup></p>
+        <p class="lead" data-a="up">Significant reductions in inflammatory and non-inflammatory lesions, with consistent efficacy across clinical trials.<sup data-ref="22"></sup></p>
       </div>
     </section>
     <section class="scene s-week" data-stop="week-12">
@@ -154,15 +170,53 @@
       </div>
     </section>
 
+
+    <!-- Clinical study 1 (deck slide 22) -->
+    <section class="scene study" data-stop="study">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 1</span>
+          <h2 data-a="rise">Adapalene 0.1%/BPO 2.5%: early efficacy with a favorable tolerability profile<sup data-ref="22"></sup></h2>
+          <p class="desc" data-a="up"><b>Effective first-line combination:</b> strong efficacy with a favorable tolerability profile.</p>
+          <div class="es" data-a="each">
+            <div class="card es-col"><small><i data-icon="target"></i>Efficacy</small><ul><li>Up to 70.2% lesion reduction</li><li>Significant reductions in inflammatory and non-inflammatory lesions</li><li>Consistent efficacy across clinical trials</li></ul></div>
+            <div class="card es-col"><small><i data-icon="shield"></i>Safety</small><ul><li>Adverse effects were generally mild and resolved over time</li><li>Favorable safety and tolerability profile</li><li>Once-daily fixed-dose combination</li></ul></div>
+          </div>
+        </div>
+        <div class="card chart-card" data-a="up">
+          <p class="cap">Lesion reduction: range across 8 RCTs</p>
+          <div id="c-range" data-a="chart"></div>
+          <p class="out"><b>Outcome:</b> Across 8 RCTs (n = 4,596), fixed-dose adapalene + benzoyl peroxide demonstrated efficacy, with reported primary efficacy outcomes ranging from 27.5% to 70.2% (p &lt; 0.001).</p>
+          <p class="foot">Range reflects differences in trial design, comparator and duration across the 8 RCTs, not a trend by trial or year.</p>
+          <button class="ghost sm" data-zoom="assets/img/content/study1-range.png">Original figure</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene study design" data-stop="design">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 1 · Study design</span>
+          <h2 data-a="rise">Systematic review of 8 randomized controlled trials</h2>
+          <p class="desc design-text" data-a="up">Systematic review of 8 randomized controlled trials (2007–2022), 4,596 participants (52.8% female), evaluating adapalene 0.1% or 0.3% combined with benzoyl peroxide 2.5% fixed-dose gel versus monotherapy/vehicle comparators. Trials assessed percent reduction in lesion counts and adverse event rates as primary outcomes; most were multicenter, double-blind, randomized, parallel-group, 12-week studies (some with longer follow-up).<sup data-ref="22"></sup></p>
+          <button class="ref-btn" data-ref="22" data-a="up"><i data-icon="book"></i><span><small>Reference</small>22 · view source</span></button>
+        </div>
+        <div class="card" data-a="up" style="padding:calc(var(--u)*2.2)">
+          <p class="cap-s">Study at a glance</p>
+          <div class="datagrid"><div><i data-icon="people"></i><small>Participants</small><b>4,596</b></div><div><i data-icon="user"></i><small>Age</small><b>≥ 12 years; mean 16.4–23.4 years</b></div><div><i data-icon="tube"></i><small>Treatment</small><b>Adapalene 0.1% or 0.3% + BPO 2.5%</b></div><div><i data-icon="moon"></i><small>Application</small><b>Once daily, in the evening</b></div><div><i data-icon="calendar"></i><small>Duration</small><b>12–48 weeks</b></div><div><i data-icon="layers"></i><small>Lesion types</small><b>Inflammatory + non-inflammatory + total</b></div><div><i data-icon="sliders"></i><small>Acne severity</small><b>Mild-to-moderate; some moderate-to-severe</b></div><div><i data-icon="clipboard"></i><small>Trials</small><b>8 RCTs, 2007–2022</b></div></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 10 · Outcome -->
     <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1">
       <div class="photo" data-a="zoom"><img src="assets/story/majid/school-after.webp" alt="Majid laughing with friends"></div>
       <div class="wrap">
         <div class="photo-text">
-          <p class="eyebrow" data-a="up">Majid’s voice after treatment</p>
+          <p class="eyebrow" data-a="up">Majid’s voice after acne healing</p>
           <blockquote class="voice light" data-a="up">“Adzoy 0.1% Gel was the right choice for me. My acne started improving, it was easy to use once a day, and I was able to achieve the results I was looking for without significant irritation.”</blockquote>
           <div class="btn-row" data-a="up">
-            <a class="cta light" href="strength-01.html?from=majid#week-1" data-href="strength-01.html?from=majid#week-1">See the 0.1% evidence <em>→</em></a>
+            <a class="cta light" href="sara.html" data-href="sara.html">Next patient: Sara <em>→</em></a>
             <a class="ghost" href="index.html#patients" data-href="index.html#patients">All patients</a>
           </div>
         </div>
@@ -176,14 +230,15 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=59"></script>
-  <script src="assets/js/refs.js?v=59"></script>
-  <script src="assets/js/core.js?v=59"></script>
-  <script src="assets/js/charts.js?v=59"></script>
-  <script src="assets/js/scenes.js?v=59"></script>
-  <script src="assets/js/story.js?v=59"></script>
+  <script src="assets/js/mosaic.js?v=65"></script>
+  <script src="assets/js/refs.js?v=65"></script>
+  <script src="assets/js/core.js?v=65"></script>
+  <script src="assets/js/charts.js?v=65"></script>
+  <script src="assets/js/scenes.js?v=65"></script>
+  <script src="assets/js/story.js?v=65"></script>
   <script>
     Story.run({
+      charts() { Charts.range($('#c-range'), { lo: 27.5, hi: 70.2 }); },
       id: 'majid',
       frames: [...Array(72)].map((_, i) => `assets/story/majid/frames/a_${String(i + 1).padStart(3, '0')}.webp`)
         .concat([...Array(72)].map((_, i) => `assets/story/majid/frames/b_${String(i + 1).padStart(3, '0')}.webp`)),
@@ -191,7 +246,6 @@
       zoomSrc: 'assets/story/majid/week0-hd.webp',
       spots: {
         forehead: { t: 'Forehead', d: 'Open and closed comedones', k: 'Non-inflammatory lesions' },
-        nose: { t: 'Nose', d: 'Open and closed comedones', k: 'Non-inflammatory lesions' },
         cheek: { t: 'Cheeks', d: 'Papules and pustules', k: 'Inflammatory lesions' },
         chin: { t: 'Chin', d: 'Papules, pustules and comedones', k: 'Inflammatory and non-inflammatory' },
       },
@@ -204,14 +258,6 @@
           iso: 'Oral isotretinoin is reserved for severe acne that is failing standard therapy. For mild-to-moderate acne, a topical fixed-dose combination comes first.',
         },
         title: 'Recommended for Majid: Adzoy™ 0.1% gel once daily',
-        why: [
-          'Effective for mild-to-moderate acne',
-          'Treats both inflammatory and non-inflammatory lesions',
-          'One fixed-dose topical gel for a simple once-daily routine',
-          'Favorable tolerability profile, with adverse effects generally mild and resolving over time',
-          'Consistent efficacy demonstrated across clinical studies',
-        ],
-        ref: '22',
       },
     });
   </script>

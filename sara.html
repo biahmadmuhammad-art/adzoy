@@ -6,9 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Sara, 22 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%231780CA%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=59">
-  <link rel="stylesheet" href="assets/css/pages.css?v=59">
-  <link rel="stylesheet" href="assets/css/story.css?v=59">
+  <link rel="stylesheet" href="assets/css/main.css?v=65">
+  <link rel="stylesheet" href="assets/css/pages.css?v=65">
+  <link rel="stylesheet" href="assets/css/story.css?v=65">
 </head>
 <body class="chapter story w01" data-prev="majid.html" data-next="omar.html" data-next-label="Patient story: Omar">
   <canvas id="mosaic" aria-hidden="true"></canvas>
@@ -86,7 +86,6 @@
         <div class="face-frame" data-a="pop" data-noswipe>
           <img src="assets/story/sara/week0.webp?v=2" alt="Sara at week 0">
           <button class="spot" style="--x:49;--y:22" data-k="forehead" aria-label="Forehead"></button>
-          <button class="spot" style="--x:47;--y:34" data-k="nose" aria-label="Side of the nose"></button>
           <button class="spot" style="--x:42;--y:38" data-k="cheek" aria-label="Right cheek"></button>
           <button class="spot" style="--x:58;--y:38" data-k="cheek" aria-label="Left cheek"></button>
           <button class="spot" style="--x:50;--y:47" data-k="chin" aria-label="Chin"></button>
@@ -114,12 +113,29 @@
       </div>
     </section>
 
+
+    <!-- Recommended (deck: "Recommended for Sara") -->
+    <section class="scene rec" data-stop="recommended">
+      <div class="wrap">
+        <div class="rec-head">
+          <p class="eyebrow" data-a="up">Recommended for Sara</p>
+          <h2 data-a="rise">Consider Adzoy™ 0.1% gel once daily</h2>
+          <figure class="rec-pack" data-a="pop"><img src="assets/img/packs/adzoy-01.png" alt="Adzoy pack"></figure>
+        </div>
+        <div class="card rec-card" data-a="up">
+          <h3>Why?</h3>
+          <ul class="rec-why" data-a="each-left"><li><i data-icon="check"></i><span>Targets both inflammatory and non-inflammatory acne lesions</span></li><li><i data-icon="check"></i><span>Provides significant improvement as early as Week 1</span></li><li><i data-icon="check"></i><span>Supports maintenance of treatment response and helps reduce acne relapse with continued once-daily use</span></li><li><i data-icon="check"></i><span>Favorable tolerability profile, with local reactions generally mild and transient</span></li><li><i data-icon="check"></i><span>One fixed-dose topical gel for once-daily use</span></li></ul>
+          <div class="rec-ev"><small>Evidence</small><p>In a randomized, controlled clinical study, adapalene 0.1%/benzoyl peroxide 2.5% gel demonstrated significantly greater reductions in inflammatory, non-inflammatory, and total acne lesions as early as Week 1 versus adapalene monotherapy and vehicle.<sup data-ref="23"></sup></p></div><div class="rec-ev"><small>Maintenance evidence</small><p>A 12-month study evaluated once-daily adapalene 0.1%/benzoyl peroxide 2.5% gel in patients with acne and found that the treatment provided sustained improvement in acne lesions over the treatment period, supporting its role in the long-term management of acne.<sup data-ref="30"></sup></p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6 · Night routine -->
     <section class="scene s-photo s-routine" data-stop="routine" data-dark="1">
       <div class="photo" data-a="zoom"><img src="assets/story/sara/night.webp?v=2" alt="Sara applying gel at bedtime"></div>
       <div class="wrap">
         <div class="photo-text">
-          <p class="eyebrow" data-a="up">Sara’s routine<sup data-ref="17,18"></sup></p>
+          <p class="eyebrow" data-a="up">Sara’s routine<sup data-ref="17"></sup></p>
           <h2 data-a="rise">One gel instead of several</h2>
           <p class="lead" data-a="up">One fixed-dose topical gel, applied once daily in the evening.</p>
           <div class="routine" data-a="each">
@@ -151,7 +167,7 @@
       <div class="wrap">
         <p class="kicker" data-a="up">Week 12</p>
         <h2 data-a="rise">Clearer skin for graduation day</h2>
-        <p class="lead" data-a="up">Over 12 months, skin irritation was mostly mild to moderate, occurred early and decreased over time; only 2% discontinued due to adverse events.<sup data-ref="30"></sup></p>
+        <p class="lead" data-a="up">By Week 12, adapalene 0.1%/BPO 2.5%, applied once daily in the evening, achieved a significantly higher success rate versus monotherapies (p ≤ 0.006).<sup data-ref="23,24"></sup></p>
       </div>
     </section>
 
@@ -182,16 +198,87 @@
       </div>
     </section>
 
+
+    <!-- Clinical study 2 (deck slide 27) -->
+    <section class="scene study" data-stop="study-2">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 2</span>
+          <h2 data-a="rise">Adzoy™ (adapalene/BPO) 0.1%: sustained efficacy for long-term acne management<sup data-ref="30"></sup></h2>
+          <p class="desc" data-a="up">In a 12-month, multicenter study, once-daily adapalene 0.1%/BPO 2.5% fixed-dose combination gel demonstrated long-term safety and efficacy in <b>452 patients</b> with acne vulgaris.</p>
+          <p class="desc" data-a="up"><b>Outcome:</b> Adzoy™ (adapalene/BPO) 0.1% demonstrated favorable long-term tolerability, with most skin irritation being mild to moderate, occurring early and decreasing over time.</p>
+          <div class="stat-row" data-a="each">
+            <div><b><span data-a="count" data-to="0" data-dec="0">0</span></b><span>discontinuations attributed to lack of efficacy</span></div>
+            <div><b><span data-a="count" data-to="2" data-dec="0">0</span>%</b><span>discontinued due to adverse events</span></div>
+          </div>
+        </div>
+        <div class="card chart-card" data-a="up">
+          <p class="cap">Local tolerability: effects of adapalene/BPO 0.1% on skin tolerance variables (erythema, scaling, dryness and stinging/burning)</p>
+          <div id="c-tol" data-a="chart"></div>
+          <p class="foot">Scored none = 0, mild = 1, moderate = 2, severe = 3. Mean scores at each post-baseline visit; worst score is the highest severity recorded for a subject during the post-baseline period. Scaling and dryness follow the same low course; see the original figure.</p>
+          <button class="ghost sm" data-zoom="assets/img/content/study2-tolerability.png">Original figure</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene study design" data-stop="design-2">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 2 · Study design</span>
+          <h2 data-a="rise">12-month, multicenter, open-label, single-arm study</h2>
+          <p class="desc design-text" data-a="up">A 12-month, multicenter, open-label, single-arm study conducted across 28 U.S. centers in 452 patients with acne vulgaris. Participants received adapalene 0.1%/benzoyl peroxide 2.5% fixed-dose combination gel once daily. Long-term efficacy and safety were assessed through lesion-count reduction, subject assessment of acne, adverse events, and cutaneous tolerability.<sup data-ref="30"></sup></p>
+          <button class="ref-btn" data-ref="30" data-a="up"><i data-icon="book"></i><span><small>Reference</small>30 · view source</span></button>
+        </div>
+        <div class="card" data-a="up" style="padding:calc(var(--u)*2.2)">
+          <p class="cap-s">Study at a glance</p>
+          <div class="datagrid"><div><i data-icon="calendar"></i><small>Duration</small><b>12 months</b></div><div><i data-icon="clipboard"></i><small>Design</small><b>Multicenter, open-label, single-arm</b></div><div><i data-icon="globe"></i><small>Centers</small><b>28 U.S. centers</b></div><div><i data-icon="people"></i><small>Patients</small><b>452 with acne vulgaris</b></div><div><i data-icon="tube"></i><small>Treatment</small><b>Adapalene 0.1%/BPO 2.5% once daily</b></div><div><i data-icon="pulse"></i><small>Assessed</small><b>Lesion counts, subject assessment, adverse events, cutaneous tolerability</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clinical study 3 (deck slide 29) -->
+    <section class="scene study" data-stop="study-3">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 3</span>
+          <h2 data-a="rise">Adzoy™ (adapalene/BPO) 0.1%: significantly greater efficacy as early as Week 1 versus monotherapy<sup data-ref="23,24"></sup></h2>
+          <p class="desc" data-a="up">A multicenter, randomized, double-blind, controlled trial involving <b>1,668 patients</b> with moderate facial acne.</p>
+          <p class="desc" data-a="up"><b>Outcome:</b> By Week 12, Adzoy™ (adapalene/BPO) 0.1%, applied once daily in the evening, achieved a significantly higher success rate versus monotherapies (p ≤ 0.006). Efficacy was assessed based on success rate and percentage reductions in inflammatory, non-inflammatory, and total lesion counts at Weeks 1, 2, 4, 8, and 12.</p>
+          <p class="desc" data-a="up"><b>Good tolerability and safety profile</b>, comparable to adapalene and benzoyl peroxide monotherapies.</p>
+        </div>
+        <div class="card chart-card" data-a="up">
+          <p class="cap">Success rates over time: percentage of participants rated clear or almost clear during the course of the study</p>
+          <div id="c-week1" data-a="chart"></div>
+          <p class="foot">P &lt; 0.001 vs. adapalene monotherapy and vehicle at Week 1.</p>
+          <button class="ghost sm" data-zoom="assets/img/content/study3-success.png">Original figure</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene study design" data-stop="design-3">
+      <div class="wrap">
+        <div>
+          <span class="kicker" data-a="up">Clinical study 3 · Study design</span>
+          <h2 data-a="rise">12-week, randomized, double-blind, controlled study</h2>
+          <p class="desc design-text" data-a="up">A 12-week, multicenter, randomized, double-blind, parallel-group, active- and vehicle-controlled study conducted across 60 centers in the United States, Puerto Rico, and Canada. A total of 1,668 patients with moderate facial acne were randomized 1:1:1:1 to once-daily adapalene 0.1%/BPO 2.5% fixed-dose combination, adapalene 0.1% monotherapy, BPO 2.5% monotherapy, or vehicle. Efficacy was assessed by success rate and percentage reduction in inflammatory, non-inflammatory, and total lesion counts at Weeks 1, 2, 4, 8, and 12.<sup data-ref="23,24"></sup></p>
+          <button class="ref-btn" data-ref="23,24" data-a="up"><i data-icon="book"></i><span><small>References</small>23 · 24 · view source</span></button>
+        </div>
+        <div class="card" data-a="up" style="padding:calc(var(--u)*2.2)">
+          <p class="cap-s">Study at a glance</p>
+          <div class="datagrid"><div><i data-icon="calendar"></i><small>Duration</small><b>12 weeks</b></div><div><i data-icon="clipboard"></i><small>Design</small><b>Randomized, double-blind, parallel-group, active- and vehicle-controlled</b></div><div><i data-icon="globe"></i><small>Centers</small><b>60 centers: United States, Puerto Rico, Canada</b></div><div><i data-icon="people"></i><small>Patients</small><b>1,668 with moderate facial acne</b></div><div><i data-icon="layers"></i><small>Arms (1:1:1:1)</small><b>Adapalene/BPO · adapalene · BPO · vehicle</b></div><div><i data-icon="pulse"></i><small>Assessed</small><b>Success rate and lesion reduction at Weeks 1, 2, 4, 8, 12</b></div></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 11 · Outcome -->
     <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1">
       <div class="photo" data-a="zoom"><img src="assets/story/sara/grad-after.webp?v=2" alt="Sara smiling at her graduation"></div>
       <div class="wrap">
         <div class="photo-text">
-          <p class="eyebrow" data-a="up">Sara’s voice after treatment</p>
+          <p class="eyebrow" data-a="up">Sara’s voice after acne healing</p>
           <blockquote class="voice light" data-a="up">“With Adzoy Gel, I started seeing improvement early without the irritation I had experienced before. I was finally able to keep using my treatment and feel more confident going into my graduation.”</blockquote>
           <div class="btn-row" data-a="up">
-            <a class="cta light" href="strength-01.html?from=sara#week-1" data-href="strength-01.html?from=sara#week-1">See the Week 1 evidence <em>→</em></a>
-            <a class="ghost" href="strength-01.html?from=sara#long-term" data-href="strength-01.html?from=sara#long-term">Long-term tolerability</a>
+            <a class="cta light" href="omar.html" data-href="omar.html">Next patient: Omar <em>→</em></a>
             <a class="ghost" href="index.html#patients" data-href="index.html#patients">All patients</a>
           </div>
         </div>
@@ -205,23 +292,45 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=59"></script>
-  <script src="assets/js/refs.js?v=59"></script>
-  <script src="assets/js/core.js?v=59"></script>
-  <script src="assets/js/charts.js?v=59"></script>
-  <script src="assets/js/scenes.js?v=59"></script>
-  <script src="assets/js/story.js?v=59"></script>
+  <script src="assets/js/mosaic.js?v=65"></script>
+  <script src="assets/js/refs.js?v=65"></script>
+  <script src="assets/js/core.js?v=65"></script>
+  <script src="assets/js/charts.js?v=65"></script>
+  <script src="assets/js/scenes.js?v=65"></script>
+  <script src="assets/js/story.js?v=65"></script>
   <script>
     const FRAMES = 72;
     const seq = (p) => [...Array(FRAMES)].map((_, i) => `assets/story/sara/frames/${p}_${String(i + 1).padStart(3, '0')}.webp?v=2`);
     Story.run({
+      charts() {
+        // Values traced from the published figure (deck slide 29); verify against the source before release.
+        Charts.line($('#c-week1'), {
+          label: 'Success rate over 12 weeks', x: [0, 1, 2, 4, 8, 12], xTicks: [0, 2, 4, 8, 12], xTitle: 'WEEK', yMax: 40, yStep: 10,
+          series: [
+            { name: 'Vehicle', color: '#B9AFC2', values: [0, 0, 1.7, 3.0, 5.4, 13.2], nudge: 6 },
+            { name: 'Adapalene', color: '#86B7DA', values: [0, 1.0, 1.5, 3.2, 10.3, 21.6], nudge: 10 },
+            { name: 'BPO', color: '#B58AC9', values: [0, 0.1, 2.1, 4.7, 11.2, 24.4], nudge: -12 },
+            { name: 'Adapalene/BPO', color: 'var(--accent)', values: [0, 1.1, 1.2, 7.3, 15.6, 34.8], hero: true },
+          ],
+          marks: [{ x: 1, y: 1.1, text: 'Week 1' }],
+        });
+        // Values traced from the published figure (deck slide 27); verify against the source before release.
+        Charts.line($('#c-tol'), {
+          label: 'Local tolerability over 12 months', x: [0, 0.3, 0.55, 1, 2, 4, 6, 8, 10, 12], xTicks: [0, 2, 4, 6, 8, 10, 12],
+          xLabel: (v) => (v === 0 ? '0' : v), xTitle: 'MONTH', yMax: 2, yStep: 1, yFmt: (v) => v.toFixed(1),
+          ref: { y: 1, label: 'Mild' },
+          series: [
+            { name: 'Stinging/burning', color: '#B58AC9', values: [0.08, 0.73, 0.32, 0.30, 0.21, 0.10, 0.10, 0.10, 0.10, 0.10], dec: 1, suffix: '', nudge: 12 },
+            { name: 'Erythema', color: 'var(--accent)', values: [0.30, 0.50, 0.43, 0.40, 0.30, 0.21, 0.21, 0.21, 0.21, null], hero: true, dec: 1, suffix: '' },
+          ],
+        });
+      },
       id: 'sara',
       frames: seq('a').concat(seq('b')),
       weeks: [0, 1, 12],
       zoomSrc: 'assets/story/sara/week0-hd.webp?v=2',
       spots: {
         forehead: { t: 'Forehead', d: 'Closed and open comedones', k: 'Non-inflammatory lesions' },
-        nose: { t: 'Side of the nose', d: 'Comedones', k: 'Non-inflammatory lesions' },
         cheek: { t: 'Cheeks', d: 'Recurrent papules and pustules', k: 'Inflammatory lesions' },
         chin: { t: 'Chin', d: 'Papules and pustules', k: 'Inflammatory lesions' },
       },
@@ -234,14 +343,6 @@
           iso: 'Oral isotretinoin is reserved for severe acne that is failing standard therapy. For mild-to-moderate acne, a topical fixed-dose combination comes first.',
         },
         title: 'Recommended for Sara: Adzoy™ 0.1% gel once daily',
-        why: [
-          'Targets both inflammatory and non-inflammatory acne lesions',
-          'Provides significant improvement as early as Week 1',
-          'Supports maintenance of treatment response and helps reduce relapse with continued once-daily use',
-          'Favorable tolerability profile, with local reactions generally mild and transient',
-          'One fixed-dose topical gel for once-daily use',
-        ],
-        ref: '23,30',
       },
     });
   </script>

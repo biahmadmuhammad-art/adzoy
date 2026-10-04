@@ -418,7 +418,7 @@ const Panel = {
   },
   init() {
     document.addEventListener('click', (e) => {
-      const p = e.target.closest('[data-panel]'), sup = e.target.closest('sup[data-ref]'), d = e.target.closest('[data-design]');
+      const p = e.target.closest('[data-panel]'), sup = e.target.closest('[data-ref]'), d = e.target.closest('[data-design]');
       if (!p && !sup && !d) return;
       e.preventDefault();
       const open = (html) => (Menu.open ? Menu.hide(() => this.show(html)) : this.show(html));

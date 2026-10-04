@@ -97,8 +97,7 @@ const Story = (() => {
       card.innerHTML = `
         <div class="why card">
           <h3>${cfg.title}</h3>
-          <ul>${cfg.why.map((w) => `<li><i data-icon="check"></i>${w}</li>`).join('')}</ul>
-          <p class="fine">Clinical evidence supports the efficacy and tolerability of adapalene/BPO.<sup data-ref="${cfg.ref}"></sup></p>
+          <button class="cta" data-stop="recommended">Why this is recommended <em>→</em></button>
         </div>`;
       mount(card);
       gsap.from(out.children, { autoAlpha: 0, y: 12, duration: 0.45 });
@@ -230,7 +229,7 @@ const Story = (() => {
     decision(cfg.decision);
     mirror();
     parallax();
-    return Scenes.run({ hooks, world: cfg.world || '01' });
+    return Scenes.run({ hooks, charts: cfg.charts, world: cfg.world || '01' });
   }
 
   return { run };
