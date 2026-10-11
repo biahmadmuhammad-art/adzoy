@@ -163,7 +163,7 @@ function portraits() {
     p.innerHTML = `<svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
       <defs><linearGradient id="g-${n}" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
       ${body}
-    </svg><img src="assets/img/patients/${n}.png?v=3" alt="">`;
+    </svg><img src="assets/img/patients/${n}.png?v=4" alt="">`;
     const img = p.querySelector('img');
     img.onload = () => p.querySelector('svg').remove();
     img.onerror = () => img.remove();
