@@ -99,7 +99,7 @@
 .seq-tag { position: absolute; left: calc(var(--u) * 1.4); bottom: calc(var(--u) * 1.4); padding: .35em .8em; border-radius: 99px; background: rgba(255, 255, 255, .8); font-size: calc(var(--u) * 1.05); font-weight: 700; }
 .rail { position: absolute; left: calc(var(--u) * -6); top: 4%; bottom: 4%; width: calc(var(--u) * 4); }
 .rail-track { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; border-radius: 3px; background: rgba(43, 23, 56, .12); overflow: hidden; }
-.rail-fill { position: absolute; inset: 0; background: linear-gradient(180deg, var(--accent-2), var(--accent)); transform-origin: 50% 0; transform: scaleY(0); }
+.rail-fill { position: absolute; inset: 0; background: linear-gradient(180deg, var(--accent-2), var(--accent)); transform-origin: 50% 0; transform: scaleY(var(--p, 0)); }
 .rail-dot {
   position: absolute; left: 50%; top: calc(var(--p) * 100%); transform: translate(-50%, -50%);
   width: calc(var(--u) * 3.2); height: calc(var(--u) * 3.2); border-radius: 50%; display: grid; place-items: center;

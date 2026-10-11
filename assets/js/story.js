@@ -92,6 +92,12 @@ const Story = (() => {
         x.classList.toggle('right', x.dataset.c === cfg.correct);
         x.classList.toggle('wrong', x === b && !ok);
       });
+      // Decision-tree pages draw a branch per choice (data-branch matches data-c).
+      $$('[data-branch]').forEach((x) => {
+        x.classList.toggle('right', x.dataset.branch === cfg.correct);
+        x.classList.toggle('wrong', x.dataset.branch === b.dataset.c && !ok);
+      });
+      box.closest('.scene').classList.add('decided');
       out.innerHTML = `<p class="fb ${ok ? 'ok' : 'no'}">${cfg.feedback[b.dataset.c]}</p>`;
       const first = !card.innerHTML;
       card.innerHTML = `
@@ -177,25 +183,74 @@ const Story = (() => {
     addEventListener('deviceorientation', (e) => { if (e.gamma != null) apply(clamp(e.gamma / 30, -0.5, 0.5), clamp((e.beta - 45) / 30, -0.5, 0.5)); });
   }
 
+  /* ---------- Case file (Omar): step bar that follows the scenes ---------- */
+  function caseBar() {
+    const bar = $('.case-bar');
+    if (!bar) return;
+    const scenes = $$('.scene');
+    const steps = [];
+    scenes.forEach((sc, i) => { const k = sc.dataset.step; if (k && !steps.some((s) => s.k === k)) steps.push({ k, i, label: sc.dataset.stepLabel || k }); });
+    $('ol', bar).innerHTML = steps.map((s, n) => `<li><button data-i="${s.i}" data-k="${s.k}"><b>${String(n + 1).padStart(2, '0')}</b>${s.label}</button></li>`).join('');
+    $$('button', bar).forEach((b) => b.addEventListener('click', () => Stops.go(+b.dataset.i)));
+    const items = $$('li', bar);
+    document.addEventListener('stop', (e) => {
+      const k = e.detail.scene && e.detail.scene.dataset.step;
+      const at = steps.findIndex((s) => s.k === k);
+      items.forEach((li, n) => { li.classList.toggle('on', n === at); li.classList.toggle('done', n < at); });
+      bar.style.setProperty('--h', at / Math.max(1, steps.length - 1));
+    });
+  }
+
+  /* ---------- Diary (Sara): day ruler under the timeline video ---------- */
+  function ruler(days) {
+    const r = $('.ruler');
+    if (!r) return () => {};
+    r.innerHTML = [...Array(days + 1)].map((_, d) => `<i class="${d % 7 ? '' : 'wk'}" style="--d:${d / days}"></i>`).join('');
+    const ticks = $$('i', r);
+    let last = -1;
+    return (day) => {
+      const d = Math.round(day);
+      if (d === last) return;
+      last = d;
+      ticks.forEach((t, k) => t.classList.toggle('on', k <= d));
+    };
+  }
+
   function run(cfg) {
     const seq = sequence($('.seq'), cfg.frames);
     const n = seq.count - 1, W = cfg.weeks;
     const st = { f: 0 };
-    const count = $('.rail-count');
+    const count = $('.rail-count'), wrap = $('.seq-wrap');
+    const tick = ruler(W[2] * 7);
+    const setCount = (days) => {
+      if (!count) return;
+      days = Math.round(days);
+      count.querySelector('b').textContent = days ? days : '';
+      count.querySelector('span').textContent = days ? (days === 1 ? 'day to graduation' : 'days to graduation') : 'Graduation day';
+    };
     const render = () => {
       seq.draw(st.f);
       const p = st.f / n;
       // Two videos of equal length: first half runs W0→W1, second half W1→W2.
       const week = p <= 0.5 ? W[0] + (W[1] - W[0]) * (p / 0.5) : W[1] + (W[2] - W[1]) * ((p - 0.5) / 0.5);
       $('.rail-week span').textContent = Math.round(week);
-      $('.rail-fill').style.transform = `scaleY(${p})`;
-      if (count) {
-        // Countdown to the patient's event (Sara: graduation at the last week).
-        const days = Math.round((W[2] - week) * 7);
-        count.querySelector('b').textContent = days ? days : '';
-        count.querySelector('span').textContent = days ? (days === 1 ? 'day to graduation' : 'days to graduation') : 'Graduation day';
-      }
+      wrap.style.setProperty('--p', p);
+      // Real time on the day ruler: Week 1 sits near the start, as it does in the calendar.
+      wrap.style.setProperty('--t', week / W[2]);
+      tick(week * 7);
+      // Countdown to the patient's event (Sara: graduation at the last week).
+      setCount((W[2] - week) * 7);
     };
+    // Outside the timeline, a scene can set the countdown itself (data-days).
+    const cd = { v: W[2] * 7 };
+    document.addEventListener('stop', (e) => {
+      const sc = e.detail.scene;
+      if (!count || !sc) return;
+      // The countdown stays on the story beats and steps aside for the evidence slides.
+      count.classList.toggle('off', sc.dataset.days == null && !sc.classList.contains('s-week'));
+      if (sc.dataset.days == null) return;
+      gsap.to(cd, { v: +sc.dataset.days, duration: 0.8, ease: 'power2.out', onUpdate: () => setCount(cd.v) });
+    });
     // Stops sit evenly on the rail (the weeks are not evenly spaced).
     $$('.rail-dot').forEach((d, i) => d.style.setProperty('--p', i / (W.length - 1)));
     const wk = W.map((w) => `week-${w}`);
@@ -205,9 +260,12 @@ const Story = (() => {
     const hooks = {
       [cfg.id](tl, t) {
         const chars = SplitText.create('.s-hook .voice .q', { type: 'chars,words' }).chars;
-        tl.from('.hero-portrait .l-hex', { scale: 0.6, autoAlpha: 0, rotation: -30, duration: 1.1, ease: 'back.out(1.4)' }, t)
-          .from('.hero-portrait .l-cut', { yPercent: 25, autoAlpha: 0, duration: 1.1 }, t + 0.2)
-          .from('.hero-portrait .facet', { scale: 0, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(2)' }, t + 0.6)
+        if ($('.hero-portrait')) {
+          tl.from('.hero-portrait .l-hex', { scale: 0.6, autoAlpha: 0, rotation: -30, duration: 1.1, ease: 'back.out(1.4)' }, t)
+            .from('.hero-portrait .l-cut', { yPercent: 25, autoAlpha: 0, duration: 1.1 }, t + 0.2)
+            .from('.hero-portrait .facet', { scale: 0, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(2)' }, t + 0.6);
+        }
+        tl
           // Hook quote only: the outcome quote has its own entrance.
           .from('.s-hook .voice', { autoAlpha: 0, duration: 0.3 }, t + 0.8)
           .from(chars, { autoAlpha: 0, duration: 0.01, stagger: 0.018 }, t + 0.9);
@@ -224,7 +282,12 @@ const Story = (() => {
       [wk[2]](tl, t) { tl.to(st, { f: n, duration: 2.2, ease: 'none', onUpdate: render }, t - 0.5); },
       mirror(tl, t) { tl.to('.seq-wrap', { autoAlpha: 0, x: 60, duration: 0.5, ease: 'power2.in' }, t - 0.6); },
     };
+    Object.entries(cfg.hooks || {}).forEach(([k, fn]) => {
+      const base = hooks[k];
+      hooks[k] = base ? (tl, t, sc) => { base(tl, t, sc); fn(tl, t, sc); } : fn;
+    });
     render();
+    caseBar();
     hotspots(cfg.spots, cfg.zoomSrc);
     decision(cfg.decision);
     mirror();

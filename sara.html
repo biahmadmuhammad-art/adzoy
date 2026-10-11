@@ -6,16 +6,17 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Sara, 22 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%231780CA%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=66">
-  <link rel="stylesheet" href="assets/css/pages.css?v=66">
-  <link rel="stylesheet" href="assets/css/story.css?v=66">
+  <link rel="stylesheet" href="assets/css/main.css?v=68">
+  <link rel="stylesheet" href="assets/css/pages.css?v=68">
+  <link rel="stylesheet" href="assets/css/story.css?v=68">
+  <link rel="stylesheet" href="assets/css/diary.css?v=68">
 </head>
-<body class="chapter story w01" data-prev="majid.html" data-next="omar.html" data-next-label="Patient story: Omar">
+<body class="chapter story diary w01" data-prev="majid.html" data-next="omar.html" data-next-label="Patient story: Omar">
   <canvas id="mosaic" aria-hidden="true"></canvas>
   <main class="stage">
 
-    <!-- 1 · Hook -->
-    <section class="scene s-hook" data-stop="sara" data-veil=".35">
+    <!-- 1 · Cover: a countdown diary to her graduation -->
+    <section class="scene s-hook s-cover" data-stop="sara" data-veil=".35" data-days="84">
       <div class="wrap">
         <div>
           <p class="chap" data-a="up"><b>Patient profile 2</b> Illustrative</p>
@@ -23,57 +24,68 @@
           <p class="sub" data-a="up">University graduate · Mild-to-moderate acne vulgaris · Irritation with past treatments</p>
           <blockquote class="voice" data-a="none"><span class="q">“My graduation is coming up, and I want clearer skin quickly. Previous acne treatments caused irritation, so I need something effective, well-tolerated, and with early improvement.”</span></blockquote>
         </div>
-        <div class="hero-portrait" data-a="none">
-          <div class="layer l-hex"><i data-hex="soft"></i></div>
-          <i class="layer facet fa"></i><i class="layer facet fb"></i><i class="layer facet fc"></i>
-          <img class="layer l-cut" src="assets/story/sara/cutout.webp?v=2" alt="Sara, illustrative patient">
-        </div>
+        <figure class="polaroid cover-pic" data-a="none">
+          <div class="hero-portrait">
+            <div class="layer l-hex"><i data-hex="soft"></i></div>
+            <i class="layer facet fa"></i><i class="layer facet fb"></i><i class="layer facet fc"></i>
+            <img class="layer l-cut" src="assets/story/sara/cutout.webp?v=2" alt="Sara, illustrative patient">
+          </div>
+          <figcaption>12 weeks to graduation</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 2 · Her life -->
-    <section class="scene s-photo" data-stop="life" data-dark="1">
-      <div class="photo" data-a="zoom"><img src="assets/story/sara/grad-before.webp?v=2" alt="Sara standing apart while friends try on graduation caps"></div>
+    <!-- 2 · Diary entry: her life -->
+    <section class="scene s-entry" data-stop="life" data-days="84">
       <div class="wrap">
-        <div class="photo-text">
-          <p class="eyebrow" data-a="up">Her story</p>
-          <h2 data-a="rise">Graduation is coming, and so are the flares</h2>
-          <p class="lead" data-a="up">Sara is socially active and has an upcoming graduation celebration. She feels self-conscious when her acne flares, particularly before important social occasions.</p>
+        <div class="paper" data-a="left">
+          <p class="entry-date"><i data-icon="calendar"></i>Before treatment</p>
+          <p class="eyebrow">Her story</p>
+          <h2>Graduation is coming, and so are the flares</h2>
+          <p class="lead">Sara is socially active and has an upcoming graduation celebration. She feels self-conscious when her acne flares, particularly before important social occasions.</p>
         </div>
+        <figure class="polaroid tilt-r" data-a="pop">
+          <img src="assets/story/sara/grad-before.webp?v=2" alt="Sara standing apart while friends try on graduation caps">
+          <figcaption>Trying on caps with friends</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 3 · Treatment history: tap through what happened -->
-    <section class="scene s-hist" data-stop="history">
+    <!-- 3 · Treatment history as a cycle she could not break: tap each step -->
+    <section class="scene s-hist s-cycle" data-stop="history" data-days="84">
       <div class="wrap">
         <div>
           <p class="eyebrow" data-a="up">Treatment history</p>
           <h2 data-a="rise">Why her last treatment didn’t last</h2>
-          <div class="hist" data-a="each" data-noswipe>
+          <p class="fine" data-a="fade">Tap each step of the cycle.</p>
+        </div>
+        <div class="cycle" data-a="none">
+          <div class="hist-frame">
+            <img class="hist-pic" src="assets/story/sara/separate.webp?v=2" alt="Several separate skincare products">
+            <img class="hist-pic" src="assets/story/sara/irritation.webp?v=2" alt="Sara’s skin irritated by previous treatments">
+            <img class="hist-pic" src="assets/story/sara/week0.webp?v=2" alt="Sara’s acne returned">
+            <span class="symptom" style="--x:72;--y:26"><i data-icon="drop"></i>Dryness</span>
+            <span class="symptom" style="--x:28;--y:36"><i data-icon="flame"></i>Redness</span>
+            <span class="symptom" style="--x:73;--y:50"><i data-icon="bolt"></i>Stinging</span>
+            <span class="symptom" style="--x:30;--y:62"><i data-icon="flakes"></i>Peeling</span>
+            <span class="hist-pause"><i data-icon="pause"></i>Treatment stopped</span>
+          </div>
+          <div class="hist" data-noswipe>
+            <svg class="cyc-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="41"/><circle class="fil" cx="50" cy="50" r="41" pathLength="100"/></svg>
             <button class="hstep" data-pic="0"><i data-icon="layers"></i><span><b>Separate topical treatments</b>She noticed some improvement at first.</span></button>
             <button class="hstep" data-pic="1" data-symptoms><i data-icon="flame"></i><span><b>Irritation</b>Substantial dryness, redness, stinging and visible peeling.</span></button>
             <button class="hstep" data-pic="0" data-paused><i data-icon="pause"></i><span><b>Stopped treatment</b>The irritation made it hard to continue consistently.</span></button>
             <button class="hstep" data-pic="2"><i data-icon="repeat"></i><span><b>Acne returned</b>Her acne gradually came back.</span></button>
           </div>
         </div>
-        <div class="hist-frame" data-a="none">
-          <img class="hist-pic" src="assets/story/sara/separate.webp?v=2" alt="Several separate skincare products">
-          <img class="hist-pic" src="assets/story/sara/irritation.webp?v=2" alt="Sara’s skin irritated by previous treatments">
-          <img class="hist-pic" src="assets/story/sara/week0.webp?v=2" alt="Sara’s acne returned">
-          <span class="symptom" style="--x:73;--y:27"><i data-icon="drop"></i>Dryness</span>
-          <span class="symptom" style="--x:26;--y:37"><i data-icon="flame"></i>Redness</span>
-          <span class="symptom" style="--x:75;--y:43"><i data-icon="bolt"></i>Stinging</span>
-          <span class="symptom" style="--x:28;--y:52"><i data-icon="flakes"></i>Peeling</span>
-          <span class="hist-pause"><i data-icon="pause"></i>Treatment stopped</span>
-          <span class="seq-tag">Illustrative · AI-generated</span>
-        </div>
       </div>
     </section>
 
-    <!-- 4 · Presentation with hotspots -->
-    <section class="scene s-present" data-stop="presentation">
+    <!-- 4 · Clinic visit: notes + polaroid with hotspots -->
+    <section class="scene s-present" data-stop="presentation" data-days="84">
       <div class="wrap">
-        <div>
+        <div class="paper">
+          <p class="entry-date" data-a="up"><i data-icon="clipboard"></i>Clinic visit · Week 0</p>
           <p class="eyebrow" data-a="up">Presentation</p>
           <h2 data-a="rise">What you see in clinic</h2>
           <div class="facts-list" data-a="each">
@@ -95,7 +107,7 @@
     </section>
 
     <!-- 5 · Doctor's decision -->
-    <section class="scene s-photo s-decide" data-stop="decision" data-dark="1">
+    <section class="scene s-photo s-decide" data-stop="decision" data-dark="1" data-days="84">
       <div class="photo" data-a="zoom"><img src="assets/story/sara/clinic.webp?v=2" alt="Sara in a dermatology consultation"></div>
       <div class="wrap">
         <div class="photo-text wide">
@@ -130,25 +142,29 @@
       </div>
     </section>
 
-    <!-- 6 · Night routine -->
-    <section class="scene s-photo s-routine" data-stop="routine" data-dark="1">
-      <div class="photo" data-a="zoom"><img src="assets/story/sara/night.webp?v=2" alt="Sara applying gel at bedtime"></div>
+    <!-- 6 · Diary entry: her evening checklist -->
+    <section class="scene s-entry s-checklist" data-stop="routine" data-days="84">
       <div class="wrap">
-        <div class="photo-text">
-          <p class="eyebrow" data-a="up">Sara’s routine<sup data-ref="17"></sup></p>
-          <h2 data-a="rise">One gel instead of several</h2>
-          <p class="lead" data-a="up">One fixed-dose topical gel, applied once daily in the evening.</p>
-          <div class="routine" data-a="each">
-            <div><i data-icon="wash"></i><span>Cleanse</span></div>
-            <div><i data-icon="feather"></i><span>Pat dry</span></div>
-            <div><i data-icon="tube"></i><span>Thin film</span></div>
-            <div><i data-icon="moon"></i><span>Sleep</span></div>
-          </div>
+        <div class="paper" data-a="left">
+          <p class="entry-date"><i data-icon="moon"></i>Every evening</p>
+          <p class="eyebrow">Sara’s routine<sup data-ref="17"></sup></p>
+          <h2>One gel instead of several</h2>
+          <p class="lead">One fixed-dose topical gel, applied once daily in the evening.</p>
+          <ol class="checks">
+            <li><i data-icon="wash"></i><span>Cleanse</span></li>
+            <li><i data-icon="feather"></i><span>Pat dry</span></li>
+            <li><i data-icon="tube"></i><span>Thin film</span></li>
+            <li><i data-icon="moon"></i><span>Sleep</span></li>
+          </ol>
         </div>
+        <figure class="polaroid tilt-r" data-a="pop">
+          <img src="assets/story/sara/night.webp?v=2" alt="Sara applying gel at bedtime">
+          <figcaption>Night routine</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 7–9 · Timeline: the video follows the swipe, with a countdown to graduation -->
+    <!-- 7–9 · Countdown: the video follows the swipe, the day ruler fills toward graduation -->
     <section class="scene s-week" data-stop="week-0">
       <div class="wrap">
         <p class="kicker" data-a="up">Week 0</p>
@@ -172,17 +188,17 @@
     </section>
 
     <div class="seq-wrap">
-      <div class="seq-frame"><canvas class="seq"></canvas><span class="seq-tag">Illustrative · AI-generated</span></div>
-      <div class="rail">
-        <div class="rail-track"><i class="rail-fill"></i></div>
-        <button class="rail-dot" data-stop="week-0" aria-label="Week 0">0</button><button class="rail-dot" data-stop="week-1" aria-label="Week 1">1</button><button class="rail-dot" data-stop="week-12" aria-label="Week 12">12</button>
-        <b class="rail-week">Week <span>0</span></b>
+      <div class="seq-frame"><canvas class="seq"></canvas><span class="seq-tag">Illustrative · AI-generated</span><b class="rail-week">Week <span>0</span></b></div>
+      <div class="cal">
+        <div class="ruler" aria-hidden="true"></div>
+        <i class="cal-cap" data-icon="cap"></i>
+        <button class="rail-dot" data-stop="week-0" style="--w:0" aria-label="Week 0">0</button><button class="rail-dot" data-stop="week-1" style="--w:.0833" aria-label="Week 1">1</button><button class="rail-dot" data-stop="week-12" style="--w:1" aria-label="Week 12">12</button>
       </div>
-      <div class="rail-count"><i data-icon="cap"></i><b>84</b><span>days to graduation</span></div>
+      <div class="rail" hidden><div class="rail-track"><i class="rail-fill"></i></div></div>
     </div>
 
-    <!-- 10 · Mirror: before / after -->
-    <section class="scene s-mirror" data-stop="mirror">
+    <!-- 10 · Then and now: before / after -->
+    <section class="scene s-mirror" data-stop="mirror" data-days="0">
       <div class="wrap">
         <div>
           <p class="eyebrow" data-a="up">Week 0 → Week 12</p>
@@ -273,6 +289,7 @@
     <!-- 11 · Outcome -->
     <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1">
       <div class="photo" data-a="zoom"><img src="assets/story/sara/grad-after.webp?v=2" alt="Sara smiling at her graduation"></div>
+      <span class="stamp" data-a="pop"><i data-icon="cap"></i>Graduation day</span>
       <div class="wrap">
         <div class="photo-text">
           <p class="eyebrow" data-a="up">Sara’s voice after acne healing</p>
@@ -286,18 +303,19 @@
     </section>
 
   </main>
+  <div class="rail-count cd"><i data-icon="cap"></i><b>84</b><span>days to graduation</span></div>
 
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/Observer.min.js"></script>
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=66"></script>
-  <script src="assets/js/refs.js?v=66"></script>
-  <script src="assets/js/core.js?v=66"></script>
-  <script src="assets/js/charts.js?v=66"></script>
-  <script src="assets/js/scenes.js?v=66"></script>
-  <script src="assets/js/story.js?v=66"></script>
+  <script src="assets/js/mosaic.js?v=68"></script>
+  <script src="assets/js/refs.js?v=68"></script>
+  <script src="assets/js/core.js?v=68"></script>
+  <script src="assets/js/charts.js?v=68"></script>
+  <script src="assets/js/scenes.js?v=68"></script>
+  <script src="assets/js/story.js?v=68"></script>
   <script>
     const FRAMES = 72;
     const seq = (p) => [...Array(FRAMES)].map((_, i) => `assets/story/sara/frames/${p}_${String(i + 1).padStart(3, '0')}.webp?v=2`);
@@ -324,6 +342,15 @@
             { name: 'Erythema', color: 'var(--accent)', values: [0.30, 0.50, 0.43, 0.40, 0.30, 0.21, 0.21, 0.21, 0.21, null], hero: true, dec: 1, suffix: '' },
           ],
         });
+      },
+      hooks: {
+        routine(tl, t) {
+          // The evening checklist ticks itself off, one step after the other.
+          const li = '.s-checklist .checks li';
+          tl.add(() => $$(li).forEach((x) => x.classList.remove('done')), t)
+            .from(li, { autoAlpha: 0, x: -24, duration: 0.5, stagger: 0.22, ease: 'power3.out' }, t + 0.5)
+            .add(() => $$(li).forEach((x, k) => setTimeout(() => x.classList.add('done'), 250 + k * 380)), t + 1.1);
+        },
       },
       id: 'sara',
       frames: seq('a').concat(seq('b')),

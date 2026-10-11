@@ -6,16 +6,17 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Omar, 35 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%23A33B9E%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=66">
-  <link rel="stylesheet" href="assets/css/pages.css?v=66">
-  <link rel="stylesheet" href="assets/css/story.css?v=66">
+  <link rel="stylesheet" href="assets/css/main.css?v=68">
+  <link rel="stylesheet" href="assets/css/pages.css?v=68">
+  <link rel="stylesheet" href="assets/css/story.css?v=68">
+  <link rel="stylesheet" href="assets/css/case.css?v=68">
 </head>
-<body class="chapter story w03" data-prev="sara.html" data-next="how-to-use.html" data-next-label="How to use">
+<body class="chapter story case w03" data-prev="sara.html" data-next="how-to-use.html" data-next-label="How to use">
   <canvas id="mosaic" aria-hidden="true"></canvas>
   <main class="stage">
 
-    <!-- 1 · Hook -->
-    <section class="scene s-hook" data-stop="omar" data-veil=".35">
+    <!-- 1 · Case file cover -->
+    <section class="scene s-hook s-casecover" data-stop="omar" data-veil=".35" data-step="case" data-step-label="Patient">
       <div class="wrap">
         <div>
           <p class="chap" data-a="up"><b>Patient profile 3</b> Illustrative</p>
@@ -23,28 +24,37 @@
           <p class="sub" data-a="up">Working professional · Severe inflammatory acne · Concerned about isotretinoin</p>
           <blockquote class="voice" data-a="none"><span class="q">“My acne is getting worse. I’ve heard about isotretinoin on social media, but I’m concerned about the dryness and eye irritation, especially since I already have dry eyes. I want an effective treatment that my doctor can monitor and that I can continue comfortably.”</span></blockquote>
         </div>
-        <div class="hero-portrait" data-a="none">
-          <div class="layer l-hex"><i data-hex="soft"></i></div>
-          <i class="layer facet fa"></i><i class="layer facet fb"></i><i class="layer facet fc"></i>
-          <img class="layer l-cut" src="assets/story/omar/cutout.webp?v=2" alt="Omar, illustrative patient">
+        <div class="idcard" data-a="none">
+          <span class="id-tab">Case file 03</span>
+          <div class="id-photo"><img src="assets/story/omar/week0.webp?v=2" alt="Omar, illustrative patient"></div>
+          <dl class="id-fields">
+            <div><dt>Age</dt><dd>35</dd></div>
+            <div><dt>Occupation</dt><dd>Working professional</dd></div>
+            <div><dt>Diagnosis</dt><dd>Severe inflammatory acne</dd></div>
+            <div><dt>Relevant history</dt><dd>Dry skin · history of dry eyes</dd></div>
+          </dl>
+          <span class="id-flag"><i data-icon="eye"></i>Concerned about isotretinoin</span>
         </div>
       </div>
     </section>
 
-    <!-- 2 · His life -->
-    <section class="scene s-photo" data-stop="life" data-dark="1">
-      <div class="photo" data-a="zoom"><img src="assets/story/omar/office-before.webp?v=2" style="object-position:100% 50%" alt="Omar stepping out of a team photo at work"></div>
+    <!-- 2 · Social history -->
+    <section class="scene s-file" data-stop="life" data-step="history" data-step-label="History">
       <div class="wrap">
-        <div class="photo-text">
-          <p class="eyebrow" data-a="up">His story</p>
-          <h2 data-a="rise">Two years of breakouts, out of every photo</h2>
-          <p class="lead" data-a="up">Omar’s acne has become more noticeable over the past two years. Because of repeated inflammatory breakouts, he has started avoiding photos and social occasions.</p>
+        <div class="sheet" data-tab="Social history" data-a="left">
+          <p class="eyebrow">His story</p>
+          <h2>Two years of breakouts, out of every photo</h2>
+          <p class="lead">Omar’s acne has become more noticeable over the past two years. Because of repeated inflammatory breakouts, he has started avoiding photos and social occasions.</p>
         </div>
+        <figure class="clip-photo" data-a="right">
+          <img src="assets/story/omar/office-before.webp?v=2" style="object-position:100% 50%" alt="Omar stepping out of a team photo at work">
+          <figcaption>Attachment · at work</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 3 · His concerns: tap through what worries him -->
-    <section class="scene s-hist" data-stop="concerns">
+    <!-- 3 · Concerns: each one raises a flag -->
+    <section class="scene s-hist s-flags" data-stop="concerns" data-step="concerns" data-step-label="Concerns">
       <div class="wrap">
         <div>
           <p class="eyebrow" data-a="up">His concerns</p>
@@ -54,6 +64,7 @@
             <button class="hstep" data-pic="1"><i data-icon="phone"></i><span><b>Read about isotretinoin online</b>Its potential side effects make him hesitant to consider it.</span></button>
             <button class="hstep" data-pic="0"><i data-icon="drop"></i><span><b>Dry skin</b>He already experiences dry skin.</span></button>
             <button class="hstep" data-pic="1"><i data-icon="eye"></i><span><b>History of dry eyes</b>He wants a treatment his doctor can monitor and he can continue comfortably.</span></button>
+            <div class="flag-meter"><small>Concerns about isotretinoin</small><i></i></div>
           </div>
         </div>
         <div class="hist-frame" data-a="none">
@@ -68,8 +79,8 @@
       </div>
     </section>
 
-    <!-- 4 · Presentation with hotspots -->
-    <section class="scene s-present" data-stop="presentation">
+    <!-- 4 · Examination: hotspots + severity scale -->
+    <section class="scene s-present s-exam" data-stop="presentation" data-step="exam" data-step-label="Examination">
       <div class="wrap">
         <div>
           <p class="eyebrow" data-a="up">Presentation</p>
@@ -79,7 +90,12 @@
             <div><i data-icon="face"></i><div><small>Lesions</small><b>Numerous papules and pustules with a few nodular lesions</b></div></div>
             <div><i data-icon="drop"></i><div><small>Relevant history</small><b>Dry skin and a history of dry eyes</b></div></div>
           </div>
-          <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*2)">Tap the glowing points on Omar’s face.</p>
+          <div class="sevscale" data-a="up">
+            <small>Severity</small>
+            <ol><li>Clear</li><li>Almost clear</li><li>Mild</li><li>Moderate</li><li class="hit">Severe</li></ol>
+            <i class="sevscale-mark"></i>
+          </div>
+          <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*1.6)">Tap the glowing points on Omar’s face.</p>
         </div>
         <div class="face-frame" data-a="pop" data-noswipe>
           <img src="assets/story/omar/week0.webp?v=2" alt="Omar at week 0">
@@ -92,28 +108,39 @@
       </div>
     </section>
 
-    <!-- 5 · Doctor's decision -->
-    <section class="scene s-photo s-decide" data-stop="decision" data-dark="1">
-      <div class="photo" data-a="zoom"><img src="assets/story/omar/clinic.webp?v=2" alt="Omar in a dermatology consultation"></div>
+    <!-- 5 · Decision tree -->
+    <section class="scene s-tree" data-stop="decision" data-step="decision" data-step-label="Decision">
       <div class="wrap">
-        <div class="photo-text wide">
+        <div class="tree-head">
           <p class="eyebrow" data-a="up">Your decision</p>
           <h2 data-a="rise">What would you prescribe for Omar?</h2>
-          <div class="choices" data-a="each" data-noswipe>
+        </div>
+        <div class="tree" data-noswipe>
+          <div class="tree-root" data-a="pop">
+            <img src="assets/story/omar/week0.webp?v=2" alt="">
+            <div><b>Severe inflammatory acne</b><span>Dry skin · history of dry eyes</span></div>
+          </div>
+          <svg class="tree-lines" viewBox="0 0 400 60" preserveAspectRatio="none" data-a="draw" aria-hidden="true">
+            <path data-branch="a03d" d="M200 0 V30 H50 V60"/><path data-branch="a01" d="M200 0 V30 H150 V60"/>
+            <path data-branch="iso" d="M200 0 V30 H250 V60"/><path data-branch="abx" d="M200 0 V30 H350 V60"/>
+          </svg>
+          <div class="choices" data-a="each">
             <button data-c="a03d">Adzoy™ 0.3% gel once daily + oral doxycycline</button>
             <button data-c="a01">Adzoy™ 0.1% gel alone</button>
             <button data-c="iso">Oral isotretinoin now</button>
             <button data-c="abx">Topical antibiotic monotherapy</button>
           </div>
-          <div class="verdict" aria-live="polite"></div>
         </div>
-        <div class="verdict-card" data-noswipe></div>
+        <div class="tree-out">
+          <div class="verdict" aria-live="polite"></div>
+          <div class="verdict-card" data-noswipe></div>
+        </div>
       </div>
     </section>
 
 
     <!-- Recommended (deck: "Recommended for Omar") -->
-    <section class="scene rec" data-stop="recommended">
+    <section class="scene rec" data-stop="recommended" data-step="plan" data-step-label="Treatment plan">
       <div class="wrap">
         <div class="rec-head">
           <p class="eyebrow" data-a="up">Recommended for Omar</p>
@@ -129,7 +156,7 @@
     </section>
 
     <!-- 6 · Routine -->
-    <section class="scene s-photo s-routine" data-stop="routine" data-dark="1">
+    <section class="scene s-photo s-routine" data-stop="routine" data-dark="1" data-step="plan">
       <div class="photo" data-a="zoom"><img src="assets/story/omar/routine.webp?v=2" alt="Omar applying gel at bedtime"></div>
       <div class="wrap">
         <div class="photo-text">
@@ -146,22 +173,22 @@
       </div>
     </section>
 
-    <!-- 7–9 · Timeline: the video follows the swipe -->
-    <section class="scene s-week" data-stop="week-0">
+    <!-- 7–9 · Follow-up visits: the video follows the swipe along the visit track -->
+    <section class="scene s-week" data-stop="week-0" data-step="followup" data-step-label="Follow-up">
       <div class="wrap">
         <p class="kicker" data-a="up">Week 0</p>
         <h2 data-a="rise">Starting Adzoy™ 0.3% + doxycycline</h2>
         <p class="lead" data-a="up">Severe inflammatory acne. In the study, every patient was considered a candidate for oral isotretinoin at baseline.<sup data-ref="26"></sup></p>
       </div>
     </section>
-    <section class="scene s-week" data-stop="week-4">
+    <section class="scene s-week" data-stop="week-4" data-step="followup">
       <div class="wrap">
         <p class="kicker" data-a="up">Week 4</p>
         <h2 data-a="rise">Inflammation settling</h2>
         <div class="wk-stat" data-a="up"><b><span data-a="count" data-to="41.9">0</span>%</b><span>were no longer considered isotretinoin candidates as early as Week 4<sup data-ref="26"></sup></span></div>
       </div>
     </section>
-    <section class="scene s-week" data-stop="week-12">
+    <section class="scene s-week" data-stop="week-12" data-step="followup">
       <div class="wrap">
         <p class="kicker" data-a="up">Week 12</p>
         <h2 data-a="rise">Breakouts under control</h2>
@@ -171,16 +198,15 @@
     </section>
 
     <div class="seq-wrap">
-      <div class="seq-frame"><canvas class="seq"></canvas><span class="seq-tag">Illustrative · AI-generated</span></div>
-      <div class="rail">
+      <div class="seq-frame"><canvas class="seq"></canvas><span class="seq-tag">Illustrative · AI-generated</span><b class="rail-week">Week <span>0</span></b></div>
+      <div class="rail visits">
         <div class="rail-track"><i class="rail-fill"></i></div>
-        <button class="rail-dot" data-stop="week-0" aria-label="Week 0">0</button><button class="rail-dot" data-stop="week-4" aria-label="Week 4">4</button><button class="rail-dot" data-stop="week-12" aria-label="Week 12">12</button>
-        <b class="rail-week">Week <span>0</span></b>
+        <button class="rail-dot" data-stop="week-0" aria-label="Week 0" data-visit="Baseline">0</button><button class="rail-dot" data-stop="week-4" aria-label="Week 4" data-visit="Week 4">4</button><button class="rail-dot" data-stop="week-12" aria-label="Week 12" data-visit="Week 12">12</button>
       </div>
     </div>
 
-    <!-- 10 · Mirror: before / after -->
-    <section class="scene s-mirror" data-stop="mirror">
+    <!-- 10 · Before / after -->
+    <section class="scene s-mirror" data-stop="mirror" data-step="followup">
       <div class="wrap">
         <div>
           <p class="eyebrow" data-a="up">Week 0 → Week 12</p>
@@ -198,7 +224,7 @@
 
 
     <!-- Clinical study 4 (deck slide 34) -->
-    <section class="scene study" data-stop="study">
+    <section class="scene study" data-stop="study" data-step="evidence" data-step-label="Evidence">
       <div class="wrap">
         <div>
           <span class="kicker" data-a="up">Clinical study 4</span>
@@ -214,7 +240,7 @@
       </div>
     </section>
 
-    <section class="scene study results" data-stop="results">
+    <section class="scene study results" data-stop="results" data-step="evidence">
       <div class="wrap">
         <div class="card chart-card" data-a="up">
           <p class="cap">Mean inflammatory lesion count</p>
@@ -229,7 +255,7 @@
       </div>
     </section>
 
-    <section class="scene study design" data-stop="design">
+    <section class="scene study design" data-stop="design" data-step="evidence">
       <div class="wrap">
         <div>
           <span class="kicker" data-a="up">Clinical study 4 · Study design</span>
@@ -245,7 +271,7 @@
     </section>
 
     <!-- 11 · Outcome -->
-    <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1">
+    <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1" data-step="outcome" data-step-label="Outcome">
       <div class="photo" data-a="zoom"><img src="assets/story/omar/office-after.webp?v=2" alt="Omar smiling in the centre of a team photo"></div>
       <div class="wrap">
         <div class="photo-text">
@@ -260,18 +286,19 @@
     </section>
 
   </main>
+  <nav class="case-bar" aria-label="Case file steps"><span class="cb-id"><i data-icon="clipboard"></i>Case 03</span><ol></ol></nav>
 
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/Observer.min.js"></script>
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=66"></script>
-  <script src="assets/js/refs.js?v=66"></script>
-  <script src="assets/js/core.js?v=66"></script>
-  <script src="assets/js/charts.js?v=66"></script>
-  <script src="assets/js/scenes.js?v=66"></script>
-  <script src="assets/js/story.js?v=66"></script>
+  <script src="assets/js/mosaic.js?v=68"></script>
+  <script src="assets/js/refs.js?v=68"></script>
+  <script src="assets/js/core.js?v=68"></script>
+  <script src="assets/js/charts.js?v=68"></script>
+  <script src="assets/js/scenes.js?v=68"></script>
+  <script src="assets/js/story.js?v=68"></script>
   <script>
     const FRAMES = 72;
     const seq = (p) => [...Array(FRAMES)].map((_, i) => `assets/story/omar/frames/${p}_${String(i + 1).padStart(3, '0')}.webp?v=2`);
@@ -286,6 +313,18 @@
           { label: 'Satisfied / very satisfied', value: 83.2 },
           { label: 'No longer isotretinoin candidates (Week 4)', value: 41.9 },
         ] });
+      },
+      hooks: {
+        omar(tl, t) {
+          tl.from('.idcard', { autoAlpha: 0, y: 50, rotation: 4, duration: 1, ease: 'power3.out' }, t)
+            .from('.id-photo', { autoAlpha: 0, scale: 0.85, duration: 0.7, ease: 'back.out(1.6)' }, t + 0.35)
+            .from('.id-fields > div', { autoAlpha: 0, x: -18, duration: 0.5, stagger: 0.1 }, t + 0.5)
+            .from('.id-flag', { autoAlpha: 0, scale: 0.6, duration: 0.6, ease: 'back.out(2)' }, t + 1.1);
+        },
+        presentation(tl, t) {
+          // The severity marker slides along the scale and settles on "Severe".
+          tl.from('.sevscale-mark', { left: '10%', duration: 1.3, ease: 'power2.inOut' }, t + 1);
+        },
       },
       id: 'omar',
       world: '03',

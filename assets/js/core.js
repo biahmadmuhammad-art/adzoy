@@ -301,6 +301,8 @@ const Stops = {
     }
     document.documentElement.classList.toggle('dock-min', !!sc && sc.dataset.dock === 'min');
     document.documentElement.classList.remove('dock-open');
+    // Pages with their own progress UI (case file steps, diary countdown) follow the current stop.
+    document.dispatchEvent(new CustomEvent('stop', { detail: { i: this.cur, name: this.names[this.cur], scene: sc } }));
   },
   pause(on) { this.observer && (on ? this.observer.disable() : this.observer.enable()); },
 };

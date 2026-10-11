@@ -1,0 +1,144 @@
+/* Sara: the story as a countdown diary to her graduation.
+   Paper notes, polaroids, a treatment cycle, an evening checklist and a day ruler toward graduation day. */
+
+.diary { --paper: #FFFDF8; --rule: rgba(23, 128, 202, .1); --margin: rgba(214, 107, 178, .45); }
+
+/* ---------- Paper note ---------- */
+.diary .paper {
+  position: relative; padding: calc(var(--u) * 3) calc(var(--u) * 3.4) calc(var(--u) * 3.2) calc(var(--u) * 5.2);
+  border-radius: calc(var(--u) * .8); color: var(--plum);
+  background: linear-gradient(var(--paper), var(--paper)) padding-box,
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--u) * 3.1 - 1px), var(--rule) calc(var(--u) * 3.1 - 1px) calc(var(--u) * 3.1));
+  background-blend-mode: multiply;
+  box-shadow: 0 1px 0 rgba(43, 23, 56, .06), 0 28px 50px -28px rgba(43, 23, 56, .55);
+  transform: rotate(-1deg);
+}
+.diary .paper::before { content: ''; position: absolute; left: calc(var(--u) * 3.2); top: 0; bottom: 0; width: 2px; background: var(--margin); }
+.diary .paper h2 { font-size: calc(var(--u) * 3.8); line-height: 1.08; margin: calc(var(--u) * .8) 0 calc(var(--u) * 1.6); }
+.diary .paper .lead { font-size: calc(var(--u) * 1.75); }
+.entry-date {
+  display: inline-flex; align-items: center; gap: .6em; margin-bottom: calc(var(--u) * 1.4);
+  font-size: calc(var(--u) * 1.3); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2);
+  padding-bottom: .3em; border-bottom: 2px dashed currentColor;
+}
+.entry-date .gi { --gs: calc(var(--u) * 3.2); }
+
+/* ---------- Polaroid ---------- */
+.diary .polaroid {
+  position: relative; justify-self: center; margin: 0; padding: calc(var(--u) * 1.3) calc(var(--u) * 1.3) 0;
+  background: #fff; border-radius: calc(var(--u) * .4); box-shadow: 0 30px 60px -28px rgba(43, 23, 56, .6);
+}
+.diary .polaroid > img { display: block; width: calc(var(--u) * 46); aspect-ratio: 4 / 3; object-fit: cover; }
+.diary .polaroid figcaption { padding: calc(var(--u) * 1.3) .4em calc(var(--u) * 1.6); text-align: center; font-size: calc(var(--u) * 1.6); font-weight: 600; font-style: italic; color: var(--plum); }
+/* Tape on top */
+.diary .polaroid::before, .diary .face-frame::after {
+  content: ''; position: absolute; z-index: 5; left: 50%; top: calc(var(--u) * -1.6); width: calc(var(--u) * 11); height: calc(var(--u) * 3.2);
+  transform: translateX(-50%) rotate(-3deg); background: rgba(255, 255, 255, .55); box-shadow: 0 2px 6px rgba(43, 23, 56, .12);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.diary .tilt-r { transform: rotate(2.4deg); }
+
+/* ---------- Entry scenes (text note + polaroid) ---------- */
+.s-entry .wrap { grid-template-columns: .95fr 1.05fr; gap: calc(var(--u) * 4); align-items: center; }
+
+/* ---------- Cover ---------- */
+.s-cover .wrap { grid-template-columns: 1.05fr .95fr; gap: calc(var(--u) * 3); align-items: center; }
+.s-cover h1.title { font-size: calc(var(--u) * 8); }
+.diary .cover-pic { transform: rotate(-2.2deg); }
+.diary .cover-pic .hero-portrait { width: calc(var(--u) * 38); background: linear-gradient(170deg, #FEF0F8 10%, #EDB3D8 100%); overflow: hidden; }
+.diary .cover-pic .hero-portrait .l-cut { -webkit-mask-image: none; mask-image: none; }
+
+/* ---------- Countdown sticker, at the top of every diary scene ---------- */
+.diary .rail-count.cd {
+  position: fixed; z-index: 31; top: calc(var(--u) * 2.6); left: 50%; right: auto; transform: translateX(-50%) rotate(-2deg);
+  background: #fff; border: 2px dashed var(--accent-2); transition: opacity .4s, transform .4s var(--ease);
+}
+.diary .rail-count.cd.off { opacity: 0; transform: translateX(-50%) translateY(-10px) rotate(-2deg); pointer-events: none; }
+
+/* ---------- The cycle she could not break ---------- */
+.s-cycle .wrap { grid-template-columns: .78fr 1.22fr; gap: calc(var(--u) * 2); align-items: center; }
+.s-cycle h2 { margin-bottom: calc(var(--u) * 1.6); }
+.cycle { position: relative; justify-self: center; width: calc(var(--u) * 56); height: calc(var(--u) * 57); }
+.s-cycle .hist-frame {
+  position: absolute; left: calc(var(--u) * 13); top: calc(var(--u) * 7); width: calc(var(--u) * 30); aspect-ratio: 1;
+  overflow: visible; background: none; box-shadow: none; border-radius: 50%;
+}
+.s-cycle .hist-pic { border-radius: 50%; box-shadow: 0 30px 60px -30px rgba(43, 23, 56, .6); }
+.s-cycle .seq-tag { display: none; }
+.s-cycle .hist { position: absolute; inset: 0; display: block; }
+.s-cycle .hist::before, .s-cycle .hist::after { display: none; }
+.cyc-ring { position: absolute; left: calc(var(--u) * 6); top: 0; width: calc(var(--u) * 44); height: calc(var(--u) * 44); transform: rotate(-90deg); overflow: visible; }
+.cyc-ring circle { fill: none; stroke-width: 1.3; }
+.cyc-ring .trk { stroke: rgba(43, 23, 56, .18); stroke-dasharray: 1.2 2.2; }
+.cyc-ring .fil { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--h) * 75); transition: stroke-dashoffset .7s var(--ease); }
+/* The buttons only hold the node icon (on the ring) and the note (under the ring) */
+.s-cycle .hstep { position: static; display: block; }
+.s-cycle .hstep .gi { position: absolute; z-index: 2; --gs: calc(var(--u) * 5.6); transform: translate(-50%, -50%); }
+.s-cycle .hstep.on .gi { transform: translate(-50%, -50%) scale(1.18); }
+.s-cycle .hstep:nth-of-type(1) .gi { left: calc(var(--u) * 28); top: calc(var(--u) * 3.98); }
+.s-cycle .hstep:nth-of-type(2) .gi { left: calc(var(--u) * 46.04); top: calc(var(--u) * 22); }
+.s-cycle .hstep:nth-of-type(3) .gi { left: calc(var(--u) * 28); top: calc(var(--u) * 40.02); }
+.s-cycle .hstep:nth-of-type(4) .gi { left: calc(var(--u) * 9.96); top: calc(var(--u) * 22); }
+.s-cycle .hstep span {
+  position: absolute; left: 0; right: 0; top: calc(var(--u) * 46); text-align: center; pointer-events: none;
+  font-size: calc(var(--u) * 1.55); line-height: 1.4;
+}
+.s-cycle .hstep span b { font-size: calc(var(--u) * 2.2); margin-bottom: .2em; color: var(--accent); }
+.s-cycle .hstep > span, .s-cycle .hstep.done > span { opacity: 0; transition: opacity .35s; }
+.s-cycle .hstep.on > span { opacity: 1; pointer-events: auto; }
+.s-cycle .hstep.done > .gi { opacity: .75; }
+.s-cycle .symptom { font-size: calc(var(--u) * 1.2); }
+
+/* ---------- Clinic visit: notes + polaroid ---------- */
+.diary .s-present .paper { padding-top: calc(var(--u) * 2.6); padding-bottom: calc(var(--u) * 2.6); }
+.diary .s-present .paper h2 { font-size: calc(var(--u) * 3.4); }
+.diary .s-present .facts-list b { font-size: calc(var(--u) * 1.55); }
+.diary .face-frame { width: calc(var(--u) * 40); transform: rotate(1.6deg); }
+.diary .face-frame::before {
+  content: ''; position: absolute; z-index: 0; inset: calc(var(--u) * -1.3) calc(var(--u) * -1.3) calc(var(--u) * -5); border-radius: calc(var(--u) * .4);
+  background: #fff; box-shadow: 0 30px 60px -28px rgba(43, 23, 56, .6);
+}
+.diary .face-clip { border-radius: 0; box-shadow: none; }
+.diary .face-frame .spot-card { right: calc(100% + var(--u) * 3.6); }
+
+/* ---------- Evening checklist ---------- */
+.checks { list-style: none; display: grid; gap: calc(var(--u) * 1.1); margin-top: calc(var(--u) * 2); }
+.checks li { display: flex; align-items: center; gap: calc(var(--u) * 1.4); font-size: calc(var(--u) * 1.8); font-weight: 700; }
+.checks li::before {
+  content: ''; flex: none; display: grid; place-items: center; width: calc(var(--u) * 2.6); height: calc(var(--u) * 2.6); border-radius: calc(var(--u) * .5);
+  border: 2px solid var(--accent); color: #fff; font-size: calc(var(--u) * 1.6); font-weight: 800; transition: background .3s, transform .3s var(--ease);
+}
+.checks li.done::before { content: '✓'; background: var(--accent); transform: scale(1.08); }
+.checks .gi { --gs: calc(var(--u) * 4.2); }
+
+/* ---------- Countdown timeline: polaroid video + day ruler toward graduation ---------- */
+.diary .seq-frame { border: calc(var(--u) * 1.3) solid #fff; border-radius: calc(var(--u) * .4); }
+.diary .rail-week {
+  left: calc(var(--u) * 1.2); top: calc(var(--u) * 1.2); padding: .15em .55em; border-radius: 99px;
+  background: rgba(255, 255, 255, .88); font-size: calc(var(--u) * 2.4);
+}
+.cal { position: relative; height: calc(var(--u) * 4); margin: calc(var(--u) * 3) calc(var(--u) * 1.6) 0; }
+.cal::before, .cal::after { content: ''; position: absolute; left: 0; top: 50%; height: 3px; margin-top: -1.5px; border-radius: 3px; }
+.cal::before { right: 0; background: rgba(43, 23, 56, .12); }
+.cal::after { width: calc(var(--t, 0) * 100%); background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+.ruler { position: absolute; inset: 0; }
+.ruler i { position: absolute; left: calc(var(--d) * 100%); top: 50%; width: 2px; height: calc(var(--u) * 1.2); margin-left: -1px; transform: translateY(-50%); border-radius: 2px; background: rgba(43, 23, 56, .2); transition: background .2s; }
+.ruler i.wk { height: calc(var(--u) * 2.4); }
+.ruler i.on { background: var(--accent); }
+.diary .rail-dot { left: calc(var(--w) * 100%); top: 50%; z-index: 2; }
+.cal-cap { position: absolute; left: calc(100% + var(--u) * 3.6); top: 50%; transform: translate(-50%, -50%); }
+.cal-cap.gi, .cal .gi { --gs: calc(var(--u) * 4); }
+
+/* ---------- Then and now ---------- */
+.diary .mirror { border-radius: calc(var(--u) * .4); border-width: calc(var(--u) * 1.3) calc(var(--u) * 1.3) calc(var(--u) * 5); transform: rotate(-1.5deg); }
+
+/* ---------- Graduation day ---------- */
+.stamp {
+  position: absolute; z-index: 3; right: calc(var(--u) * 9); top: calc(var(--u) * 13); display: inline-flex; align-items: center; gap: .6em;
+  padding: .4em 1.1em .4em .4em; border: 3px solid #fff; border-radius: calc(var(--u) * 1.2); transform: rotate(-7deg);
+  color: #fff; font-size: calc(var(--u) * 2); font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  background: rgba(214, 107, 178, .35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.stamp .gi { --gs: calc(var(--u) * 4.4); }
+.diary .seq-wrap { top: 46%; right: calc(var(--u) * 10); width: calc(var(--u) * 40); }
+.diary .s-week .wrap { right: 56%; }

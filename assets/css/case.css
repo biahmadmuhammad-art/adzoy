@@ -1,0 +1,175 @@
+/* Omar: the story as a clinical case file.
+   ID card, a step bar across the top, concern flags, a severity scale, a decision tree and a follow-up visit track. */
+
+.case { --flag: #E8963A; --flag-ink: #9A520C; --ok: #1E9E4A; --no: #E0245E; }
+
+/* ---------- Step bar ---------- */
+.case-bar {
+  position: fixed; z-index: 31; top: calc(var(--u) * 2.5); left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: calc(var(--u) * 1); padding: .35em .4em .35em .5em; border-radius: 99px;
+  background: var(--hdr-bg); color: var(--hdr); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px -18px rgba(43, 23, 56, .6);
+}
+.cb-id { display: inline-flex; align-items: center; gap: .5em; padding-right: .6em; font-size: calc(var(--u) * 1.15); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.cb-id .gi { --gs: calc(var(--u) * 2.8); }
+.case-bar ol { list-style: none; display: flex; gap: .25em; }
+.case-bar button {
+  display: inline-flex; align-items: center; gap: .45em; padding: .45em .7em; border-radius: 99px; color: inherit;
+  font-size: 0; font-weight: 700; letter-spacing: .02em; opacity: .55; transition: opacity .3s, background .3s, color .3s;
+}
+.case-bar button b { font-size: calc(var(--u) * 1.15); font-variant-numeric: tabular-nums; }
+.case-bar li.done button { opacity: .9; }
+.case-bar li.on button { font-size: calc(var(--u) * 1.15); opacity: 1; background: var(--hdr); color: var(--hdr-ink); }
+
+/* ---------- Case cover: ID card ---------- */
+.s-casecover .wrap { grid-template-columns: 1.08fr .92fr; gap: calc(var(--u) * 3); align-items: center; }
+.s-casecover h1.title { font-size: calc(var(--u) * 8); }
+.idcard {
+  position: relative; justify-self: center; width: calc(var(--u) * 42); display: grid; grid-template-columns: calc(var(--u) * 15) 1fr;
+  gap: calc(var(--u) * 2); padding: calc(var(--u) * 3) calc(var(--u) * 2.6) calc(var(--u) * 2.6); border-radius: 0 calc(var(--u) * 1.4) calc(var(--u) * 1.4) calc(var(--u) * 1.4);
+  background: #fff; color: var(--plum); box-shadow: 0 34px 70px -30px rgba(43, 23, 56, .6); transform: rotate(1.4deg);
+}
+.id-tab {
+  position: absolute; left: 0; bottom: 100%; padding: .55em 1.4em; border-radius: calc(var(--u) * 1) calc(var(--u) * 1) 0 0;
+  background: var(--accent); color: #fff; font-size: calc(var(--u) * 1.1); font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+}
+.id-photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: calc(var(--u) * .8); }
+.id-fields { display: grid; gap: calc(var(--u) * 1); align-content: start; }
+.id-fields dt { font-size: calc(var(--u) * 1); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); }
+.id-fields dd { font-size: calc(var(--u) * 1.5); font-weight: 700; line-height: 1.25; }
+.id-flag {
+  grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: .6em; padding: .35em 1.1em .35em .35em; border-radius: 99px;
+  background: rgba(232, 150, 58, .14); border: 1.5px solid rgba(232, 150, 58, .55); color: var(--flag-ink); font-size: calc(var(--u) * 1.3); font-weight: 700;
+}
+.id-flag .gi { --gs: calc(var(--u) * 2.8); }
+
+/* ---------- File sheet + clipped photo ---------- */
+.s-file .wrap { grid-template-columns: .95fr 1.05fr; gap: calc(var(--u) * 4); align-items: center; }
+.case .sheet {
+  position: relative; padding: calc(var(--u) * 3.2) calc(var(--u) * 3.4); border-radius: 0 calc(var(--u) * 1.4) calc(var(--u) * 1.4) calc(var(--u) * 1.4);
+  background: #fff; color: var(--plum); box-shadow: 0 30px 60px -30px rgba(43, 23, 56, .55);
+}
+.case .sheet::before {
+  content: attr(data-tab); position: absolute; left: 0; bottom: 100%; padding: .55em 1.4em; border-radius: calc(var(--u) * 1) calc(var(--u) * 1) 0 0;
+  background: #fff; color: var(--accent); font-size: calc(var(--u) * 1.1); font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+}
+.case .sheet h2 { font-size: calc(var(--u) * 3.8); line-height: 1.08; margin: calc(var(--u) * .8) 0 calc(var(--u) * 1.6); }
+.case .sheet .lead { font-size: calc(var(--u) * 1.75); }
+.clip-photo {
+  position: relative; justify-self: center; margin: 0; padding: calc(var(--u) * 1); border-radius: calc(var(--u) * .6);
+  background: #fff; box-shadow: 0 30px 60px -28px rgba(43, 23, 56, .6); transform: rotate(-1.6deg);
+}
+.clip-photo img { display: block; width: calc(var(--u) * 46); aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--u) * .3); }
+.clip-photo figcaption { padding: calc(var(--u) * .9) .3em .2em; font-size: calc(var(--u) * 1.1); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); }
+/* Paper clip */
+.clip-photo::before {
+  content: ''; position: absolute; z-index: 2; left: calc(var(--u) * 4); top: calc(var(--u) * -2.6); width: calc(var(--u) * 2.2); height: calc(var(--u) * 7);
+  border: 3px solid #A9B0BF; border-radius: 99px; transform: rotate(8deg); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .5);
+}
+
+/* ---------- Concern flags ---------- */
+.s-flags .wrap { grid-template-columns: 1.05fr .95fr; gap: calc(var(--u) * 3); }
+.s-flags .hist { grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.2); }
+.s-flags .hist::before, .s-flags .hist::after { display: none; }
+.s-flags .hstep {
+  align-items: flex-start; padding: calc(var(--u) * 1.4) calc(var(--u) * 1.5); border-radius: calc(var(--u) * 1.3);
+  background: rgba(255, 255, 255, .62); border: 1.5px solid rgba(255, 255, 255, .9); transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.s-flags .hstep .gi { --gs: calc(var(--u) * 4); }
+.s-flags .hstep span { font-size: calc(var(--u) * 1.2); }
+.s-flags .hstep b { font-size: calc(var(--u) * 1.5); }
+.s-flags .hstep.done { border-color: rgba(232, 150, 58, .55); }
+.s-flags .hstep.on { background: #fff; border-color: var(--flag); box-shadow: 0 16px 30px -18px rgba(154, 82, 12, .6); }
+.s-flags .hstep.on b { color: var(--flag-ink); }
+.s-flags .hstep::after {
+  content: '!'; position: absolute; top: calc(var(--u) * -.9); right: calc(var(--u) * -.9); width: calc(var(--u) * 2.4); height: calc(var(--u) * 2.4);
+  display: grid; place-items: center; border-radius: 50%; background: var(--flag); color: #fff; font-size: calc(var(--u) * 1.4); font-weight: 800;
+  transform: scale(0); transition: transform .35s var(--ease);
+}
+.s-flags .hstep.on::after, .s-flags .hstep.done::after { transform: scale(1); }
+.flag-meter { grid-column: 1 / -1; margin-top: calc(var(--u) * .8); }
+.flag-meter small { display: block; margin-bottom: .5em; font-size: calc(var(--u) * 1.05); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--flag-ink); }
+.flag-meter i { position: relative; display: block; height: calc(var(--u) * 1); border-radius: 99px; background: rgba(43, 23, 56, .1); overflow: hidden; }
+.flag-meter i::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #F3C27E, var(--flag), var(--accent));
+  transform-origin: 0 50%; transform: scaleX(calc(var(--h, 0) * .75 + .25)); transition: transform .6s var(--ease);
+}
+
+/* ---------- Examination: severity scale + clinical photo ---------- */
+.s-exam h2 { margin-bottom: calc(var(--u) * 1.8); }
+.s-exam .facts-list { gap: calc(var(--u) * 1.2); }
+.s-exam .facts-list b { font-size: calc(var(--u) * 1.55); }
+.sevscale { position: relative; margin-top: calc(var(--u) * 2.2); max-width: calc(var(--u) * 44); }
+.sevscale small { display: block; font-size: calc(var(--u) * 1.05); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.sevscale ol { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: calc(var(--u) * .35); margin-top: calc(var(--u) * 1.8); }
+.sevscale li { padding: .55em .2em; border-radius: calc(var(--u) * .6); text-align: center; font-size: calc(var(--u) * 1.05); font-weight: 700; color: rgba(43, 23, 56, .65); }
+.sevscale li:nth-child(1) { background: rgba(163, 35, 143, .05); }
+.sevscale li:nth-child(2) { background: rgba(163, 35, 143, .09); }
+.sevscale li:nth-child(3) { background: rgba(163, 35, 143, .14); }
+.sevscale li:nth-child(4) { background: rgba(163, 35, 143, .2); }
+.sevscale li.hit { background: var(--accent); color: #fff; box-shadow: 0 10px 22px -10px var(--accent); }
+.sevscale-mark {
+  position: absolute; left: 90%; top: calc(var(--u) * 2.1); width: 0; height: 0; transform: translateX(-50%);
+  border-left: calc(var(--u) * .8) solid transparent; border-right: calc(var(--u) * .8) solid transparent; border-top: calc(var(--u) * 1) solid var(--accent);
+}
+/* Crop marks around the clinical photo */
+.case .face-frame::after {
+  content: ''; position: absolute; inset: calc(var(--u) * -1.4); pointer-events: none; --c: var(--accent); --l: calc(var(--u) * 3);
+  background:
+    linear-gradient(var(--c), var(--c)) 0 0 / var(--l) 2px, linear-gradient(var(--c), var(--c)) 0 0 / 2px var(--l),
+    linear-gradient(var(--c), var(--c)) 100% 0 / var(--l) 2px, linear-gradient(var(--c), var(--c)) 100% 0 / 2px var(--l),
+    linear-gradient(var(--c), var(--c)) 0 100% / var(--l) 2px, linear-gradient(var(--c), var(--c)) 0 100% / 2px var(--l),
+    linear-gradient(var(--c), var(--c)) 100% 100% / var(--l) 2px, linear-gradient(var(--c), var(--c)) 100% 100% / 2px var(--l);
+  background-repeat: no-repeat;
+}
+
+/* ---------- Decision tree ---------- */
+.s-tree .wrap { justify-items: center; gap: calc(var(--u) * 1.4); }
+.tree-head { text-align: center; }
+.tree-head h2 { font-size: calc(var(--u) * 3.8); margin-top: calc(var(--u) * .8); }
+.tree { width: 100%; max-width: calc(var(--u) * 88); display: grid; justify-items: center; }
+.tree-root {
+  display: flex; align-items: center; gap: calc(var(--u) * 1.4); padding: calc(var(--u) * .8) calc(var(--u) * 2.4) calc(var(--u) * .8) calc(var(--u) * .8);
+  border-radius: 99px; background: #fff; color: var(--plum); box-shadow: 0 20px 40px -22px rgba(43, 23, 56, .6);
+}
+.tree-root img { width: calc(var(--u) * 6); height: calc(var(--u) * 6); border-radius: 50%; object-fit: cover; }
+.tree-root b { display: block; font-size: calc(var(--u) * 1.75); }
+.tree-root span { font-size: calc(var(--u) * 1.25); opacity: .7; }
+.tree-lines { display: block; width: 100%; height: calc(var(--u) * 6); overflow: visible; }
+.tree-lines path { fill: none; stroke: rgba(43, 23, 56, .28); stroke-width: 2; vector-effect: non-scaling-stroke; transition: stroke .4s, opacity .4s; }
+.tree-lines path.right { stroke: var(--ok); stroke-width: 3.5; }
+.tree-lines path.wrong { stroke: var(--no); stroke-width: 3; }
+.s-tree.decided .tree-lines path:not(.right):not(.wrong) { opacity: .3; }
+.s-tree .choices { width: 100%; grid-template-columns: repeat(4, 1fr); }
+.s-tree .choices button {
+  display: grid; place-items: center; min-height: calc(var(--u) * 7.4); text-align: center; color: var(--plum);
+  background: rgba(255, 255, 255, .78); border-color: rgba(255, 255, 255, .95); box-shadow: 0 14px 30px -20px rgba(43, 23, 56, .6);
+}
+.s-tree .choices button.right { background: rgba(30, 158, 74, .14); border-color: var(--ok); }
+.s-tree .choices button.wrong { background: rgba(224, 36, 94, .1); border-color: var(--no); }
+.tree-out { width: 100%; max-width: calc(var(--u) * 88); display: grid; grid-template-columns: 1.15fr .85fr; gap: calc(var(--u) * 2.4); align-items: start; min-height: calc(var(--u) * 11); }
+.s-tree .verdict { margin-top: 0; }
+.s-tree .verdict .fb.ok::before { color: var(--ok); }
+.s-tree .verdict .fb.no::before { color: var(--no); }
+.s-tree .verdict-card { position: static; transform: none; width: auto; }
+.s-tree .verdict-card .why { padding: calc(var(--u) * 1.6) calc(var(--u) * 2); }
+.s-tree .verdict-card .why h3 { font-size: calc(var(--u) * 1.6); }
+
+/* ---------- Follow-up visits: video + horizontal visit track ---------- */
+.case .seq-wrap { top: 46%; right: calc(var(--u) * 10); width: calc(var(--u) * 40); }
+.case .s-week .wrap { right: 56%; }
+.case .rail-week {
+  left: calc(var(--u) * 1.2); top: calc(var(--u) * 1.2); padding: .15em .55em; border-radius: 99px;
+  background: rgba(255, 255, 255, .88); font-size: calc(var(--u) * 2.4);
+}
+.case .rail.visits { position: relative; left: auto; top: auto; bottom: auto; width: auto; height: calc(var(--u) * 4); margin: calc(var(--u) * 2.6) calc(var(--u) * 2) calc(var(--u) * 2); }
+.case .rail.visits .rail-track { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 3px; margin: -1.5px 0 0; }
+.case .rail.visits .rail-fill { transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+.case .rail.visits .rail-dot { left: calc(var(--p) * 100%); top: 50%; }
+.case .rail.visits .rail-dot::after {
+  content: attr(data-visit); position: absolute; top: calc(100% + var(--u) * .6); left: 50%; transform: translateX(-50%); white-space: nowrap;
+  font-size: calc(var(--u) * 1.05); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); opacity: .7;
+}
+
+/* ---------- Before / after as a clinical photo pair ---------- */
+.case .mirror { border-radius: calc(var(--u) * 1.4); }
