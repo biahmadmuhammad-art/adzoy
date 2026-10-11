@@ -161,14 +161,16 @@ const Story = (() => {
     const stop = () => { if (auto) { auto.kill(); auto = null; } };
     steps.forEach((s, i) => s.addEventListener('click', () => { stop(); show(i); }));
     show(0);
-    // Plays the four steps once when the scene arrives, until the rep taps a step.
+    // The rep moves through the steps by tapping them or by scrolling (see run()).
     return {
-      play() {
-        stop(); show(0);
-        auto = gsap.timeline();
-        steps.slice(1).forEach((_, k) => auto.call(() => show(k + 1), null, 2.4 * (k + 1)));
-      },
+      play() { stop(); show(0); },
       reset() { stop(); show(0); },
+      step(d) {
+        const i = cur + d;
+        if (i < 0 || i > steps.length - 1) return false;
+        stop(); show(i);
+        return true;
+      },
     };
   }
 
@@ -256,6 +258,20 @@ const Story = (() => {
     const wk = W.map((w) => `week-${w}`);
     const hist = history();
     const histStop = hist && $('.hist').closest('.scene').dataset.stop;
+    if (hist) {
+      // On the history scene a scroll moves to the next or previous step first,
+      // and only leaves the scene from its first or last step.
+      const go = Stops.go.bind(Stops);
+      let lock = 0;
+      Stops.go = (i, fast) => {
+        const d = i - Stops.cur;
+        if (Stops.names[Stops.cur] === histStop && !Stops.busy && Math.abs(d) === 1) {
+          if (performance.now() < lock) return;
+          if (hist.step(d)) { lock = performance.now() + 650; return; }
+        }
+        go(i, fast);
+      };
+    }
 
     const hooks = {
       [cfg.id](tl, t) {

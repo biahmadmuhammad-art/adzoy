@@ -6,9 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Majid, 17 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%231780CA%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=68">
-  <link rel="stylesheet" href="assets/css/pages.css?v=68">
-  <link rel="stylesheet" href="assets/css/story.css?v=68">
+  <link rel="stylesheet" href="assets/css/main.css?v=70">
+  <link rel="stylesheet" href="assets/css/pages.css?v=70">
+  <link rel="stylesheet" href="assets/css/story.css?v=70">
 </head>
 <body class="chapter story w01" data-prev="strength-03.html" data-next="sara.html" data-next-label="Patient story: Sara">
   <canvas id="mosaic" aria-hidden="true"></canvas>
@@ -56,7 +56,7 @@
           </div>
           <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*2)">Tap the glowing points on Majid’s face.</p>
         </div>
-        <div class="face-frame" data-a="pop" data-noswipe>
+        <div class="face-frame" data-a="pop">
           <img src="assets/story/majid/week0.webp?v=3" alt="Majid at week 0">
           <button class="spot" style="--x:49;--y:24" data-k="forehead" aria-label="Forehead"></button>
           <button class="spot" style="--x:37;--y:48" data-k="cheek" aria-label="Right cheek"></button>
@@ -74,7 +74,7 @@
         <div class="photo-text wide">
           <p class="eyebrow" data-a="up">Your decision</p>
           <h2 data-a="rise">What would you prescribe for Majid?</h2>
-          <div class="choices" data-a="each" data-noswipe>
+          <div class="choices" data-a="each">
             <button data-c="a01">Adzoy™ 0.1% gel, once daily</button>
             <button data-c="a03">Adzoy™ 0.3% gel, once daily</button>
             <button data-c="abx">Topical antibiotic monotherapy</button>
@@ -82,7 +82,7 @@
           </div>
           <div class="verdict" aria-live="polite"></div>
         </div>
-        <div class="verdict-card" data-noswipe></div>
+        <div class="verdict-card"></div>
       </div>
     </section>
 
@@ -230,12 +230,12 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=68"></script>
-  <script src="assets/js/refs.js?v=68"></script>
-  <script src="assets/js/core.js?v=68"></script>
-  <script src="assets/js/charts.js?v=68"></script>
-  <script src="assets/js/scenes.js?v=68"></script>
-  <script src="assets/js/story.js?v=68"></script>
+  <script src="assets/js/mosaic.js?v=70"></script>
+  <script src="assets/js/refs.js?v=70"></script>
+  <script src="assets/js/core.js?v=70"></script>
+  <script src="assets/js/charts.js?v=70"></script>
+  <script src="assets/js/scenes.js?v=70"></script>
+  <script src="assets/js/story.js?v=70"></script>
   <script>
     Story.run({
       charts() { Charts.range($('#c-range'), { lo: 27.5, hi: 70.2 }); },

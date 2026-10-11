@@ -18,19 +18,21 @@ const Scenes = (() => {
     right: (tl, el, t) => { tl.from(el, { autoAlpha: 0, x: 50, duration: 0.8, ease: 'power3.out' }, t); },
     pop: (tl, el, t) => { tl.from(el, { autoAlpha: 0, scale: 0.5, duration: 0.7, ease: 'back.out(1.7)' }, t); },
     zoom: (tl, el, t) => { tl.from(el, { autoAlpha: 0, scale: 1.15, duration: 1.1, ease: 'power3.out' }, t); },
+    // Staggered groups use explicit end values: a from() stagger reached from the previous stop
+    // could record "hidden" as the resting state for its later items, leaving them invisible.
     each(tl, el, t) {
       const kids = [...el.children];
-      tl.from(kids, { autoAlpha: 0, y: 30, duration: 0.65, stagger: 0.1, ease: 'power3.out' }, t);
+      tl.fromTo(kids, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.1, ease: 'power3.out' }, t);
       return kids.length * 0.1;
     },
     'each-pop'(tl, el, t) {
       const kids = [...el.children];
-      tl.from(kids, { autoAlpha: 0, scale: 0.4, duration: 0.7, stagger: 0.09, ease: 'back.out(1.6)' }, t);
+      tl.fromTo(kids, { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.7, stagger: 0.09, ease: 'back.out(1.6)' }, t);
       return kids.length * 0.09;
     },
     'each-left'(tl, el, t) {
       const kids = [...el.children];
-      tl.from(kids, { autoAlpha: 0, x: -40, duration: 0.65, stagger: 0.1, ease: 'power3.out' }, t);
+      tl.fromTo(kids, { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.65, stagger: 0.1, ease: 'power3.out' }, t);
       return kids.length * 0.1;
     },
     count(tl, el, t) {
