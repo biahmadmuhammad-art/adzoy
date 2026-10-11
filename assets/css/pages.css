@@ -461,3 +461,23 @@ h1.title { font-size: calc(var(--u) * 6.6); font-weight: 700; letter-spacing: -.
 .gl-pk img { display: block; height: 100%; width: auto; filter: drop-shadow(0 26px 24px rgba(43, 23, 56, .32)); }
 .gl-packs .p1 { left: 17%; bottom: 17%; height: 60%; }
 .gl-packs .p3 { right: 13%; bottom: 11%; height: 50%; }
+
+/* ---------- Redrawn deck figures (Charts.plot / Charts.gbars) ---------- */
+.chart.fig .axes line { stroke: currentColor; opacity: .55; stroke-width: 1.5; }
+.chart.fig .tick { font-size: 18px; opacity: .75; }
+.chart.fig .axis-title { font-size: 19px; letter-spacing: 0; opacity: .9; }
+.chart.fig .ln { stroke: var(--c2); stroke-width: 2.6; }
+.chart.fig .ln.dash { stroke-dasharray: 7 5; }
+.chart.fig .pt { fill: var(--c); stroke: #fff; stroke-width: 1.2; }
+.chart.fig .pt .open { fill: #fff; stroke: var(--c); stroke-width: 2; }
+.chart.fig .ref { opacity: .5; stroke-dasharray: 6 6; }
+.chart.fig .ref-label { font-size: 22px; opacity: .9; }
+.chart.fig .sig { font-size: 21px; font-weight: 700; fill: currentColor; }
+.chart.fig .lbox { fill: rgba(255, 255, 255, .7); stroke: currentColor; stroke-opacity: .5; }
+.chart.fig .lg { font-size: 17px; fill: currentColor; }
+.chart.gbar .grid { opacity: .14; }
+.chart.gbar .base { stroke: currentColor; opacity: .35; }
+.chart.gbar .tick, .chart.gbar .cat { font-size: 17px; fill: currentColor; opacity: .7; }
+.chart.gbar .lg { font-size: 18px; fill: currentColor; opacity: .85; }
+.chart.gbar .bar { fill: #2B77D4; }
+.chart.gbar .axis-title { font-size: 16px; letter-spacing: 0; font-weight: 500; }

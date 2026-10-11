@@ -6,10 +6,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Sara, 22 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%231780CA%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=70">
-  <link rel="stylesheet" href="assets/css/pages.css?v=70">
-  <link rel="stylesheet" href="assets/css/story.css?v=70">
-  <link rel="stylesheet" href="assets/css/diary.css?v=70">
+  <link rel="stylesheet" href="assets/css/main.css?v=73">
+  <link rel="stylesheet" href="assets/css/pages.css?v=73">
+  <link rel="stylesheet" href="assets/css/story.css?v=73">
+  <link rel="stylesheet" href="assets/css/diary.css?v=73">
 </head>
 <body class="chapter story diary w01" data-prev="majid.html" data-next="omar.html" data-next-label="Patient story: Omar">
   <canvas id="mosaic" aria-hidden="true"></canvas>
@@ -229,9 +229,9 @@
           </div>
         </div>
         <div class="card chart-card" data-a="up">
-          <p class="cap">Local tolerability: effects of adapalene/BPO 0.1% on skin tolerance variables (erythema, scaling, dryness and stinging/burning)</p>
+          <p class="cap">Local tolerability: effects of Adzoy™ (adapalene/BPO) 0.1% combination therapy on skin tolerance variables: erythema, scaling, dryness, and stinging/burning</p>
           <div id="c-tol" data-a="chart"></div>
-          <p class="foot">Scored none = 0, mild = 1, moderate = 2, severe = 3. Mean scores at each post-baseline visit; worst score is the highest severity recorded for a subject during the post-baseline period. Scaling and dryness follow the same low course; see the original figure.</p>
+          <p class="foot">Skin tolerability variables were assessed according to the following scoring scale: none = 0, mild = 1, moderate = 2, and severe = 3. Mean scores at each postbaseline visit and worst score (data with the highest severity recorded for a subject during the postbaseline period).</p>
           <button class="ghost sm" data-zoom="assets/img/content/study2-tolerability.png">Original figure</button>
         </div>
       </div>
@@ -310,36 +310,45 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=70"></script>
-  <script src="assets/js/refs.js?v=70"></script>
-  <script src="assets/js/core.js?v=70"></script>
-  <script src="assets/js/charts.js?v=70"></script>
-  <script src="assets/js/scenes.js?v=70"></script>
-  <script src="assets/js/story.js?v=70"></script>
+  <script src="assets/js/mosaic.js?v=73"></script>
+  <script src="assets/js/refs.js?v=73"></script>
+  <script src="assets/js/core.js?v=73"></script>
+  <script src="assets/js/charts.js?v=73"></script>
+  <script src="assets/js/scenes.js?v=73"></script>
+  <script src="assets/js/story.js?v=73"></script>
   <script>
     const FRAMES = 72;
     const seq = (p) => [...Array(FRAMES)].map((_, i) => `assets/story/sara/frames/${p}_${String(i + 1).padStart(3, '0')}.webp?v=2`);
     Story.run({
       charts() {
-        // Values traced from the published figure (deck slide 29); verify against the source before release.
-        Charts.line($('#c-week1'), {
-          label: 'Success rate over 12 weeks', x: [0, 1, 2, 4, 8, 12], xTicks: [0, 2, 4, 8, 12], xTitle: 'WEEK', yMax: 40, yStep: 10,
+        // Redrawn from the deck figure (slide 29); points traced from the published figure.
+        Charts.plot($('#c-week1'), {
+          label: 'Success rates over time', x: [0, 1, 2, 4, 8, 12], xMin: 0, xMax: 12, yMax: 40, extra: true,
+          yTicks: [0, 5, 10, 15, 20, 25, 30, 35, 40], yTitle: 'Participants, %', xTitle: 'Week',
+          xTicks: [{ v: 0, label: '0\n(Baseline)' }, { v: 2, label: 2 }, { v: 4, label: 4 }, { v: 6, label: 6 }, { v: 8, label: 8 },
+            { v: 10, label: 10 }, { v: 12, label: 12 }, { v: 'extra', label: 'End Point' }],
+          legend: { x: 104, y: 14, w: 250, box: true },
           series: [
-            { name: 'Vehicle', color: '#B9AFC2', values: [0, 0, 1.7, 3.0, 5.4, 13.2], nudge: 6 },
-            { name: 'Adapalene', color: '#86B7DA', values: [0, 1.0, 1.5, 3.2, 10.3, 21.6], nudge: 10 },
-            { name: 'BPO', color: '#B58AC9', values: [0, 0.1, 2.1, 4.7, 11.2, 24.4], nudge: -12 },
-            { name: 'Adapalene/BPO', color: 'var(--accent)', values: [0, 1.1, 1.2, 7.3, 15.6, 34.8], hero: true },
+            { name: 'Adapalene-BPO', marker: 'circle', color: '#2E4A8E', line: '#2B8FD6', dash: true, values: [0, 1.1, 1.2, 7.3, 15.6, 34.8], extra: 30.1 },
+            { name: 'Adapalene', marker: 'square', color: '#2BA0DA', values: [0, 1.0, 1.5, 3.2, 10.3, 21.6], extra: 19.9 },
+            { name: 'BPO', marker: 'triangle', color: '#4E2C72', values: [0, 0.1, 2.1, 4.7, 11.2, 24.4], extra: 22.5 },
+            { name: 'Vehicle', marker: 'open', color: '#9B9B9B', values: [0, 0, 1.7, 3.0, 5.4, 13.2], extra: 11.3 },
           ],
-          marks: [{ x: 1, y: 1.1, text: 'Week 1' }],
+          notes: [{ x: 1, y: 1.1, text: '†', dy: -16 }, { x: 4, y: 7.3, text: '*‡', dy: -16 }, { x: 8, y: 15.6, text: '*‡', dy: -16 },
+            { x: 12, y: 34.8, text: '*†‡', dy: -16 }, { x: 'extra', y: 30.1, text: '*†‡', dx: 14, dy: 7, anchor: 'start' }],
         });
-        // Values traced from the published figure (deck slide 27); verify against the source before release.
-        Charts.line($('#c-tol'), {
-          label: 'Local tolerability over 12 months', x: [0, 0.3, 0.55, 1, 2, 4, 6, 8, 10, 12], xTicks: [0, 2, 4, 6, 8, 10, 12],
-          xLabel: (v) => (v === 0 ? '0' : v), xTitle: 'MONTH', yMax: 2, yStep: 1, yFmt: (v) => v.toFixed(1),
-          ref: { y: 1, label: 'Mild' },
+        // Redrawn from the deck figure (slide 27); points traced from the published figure.
+        Charts.plot($('#c-tol'), {
+          label: 'Local tolerability over 12 months', x: [0, 0.25, 0.5, 1, 2, 4, 6, 8, 10, 12], xMin: 0, xMax: 12, yMax: 2, extra: true,
+          yTicks: [0, 1, 2], yFmt: (v) => v.toFixed(1), yTitle: 'Mean score', r: 5.5,
+          xTicks: [{ v: 2, label: 'Month 2' }, { v: 4, label: 4 }, { v: 6, label: 6 }, { v: 8, label: 8 }, { v: 10, label: 10 },
+            { v: 12, label: 12 }, { v: 'extra', label: 'Worst' }],
+          ref: { y: 1, label: 'Mild', x: 2.6 }, legend: { x: 400, y: 192 },
           series: [
-            { name: 'Stinging/burning', color: '#B58AC9', values: [0.08, 0.73, 0.32, 0.30, 0.21, 0.10, 0.10, 0.10, 0.10, 0.10], dec: 1, suffix: '', nudge: 12 },
-            { name: 'Erythema', color: 'var(--accent)', values: [0.30, 0.50, 0.43, 0.40, 0.30, 0.21, 0.21, 0.21, 0.21, null], hero: true, dec: 1, suffix: '' },
+            { name: 'Erythema', marker: 'diamond', color: '#3E77B6', values: [0.30, 0.48, 0.42, 0.42, 0.30, 0.21, 0.21, 0.21, 0.21, null], extra: 0.84 },
+            { name: 'Scaling', marker: 'square', color: '#BBD3EC', values: [0.08, 0.45, 0.38, 0.40, 0.29, 0.20, 0.20, 0.20, 0.20, null] },
+            { name: 'Dryness', marker: 'circle', color: '#C9C9C9', values: [0.05, 0.40, 0.35, 0.33, 0.21, 0.10, 0.10, 0.21, 0.21, 0.10] },
+            { name: 'Stinging/Burning', marker: 'circle', color: '#A5A5A5', values: [0.06, 0.73, 0.32, 0.30, 0.21, 0.10, 0.10, 0.10, 0.10, 0.10], extra: 1.0 },
           ],
         });
       },

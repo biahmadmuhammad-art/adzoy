@@ -454,3 +454,9 @@ html.dock-min:not(.dock-open) .dk.on::after { content: ''; width: .45em; height:
 html.dock-min .dock { left: auto; right: calc(var(--u) * 14); transform: none; }
 /* Reference numbers on the home page (pages.css, which styles them elsewhere, isn't loaded here) */
 .home sup[data-ref] { color: var(--accent, #A33B9E); font-weight: 800; cursor: pointer; padding: 0 .15em; font-size: max(.42em, calc(var(--u) * 1.15)); letter-spacing: .02em; }
+/* Chapter number on the home "Meet your patients" section, in the same pill as the chapter pages */
+.pat-text .chap-pill {
+  justify-self: start; display: inline-flex; align-items: center; gap: .6em; padding: .45em 1em; border-radius: 99px;
+  background: rgba(255, 255, 255, .7); font-size: calc(var(--u) * 1.25); color: #7B3F98;
+}
+.pat-text .chap-pill b { color: #A3238F; }
