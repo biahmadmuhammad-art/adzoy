@@ -15,7 +15,7 @@ const CHAPTERS = [
   { key: 'qol', href: 'quality-of-life.html', n: '03', title: 'Impact on Quality of Life', short: 'Quality of life', icon: 'mirror', img: 'assets/img/menu/quality-of-life.jpg?v=2' },
   { key: 'guidelines', href: 'guidelines.html', n: '04', title: 'Guidelines & Treatment', short: 'Guidelines', icon: 'clipboard', img: 'assets/img/menu/treatment.jpg?v=2' },
   { key: 'dual', href: 'dual-action.html', n: '05', title: 'Dual-Action Formula', short: 'Dual action', icon: 'cube', img: 'assets/img/menu/dual-action.jpg?v=2' },
-  { key: 'patients', href: 'index.html#patients', n: '06', title: 'Patient Profiles & Studies', short: 'Patients', icon: 'people', img: 'assets/img/menu/patients.jpg' },
+  { key: 'patients', href: 'index.html#patients', n: '06', title: 'Patient Profiles & Clinical Studies', short: 'Patients', icon: 'people', img: 'assets/img/menu/patients.jpg' },
   { key: 'howto', href: 'how-to-use.html', n: '07', title: 'How to Use Adzoy™ Gel', short: 'How to use', icon: 'tube', img: 'assets/img/menu/how-to-use.jpg?v=2' },
   { key: 'why', href: 'why-adzoy.html', n: '08', title: 'Why Adzoy™ Gel?', short: 'Why Adzoy', icon: 'shield', img: 'assets/img/menu/why.jpg' },
 ];

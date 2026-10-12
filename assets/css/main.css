@@ -438,11 +438,15 @@ h2 { font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
   transition: background .35s, color .35s, transform .25s;
 }
 .dk svg { width: calc(var(--u) * 2.1); height: calc(var(--u) * 2.1); flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
-.dk span { display: none; }
+/* Every chapter shows its name beside the icon */
+.dock { gap: calc(var(--u) * .15); }
+.dk { gap: .35em; padding: 0 calc(var(--u) * .72) 0 calc(var(--u) * .6); font-size: calc(var(--u) * .98); letter-spacing: -.01em; }
+.dk svg { width: calc(var(--u) * 1.7); height: calc(var(--u) * 1.7); }
+.dk span { display: inline; opacity: .85; }
 .dk:active { transform: scale(.92); }
-.dk.on { background: var(--hdr); color: var(--hdr-ink); padding: 0 calc(var(--u) * 1.5) 0 calc(var(--u) * 1.2); box-shadow: 0 8px 18px -8px rgba(43, 23, 56, .7); }
-.dk.on svg { opacity: 1; }
-.dk.on span { display: inline; }
+/* Active chapter: brand gradient pill, so it reads apart from the bar on light and dark scenes */
+.dk.on { background: linear-gradient(135deg, #C2389F 0%, #A3238F 45%, #7B3F98 100%); color: #fff; box-shadow: 0 8px 18px -8px rgba(163, 35, 143, .85), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.dk.on svg, .dk.on span { opacity: 1; }
 @media (hover: hover) { .dk:not(.on):hover { background: rgba(255, 255, 255, .45); } }
 
 /* Shrunk dock: only the current chapter, with a small chevron; opens on tap */
