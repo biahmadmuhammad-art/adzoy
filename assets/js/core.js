@@ -376,20 +376,74 @@ const Menu = {
 };
 
 /* ---------- Side panel: prescribing information, references, study designs ---------- */
+// Taken from the approved package leaflets: 0.1%/2.5% version 02 (02/2024), 0.3%/2.5% version 01 (08/2021).
 const PI_HTML = `
   <p class="eyebrow">Adzoy™ Gel 0.1%/2.5% · 0.3%/2.5%</p>
   <h3>Abbreviated Prescribing Information</h3>
-  <div class="placeholder">
-    <p><b>Placeholder.</b> This panel will carry the summary of the SFDA-approved SPC for Adzoy™. Fields still needed:</p>
+  <div class="pi-doc">
+    <h4>Composition</h4>
+    <table class="pi-two">
+      <tr><th></th><th>0.1% / 2.5%</th><th>0.3% / 2.5%</th></tr>
+      <tr><th>Each gram of gel contains</th><td>1 mg (0.1%) adapalene and 25 mg (2.5%) benzoyl peroxide</td><td>3 mg (0.3%) adapalene and 25 mg (2.5%) benzoyl peroxide</td></tr>
+    </table>
+    <p>Other ingredients: glycerol, propylene glycol, edetate disodium (EDTA), docusate sodium, poloxamer 124, Sepineo P600 and purified water. Contains propylene glycol, which may cause local skin irritation (e.g. contact dermatitis).</p>
+
+    <h4>Indication</h4>
+    <p>Treatment of acne. Adzoy™ 0.3%/2.5% gel is used for acne vulgaris when comedones (blackheads, whiteheads), numerous papules and pustules (inflammatory pimples) are present.</p>
+
+    <h4>Posology and method of administration</h4>
+    <table class="pi-two">
+      <tr><th></th><th>0.1% / 2.5%</th><th>0.3% / 2.5%</th></tr>
+      <tr><th>Patients</th><td>Adults and adolescents aged 9 years and above</td><td>Adults and adolescents aged 12 years and over; not for children below 12 years</td></tr>
+    </table>
+    <p>For external use only. Apply a thin film of gel evenly over acne-affected areas once a day at bedtime, on clean, dry skin, avoiding the eyes, lips and nostrils. Wash hands thoroughly after application.</p>
+    <p>0.3%/2.5% gel: apply over the entire acne-affected areas of the face and / or the trunk, avoiding the mucous membranes; on the face, use a pea-sized amount for each part (e.g. forehead, chin, each cheek). Cosmetics may be used after the applied gel has dried, not before.</p>
+    <p>The doctor decides the strength and the duration of treatment. With the 0.3%/2.5% gel, if there is no improvement after 4–8 weeks, the benefit of continuing treatment should be discussed. If persistent irritation occurs, the patient may be asked to apply a moisturiser, to use the gel less often, to stop for a short time or to stop using the gel. Do not apply a double dose to make up for a forgotten one.</p>
+
+    <h4>Contraindications</h4>
     <ul>
-      <li>Composition and indication</li>
-      <li>Posology and method of administration</li>
-      <li>Contraindications, including pregnancy</li>
-      <li>Special warnings: sun exposure, eyes and mucous membranes, bleaching of hair and fabrics</li>
-      <li>Undesirable effects</li>
-      <li>Registration number, marketing authorisation holder (Jamjoom Pharma), address</li>
-      <li>Pharmacovigilance contact</li>
+      <li>Pregnancy, or planning a pregnancy</li>
+      <li>Hypersensitivity to adapalene, benzoyl peroxide or any of the other ingredients</li>
     </ul>
+
+    <h4>Warnings and precautions</h4>
+    <ul>
+      <li>Do not apply to cuts, scrapes or eczema (0.3%/2.5% gel: or sunburn).</li>
+      <li>Avoid the eyes, mouth, nostrils, mucous membranes and other very sensitive areas; if contact occurs, wash immediately with plenty of warm water.</li>
+      <li>Avoid excessive exposure to sunlight and UV lamps.</li>
+      <li>May bleach hair and coloured fabrics; wash hands thoroughly after use.</li>
+      <li>Do not use other acne products containing benzoyl peroxide and / or retinoids at the same time; avoid cosmetics that are irritant, drying or exfoliating.</li>
+    </ul>
+
+    <h4>Pregnancy and breast-feeding</h4>
+    <p>Do not use during pregnancy or when planning a pregnancy. If pregnancy occurs during treatment, treatment must be discontinued and the doctor informed as soon as possible for follow-up.</p>
+    <table class="pi-two">
+      <tr><th></th><th>0.1% / 2.5%</th><th>0.3% / 2.5%</th></tr>
+      <tr><th>Breast-feeding</th><td>Can be used during breast-feeding. Avoid application to the chest, to avoid contact exposure of the infant.</td><td>The doctor decides whether to discontinue breast-feeding or to abstain from treatment. If treatment continues, avoid application to the chest.</td></tr>
+    </table>
+
+    <h4>Undesirable effects</h4>
+    <p>Stop treatment and seek immediate medical attention in case of throat tightness, swelling of the eyes, face, lips or tongue, feeling faint or difficulty breathing. Stop treatment in case of hives or itching of the face or body (frequency not known).</p>
+    <table class="pi-two">
+      <tr><th></th><th>0.1% / 2.5%</th><th>0.3% / 2.5%</th></tr>
+      <tr><th>Common<br><small>up to 1 in 10</small></th><td>Dry skin, local skin rash (irritative contact dermatitis), burning sensation, irritation of the skin, redness, scaling</td><td>Irritation of the skin, eczema, skin burning sensation</td></tr>
+      <tr><th>Uncommon<br><small>up to 1 in 100</small></th><td>Itching of the skin (pruritus), sunburn</td><td>Redness of the eyelid, tingling or pins and needles at the application site, itching of the skin, allergic skin reaction, rash, dry skin</td></tr>
+    </table>
+    <p>Not known: swelling of the face, allergic contact reactions, swelling of the eyelid, tightness in the throat, pain of skin (stinging pain), blisters (vesicles), difficulty in breathing, skin discolouration, application site burn. Application site burns are mostly superficial, but more severe cases involving blistering have been reported.</p>
+    <p>0.1%/2.5% gel: skin irritation is generally mild to moderate, with local signs such as redness, dryness, scaling, burning and pain of skin (stinging pain), which peak during the first week and resolve without additional treatment.</p>
+    <p>0.3%/2.5% gel: approximately 1 in 10 people may experience adverse skin reactions, typically mild to moderate application site reactions (skin irritation with redness, dryness, scaling, stinging and / or burning). They usually occur early in treatment, tend to gradually lessen over time, and are more frequent than with the 0.1%/2.5% gel.</p>
+
+    <h4>Storage and pack</h4>
+    <p>Do not store above 30 °C. Keep out of the sight and reach of children. Discard the tube 6 months after first opening. Plastic tubes of 30 g and 60 g; not all packs may be marketed.</p>
+
+    <h4>Marketing authorisation holder and manufacturer</h4>
+    <p>Jamjoom Pharmaceuticals Factory Co., Jeddah, Makkah Region, Saudi Arabia · Tel: +966-12-6081111 · Fax: +966-12-6081222 · www.jamjoompharma.com</p>
+
+    <h4>To report any side effect(s)</h4>
+    <p>Saudi Arabia: The National Pharmacovigilance and Drug Safety Centre (NPC) · Fax: +966-11-205-7662 · Call NPC at +966-11-2038222, Ext: 2317-2356-2340 · Reporting hotline: 19999 · E-mail: npc.drug@sfda.gov.sa · Website: www.sfda.gov.sa/npc</p>
+    <p>Other GCC States: please contact the relevant competent authority.</p>
+
+    <p class="pi-src">Based on the Adzoy™ package leaflets: 0.1%/2.5% gel, version 02 (02/2024); 0.3%/2.5% gel, version 01 (08/2021).</p>
   </div>`;
 
 function refsHTML(highlight = []) {

@@ -6,8 +6,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Guidelines &amp; Treatment · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%23A33B9E%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=76">
-  <link rel="stylesheet" href="assets/css/pages.css?v=76">
+  <link rel="stylesheet" href="assets/css/main.css?v=78">
+  <link rel="stylesheet" href="assets/css/pages.css?v=78">
 </head>
 <body class="chapter" data-prev="quality-of-life.html" data-next="dual-action.html" data-next-label="Dual-action formula">
   <canvas id="mosaic" aria-hidden="true"></canvas>
@@ -145,16 +145,16 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=76"></script>
-  <script src="assets/js/refs.js?v=76"></script>
-  <script src="assets/js/core.js?v=76"></script>
-  <script src="assets/js/charts.js?v=76"></script>
-  <script src="assets/js/scenes.js?v=76"></script>
-  <script src="assets/js/aad.js?v=76"></script>
+  <script src="assets/js/mosaic.js?v=78"></script>
+  <script src="assets/js/refs.js?v=78"></script>
+  <script src="assets/js/core.js?v=78"></script>
+  <script src="assets/js/charts.js?v=78"></script>
+  <script src="assets/js/scenes.js?v=78"></script>
+  <script src="assets/js/aad.js?v=78"></script>
   <script>
     // The three goals light up in order, again and again, to show the sequence.
     gsap.timeline({ repeat: -1, repeatDelay: 1.2, delay: 2 })
-      .to('.goal .gi', { scale: 1.1, duration: 0.35, stagger: 0.55, yoyo: true, repeat: 1, ease: 'power2.out' });
+      .to('.goal i', { scale: 1.1, duration: 0.35, stagger: 0.55, yoyo: true, repeat: 1, ease: 'power2.out' });
     gsap.to('.gl-packs .p1 img', { y: -12, rotation: -1.5, duration: 2.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
     gsap.to('.gl-packs .p3 img', { y: -16, rotation: 1.5, duration: 3.1, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.4 });
     Scenes.run({

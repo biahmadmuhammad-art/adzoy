@@ -376,6 +376,19 @@ h2 { font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
 .placeholder { border: 1.5px dashed rgba(43, 23, 56, .3); border-radius: 14px; padding: 1.2em 1.4em; font-size: calc(var(--u) * 1.6); line-height: 1.55; }
 .placeholder ul { margin: .6em 0 0 1.2em; }
 .design { font-size: calc(var(--u) * 1.75); line-height: 1.6; }
+/* Abbreviated prescribing information (from the approved package leaflets) */
+.pi-doc { font-size: calc(var(--u) * 1.45); line-height: 1.5; }
+.pi-doc h4 { margin: 1.3em 0 .4em; font-size: calc(var(--u) * 1.25); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.pi-doc h4:first-child { margin-top: 0; }
+.pi-doc p + p { margin-top: .5em; }
+.pi-doc ul { margin-left: 1.15em; display: grid; gap: .25em; }
+.pi-two { width: 100%; border-collapse: collapse; margin: .5em 0; }
+.pi-two th, .pi-two td { text-align: left; vertical-align: top; padding: .45em .55em; border-bottom: 1px solid rgba(43, 23, 56, .12); }
+.pi-two tr:first-child th { font-size: .85em; color: var(--accent); white-space: nowrap; }
+.pi-two td { width: 38%; }
+.pi-two tr + tr th { font-weight: 700; font-size: .9em; }
+.pi-two small { font-weight: 500; opacity: .7; }
+.pi-doc .pi-src { margin-top: 1.4em; font-size: .85em; opacity: .65; font-style: italic; }
 .refs { list-style: none; display: grid; gap: .5em; font-size: calc(var(--u) * 1.3); }
 .refs li { display: grid; grid-template-columns: 2.4em 1fr; gap: .4em; padding: .55em .7em; border-radius: 10px; transition: background .4s; }
 .refs li.hl { background: rgba(163, 35, 143, .12); }
