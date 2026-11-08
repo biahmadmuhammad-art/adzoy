@@ -1,6 +1,19 @@
 /* Adzoy e-detailer core — shared by every page:
    page chrome (header, menu, pager, PI badge, panels), glossy icons, hexagon logo,
    stop-based navigation, triangle page wipe. */
+const ENTRY_ROUTE = (location.pathname.split('/').pop() || 'index.html') + location.hash;
+const MOVED_ROUTES = {
+  'index.html#patients': 'patients.html',
+  'quality-of-life.html#needs': 'unmet-needs.html',
+  'guidelines.html#goals': 'treatment-goals.html',
+  'guidelines.html#practice': 'guidelines.html#aad',
+  'majid.html#design': 'majid.html#study',
+  'sara.html#design-2': 'sara.html#study-2',
+  'sara.html#design-3': 'sara.html#study-3',
+  'omar.html#design': 'omar.html#results',
+};
+if (MOVED_ROUTES[ENTRY_ROUTE]) location.replace(MOVED_ROUTES[ENTRY_ROUTE]);
+
 gsap.registerPlugin(Observer, SplitText, CustomEase, DrawSVGPlugin);
 CustomEase.create('adz', '0.65,0,0.1,1');
 
@@ -11,13 +24,16 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 /* ---------- Chapters (menu, hub and "next chapter" links all read from here) ---------- */
 const CHAPTERS = [
   { key: 'prevalence', href: 'prevalence.html', n: '01', title: 'Acne Prevalence', short: 'Prevalence', icon: 'globe', img: 'assets/img/menu/prevalence.jpg?v=2' },
-  { key: 'pathophysiology', href: 'pathophysiology.html', n: '02', title: 'Pathophysiology', short: 'Pathophysiology', icon: 'follicle', img: 'assets/img/menu/follicle.jpg?v=2' },
-  { key: 'qol', href: 'quality-of-life.html', n: '03', title: 'Impact on Quality of Life', short: 'Quality of life', icon: 'mirror', img: 'assets/img/menu/quality-of-life.jpg?v=2' },
-  { key: 'guidelines', href: 'guidelines.html', n: '04', title: 'Guidelines & Treatment', short: 'Guidelines', icon: 'clipboard', img: 'assets/img/menu/treatment.jpg?v=2' },
-  { key: 'dual', href: 'dual-action.html', n: '05', title: 'Dual-Action Formula', short: 'Dual action', icon: 'cube', img: 'assets/img/menu/dual-action.jpg?v=2' },
-  { key: 'patients', href: 'index.html#patients', n: '06', title: 'Patient Profiles & Clinical Studies', short: 'Patients', icon: 'people', img: 'assets/img/menu/patients.jpg' },
-  { key: 'howto', href: 'how-to-use.html', n: '07', title: 'How to Use Adzoy™ Gel', short: 'How to use', icon: 'tube', img: 'assets/img/menu/how-to-use.jpg?v=2' },
-  { key: 'why', href: 'why-adzoy.html', n: '08', title: 'Why Adzoy™ Gel?', short: 'Why Adzoy', icon: 'shield', img: 'assets/img/menu/why.jpg' },
+  { key: 'qol', href: 'quality-of-life.html', n: '02', title: 'Impact on Life', short: 'Impact on life', icon: 'mirror', img: 'assets/img/menu/quality-of-life.jpg?v=2' },
+  { key: 'pathophysiology', href: 'pathophysiology.html', n: '03', title: 'Pathophysiology', short: 'Pathophysiology', icon: 'follicle', img: 'assets/img/menu/follicle.jpg?v=2' },
+  { key: 'dual', href: 'dual-action.html', n: '04', title: 'Adzoy Dual Action', short: 'Dual action', icon: 'cube', img: 'assets/img/menu/dual-action.jpg?v=2' },
+  { key: 'goals', href: 'treatment-goals.html', n: '05', title: 'Treatment Objectives', short: 'Goals', icon: 'target', img: 'assets/img/menu/treatment.jpg?v=2' },
+  { key: 'needs', href: 'unmet-needs.html', n: '06', title: 'Unmet Needs', short: 'Unmet needs', icon: 'layers', img: 'assets/img/menu/treatment.jpg?v=2' },
+  { key: 'guidelines', href: 'guidelines.html', n: '07', title: 'Treatment Guidelines', short: 'Guidelines', icon: 'clipboard', img: 'assets/img/menu/treatment.jpg?v=2' },
+  { key: 'patients', href: 'patients.html', n: '08', title: 'Patient Profiles & Clinical Studies', short: 'Patients', icon: 'people', img: 'assets/img/menu/patients.jpg' },
+  { key: 'howto', href: 'how-to-use.html', n: '09', title: 'How to Use Adzoy™ Gel', short: 'How to use', icon: 'tube', img: 'assets/img/menu/how-to-use.jpg?v=2' },
+  { key: 'why', href: 'why-adzoy.html', n: '10', title: 'Why Adzoy™ Gel?', short: 'Why Adzoy', icon: 'shield', img: 'assets/img/menu/why.jpg' },
+  { key: 'references', href: 'references.html', n: '11', title: 'References', short: 'References', icon: 'book', img: 'assets/img/menu/treatment.jpg?v=2' },
 ];
 
 /* Pages outside the chapter list, mapped to the chapter they belong to (for the dock). */
@@ -128,7 +144,7 @@ function chromeHTML() {
   <div class="veil" aria-hidden="true"></div>
   <header class="hdr">
     <a class="brand" href="index.html" data-href="index.html" aria-label="Adzoy home"><span class="wm-sm">Adz<i data-hex></i>y<sup>™</sup></span></a>
-    <button class="menu-btn" aria-label="Open menu"><span>Menu</span><b>+</b></button>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span>Menu</span><b>+</b></button>
   </header>
   <nav class="dock" aria-label="Chapters" data-page="${cur || ''}">${dock}</nav>
   <nav class="pager" aria-label="Sections">
@@ -154,8 +170,8 @@ function chromeHTML() {
       <nav class="menu-list"><ol>${items}</ol></nav>
       <div class="menu-foot">
         <a href="index.html" data-href="index.html">Home</a>
-        <a href="strength-01.html" data-href="strength-01.html">Adzoy™ 0.1%</a>
-        <a href="strength-03.html" data-href="strength-03.html">Adzoy™ 0.3%</a>
+        <a href="dual-action.html#strength" data-href="dual-action.html#strength">Adzoy™ 0.1%</a>
+        <a href="dual-action.html#strength" data-href="dual-action.html#strength">Adzoy™ 0.3%</a>
         <a href="#" data-panel="refs">References</a>
         <a href="#" data-panel="pi">Prescribing information</a>
       </div>
@@ -163,7 +179,7 @@ function chromeHTML() {
   </div>
   <div class="panel" aria-hidden="true">
     <div class="panel-dim"></div>
-    <aside class="panel-card"><button class="panel-close" aria-label="Close">×</button><div class="panel-body"></div></aside>
+    <aside class="panel-card" role="dialog" aria-modal="true" aria-label="Details" tabindex="-1"><button class="panel-close" aria-label="Close">×</button><div class="panel-body"></div></aside>
   </div>
   <div class="lightbox" aria-hidden="true"><img alt=""><button class="panel-close" aria-label="Close">×</button></div>
   <div class="wipe" aria-hidden="true"></div>
@@ -188,7 +204,7 @@ const Wipe = {
   build(covered) {
     this.el = $('.wipe');
     const W = innerWidth, H = innerHeight, s = Math.max(W, H) / 8, h = s * 0.866;
-    const colors = ['#2B1738', '#351D46', '#3E2253', '#2F1A3D', '#462660'];
+    const colors = ['#F8F7F5', '#F2F0ED', '#EEEAE6', '#FAF9F7', '#F4F1ED'];
     let d = '', i = 0;
     for (let r = -1; r * h < H + h; r++) {
       for (let c = -1; c * s < W + s; c++) {
@@ -229,6 +245,8 @@ const Stops = {
   init(tl, names, { playIn = false } = {}) {
     this.tl = tl; this.names = names;
     // "#end" opens the page on its last stop (arriving backwards from the next page).
+    const entryHash = MOVED_ROUTES[ENTRY_ROUTE]?.split('#')[1];
+    if (entryHash) history.replaceState(null, '', '#' + entryHash);
     const start = location.hash === '#end' ? names.length - 1 : Math.max(0, names.indexOf(location.hash.slice(1)));
     this.cur = start;
     if (playIn && start === 0) {
@@ -331,6 +349,9 @@ const Menu = {
     Stops.pause(true);
     const [x, y] = this.origin(), R = Math.hypot(innerWidth, innerHeight);
     document.body.classList.add('menu-open');
+    $('.menu').setAttribute('aria-hidden', 'false');
+    $('.menu-btn').setAttribute('aria-expanded', 'true');
+    $('.menu-btn').setAttribute('aria-label', 'Close menu');
     $('.menu-btn span').textContent = 'Close';
     gsap.set('.menu', { autoAlpha: 1 });
     gsap.fromTo('.menu-bg', { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${R}px at ${x}px ${y}px)`, duration: 0.8, ease: 'power3.inOut' });
@@ -343,6 +364,9 @@ const Menu = {
     const [x, y] = this.origin();
     $('.menu-btn span').textContent = 'Menu';
     document.body.classList.remove('menu-open');
+    $('.menu').setAttribute('aria-hidden', 'true');
+    $('.menu-btn').setAttribute('aria-expanded', 'false');
+    $('.menu-btn').setAttribute('aria-label', 'Open menu');
     gsap.to('.menu-list .t', { yPercent: -115, duration: 0.35, stagger: 0.02, ease: 'power2.in' });
     gsap.to('.menu-bg', {
       clipPath: `circle(0px at ${x}px ${y}px)`, duration: 0.6, delay: 0.2, ease: 'power3.inOut',
@@ -459,26 +483,33 @@ const Panel = {
   open: false,
   show(html) {
     $('.panel-body').innerHTML = html;
+    this.returnFocus = document.activeElement;
     this.open = true; Stops.pause(true);
+    $('.panel').setAttribute('aria-hidden', 'false');
     $('.panel-card').scrollTop = 0;
     gsap.set('.panel', { autoAlpha: 1 });
     gsap.fromTo('.panel-card', { xPercent: 105 }, { xPercent: 0, duration: 0.7, ease: 'power3.out' });
     gsap.fromTo('.panel-dim', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 });
+    mount($('.panel-body'));
+    $('.panel-card').focus();
     const hl = $('.panel-body .hl');
     hl && setTimeout(() => hl.scrollIntoView({ block: 'center', behavior: 'smooth' }), 450);
   },
   hide() {
     this.open = false;
+    $('.panel').setAttribute('aria-hidden', 'true');
+    this.returnFocus?.focus();
     gsap.to('.panel-card', { xPercent: 105, duration: 0.5, ease: 'power3.in' });
     gsap.to('.panel-dim', { autoAlpha: 0, duration: 0.4, delay: 0.1, onComplete: () => { gsap.set('.panel', { autoAlpha: 0 }); Stops.pause(false); } });
   },
   init() {
     document.addEventListener('click', (e) => {
-      const p = e.target.closest('[data-panel]'), sup = e.target.closest('[data-ref]'), d = e.target.closest('[data-design]');
-      if (!p && !sup && !d) return;
+      const p = e.target.closest('[data-panel]'), sup = e.target.closest('[data-ref]'), d = e.target.closest('[data-design]'), detail = e.target.closest('[data-detail]');
+      if (!p && !sup && !d && !detail) return;
       e.preventDefault();
       const open = (html) => (Menu.open ? Menu.hide(() => this.show(html)) : this.show(html));
       if (sup) open(refsHTML(sup.dataset.ref.split(',').map((n) => +n)));
+      else if (detail) open(document.getElementById(detail.dataset.detail).innerHTML);
       else if (d) open(`<p class="eyebrow">${d.dataset.title || 'Clinical study'}</p><h3>Study design</h3><p class="design">${DESIGNS[d.dataset.design]}</p>`);
       else if (p.dataset.panel === 'refs') open(refsHTML());
       else open(PI_HTML);
@@ -518,6 +549,7 @@ function wireLinks() {
     if (!a) return;
     e.preventDefault();
     const x = e.clientX || innerWidth / 2, y = e.clientY || innerHeight / 2;
+    if (a.dataset.stop && a.tagName === 'SECTION') return;
     if (a.dataset.stop) {
       const go = () => Stops.go(Stops.names.indexOf(a.dataset.stop), true);
       Menu.open ? Menu.hide(go) : go();

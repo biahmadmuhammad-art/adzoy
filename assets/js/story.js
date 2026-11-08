@@ -219,60 +219,6 @@ const Story = (() => {
   }
 
   function run(cfg) {
-    const seq = sequence($('.seq'), cfg.frames);
-    const n = seq.count - 1, W = cfg.weeks;
-    const st = { f: 0 };
-    const count = $('.rail-count'), wrap = $('.seq-wrap');
-    const tick = ruler(W[2] * 7);
-    const setCount = (days) => {
-      if (!count) return;
-      days = Math.round(days);
-      count.querySelector('b').textContent = days ? days : '';
-      count.querySelector('span').textContent = days ? (days === 1 ? 'day to graduation' : 'days to graduation') : 'Graduation day';
-    };
-    const render = () => {
-      seq.draw(st.f);
-      const p = st.f / n;
-      // Two videos of equal length: first half runs W0→W1, second half W1→W2.
-      const week = p <= 0.5 ? W[0] + (W[1] - W[0]) * (p / 0.5) : W[1] + (W[2] - W[1]) * ((p - 0.5) / 0.5);
-      $('.rail-week span').textContent = Math.round(week);
-      wrap.style.setProperty('--p', p);
-      // Real time on the day ruler: Week 1 sits near the start, as it does in the calendar.
-      wrap.style.setProperty('--t', week / W[2]);
-      tick(week * 7);
-      // Countdown to the patient's event (Sara: graduation at the last week).
-      setCount((W[2] - week) * 7);
-    };
-    // Outside the timeline, a scene can set the countdown itself (data-days).
-    const cd = { v: W[2] * 7 };
-    document.addEventListener('stop', (e) => {
-      const sc = e.detail.scene;
-      if (!count || !sc) return;
-      // The countdown stays on the story beats and steps aside for the evidence slides.
-      count.classList.toggle('off', sc.dataset.days == null && !sc.classList.contains('s-week'));
-      if (sc.dataset.days == null) return;
-      gsap.to(cd, { v: +sc.dataset.days, duration: 0.8, ease: 'power2.out', onUpdate: () => setCount(cd.v) });
-    });
-    // Stops sit evenly on the rail (the weeks are not evenly spaced).
-    $$('.rail-dot').forEach((d, i) => d.style.setProperty('--p', i / (W.length - 1)));
-    const wk = W.map((w) => `week-${w}`);
-    const hist = history();
-    const histStop = hist && $('.hist').closest('.scene').dataset.stop;
-    if (hist) {
-      // On the history scene a scroll moves to the next or previous step first,
-      // and only leaves the scene from its first or last step.
-      const go = Stops.go.bind(Stops);
-      let lock = 0;
-      Stops.go = (i, fast) => {
-        const d = i - Stops.cur;
-        if (Stops.names[Stops.cur] === histStop && !Stops.busy && Math.abs(d) === 1) {
-          if (performance.now() < lock) return;
-          if (hist.step(d)) { lock = performance.now() + 650; return; }
-        }
-        go(i, fast);
-      };
-    }
-
     const hooks = {
       [cfg.id](tl, t) {
         const chars = SplitText.create('.s-hook .voice .q', { type: 'chars,words' }).chars;
@@ -286,23 +232,11 @@ const Story = (() => {
           .from('.s-hook .voice', { autoAlpha: 0, duration: 0.3 }, t + 0.8)
           .from(chars, { autoAlpha: 0, duration: 0.01, stagger: 0.018 }, t + 0.9);
       },
-      [histStop || 'history'](tl, t) {
-        tl.from('.hist-frame', { autoAlpha: 0, scale: 0.9, duration: 0.8, ease: 'power3.out' }, t)
-          .call(() => hist && hist.play(), null, t + 1);
-      },
-      [wk[0]](tl, t) {
-        tl.fromTo('.seq-wrap', { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.9, ease: 'power3.out' }, t - 0.4)
-          .from('.rail', { autoAlpha: 0, y: 20, duration: 0.6 }, t);
-      },
-      [wk[1]](tl, t) { tl.to(st, { f: n / 2, duration: 2.2, ease: 'none', onUpdate: render }, t - 0.5); },
-      [wk[2]](tl, t) { tl.to(st, { f: n, duration: 2.2, ease: 'none', onUpdate: render }, t - 0.5); },
-      mirror(tl, t) { tl.to('.seq-wrap', { autoAlpha: 0, x: 60, duration: 0.5, ease: 'power2.in' }, t - 0.6); },
     };
     Object.entries(cfg.hooks || {}).forEach(([k, fn]) => {
       const base = hooks[k];
       hooks[k] = base ? (tl, t, sc) => { base(tl, t, sc); fn(tl, t, sc); } : fn;
     });
-    render();
     caseBar();
     hotspots(cfg.spots, cfg.zoomSrc);
     decision(cfg.decision);

@@ -73,7 +73,7 @@ const Scenes = (() => {
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
     scenes.forEach((sc, i) => {
       const t0 = tl.duration();
-      const dark = +(sc.dataset.dark || 0), veil = +(sc.dataset.veil ?? 1);
+      const dark = 0, veil = +(sc.dataset.veil ?? 1);
       if (i > 0) {
         const prev = scenes[i - 1];
         tl.to(top(prev), { autoAlpha: 0, y: -26, duration: 0.45, stagger: 0.03, ease: 'power2.in' }, t0)
