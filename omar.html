@@ -6,43 +6,49 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Omar, 35 · Patient story · Adzoy™ Gel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 87 100%22%3E%3Cpath fill=%22%23A33B9E%22 d=%22M43 0L87 25V75L43 100L0 75V25Z%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/main.css?v=78">
-  <link rel="stylesheet" href="assets/css/pages.css?v=78">
-  <link rel="stylesheet" href="assets/css/story.css?v=78">
-  <link rel="stylesheet" href="assets/css/case.css?v=78">
+  <link rel="stylesheet" href="assets/css/main.css?v=79">
+  <link rel="stylesheet" href="assets/css/pages.css?v=79">
+  <link rel="stylesheet" href="assets/css/story.css?v=79">
+  <link rel="stylesheet" href="assets/css/case.css?v=79">
+  <link rel="stylesheet" href="assets/css/amendments.css?v=79">
 </head>
 <body class="chapter story case w03" data-prev="sara.html" data-next="how-to-use.html" data-next-label="How to use">
   <canvas id="mosaic" aria-hidden="true"></canvas>
   <main class="stage">
 
-    <!-- 1 · Case file cover -->
-    <section class="scene s-hook s-casecover" data-stop="omar" data-veil=".35" data-step="case" data-step-label="Patient">
+    <section class="scene s-present s-exam" data-stop="presentation" data-step="exam" data-step-label="Examination">
       <div class="wrap">
         <div>
-          <p class="chap" data-a="up"><b>Patient profile 3</b> Illustrative</p>
-          <h1 class="title" data-a="rise">Omar, 35</h1>
-          <p class="sub" data-a="up">Working professional · Severe inflammatory acne · Concerned about isotretinoin</p>
-          <blockquote class="voice" data-a="none"><span class="q">“My acne is getting worse. I’ve heard about isotretinoin on social media, but I’m concerned about the dryness and eye irritation, especially since I already have dry eyes. I want an effective treatment that my doctor can monitor and that I can continue comfortably.”</span></blockquote>
+          <p class="eyebrow" data-a="up">Clinical Presentation</p>
+          <h2 data-a="rise">Omar, 35 — Clinical Presentation</h2>
+          <div class="facts-list" data-a="each">
+            <div><i data-icon="clipboard"></i><div><small>Diagnosis</small><b>Moderate-to-severe inflammatory acne vulgaris</b></div></div>
+            <div><i data-icon="face"></i><div><small>Lesions</small><b>Inflammatory papules, pustules and comedones</b></div></div>
+            <div><i data-icon="drop"></i><div><small>Relevant history</small><b>Dry skin and a history of dry eyes</b></div></div>
+          </div>
+          <div class="sevscale" data-a="up">
+            <small>Severity</small>
+            <ol><li>Clear</li><li>Almost clear</li><li>Mild</li><li class="hit">Moderate</li><li class="hit">Severe</li></ol>
+            <i class="sevscale-mark"></i>
+          </div>
+          <button class="ghost history-btn" data-detail="omar-history" aria-haspopup="dialog">Treatment history &amp; concerns ↗</button>
+          <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*1.6)">Tap the glowing points on Omar’s face.</p>
         </div>
-        <div class="idcard" data-a="none">
-          <span class="id-tab">Case file 03</span>
-          <div class="id-photo"><img src="assets/story/omar/week0.webp?v=4" alt="Omar, illustrative patient"></div>
-          <dl class="id-fields">
-            <div><dt>Age</dt><dd>35</dd></div>
-            <div><dt>Occupation</dt><dd>Working professional</dd></div>
-            <div><dt>Diagnosis</dt><dd>Severe inflammatory acne</dd></div>
-            <div><dt>Relevant history</dt><dd>Dry skin · history of dry eyes</dd></div>
-          </dl>
-          <span class="id-flag"><i data-icon="eye"></i>Concerned about isotretinoin</span>
+        <div class="face-frame" data-a="pop">
+          <img src="assets/story/omar/portrait-moderate.png" alt="Omar at week 0">
+          <button class="spot" style="--x:48;--y:27" data-k="forehead" aria-label="Forehead"></button>
+          <button class="spot" style="--x:37;--y:52" data-k="cheek" aria-label="Right cheek"></button>
+          <button class="spot" style="--x:64;--y:58" data-k="nodule" aria-label="Inflammatory lesions on the left cheek"></button>
+          <button class="spot" style="--x:42;--y:64" data-k="jaw" aria-label="Jawline"></button>
+          <div class="spot-card" aria-live="polite"></div>
         </div>
       </div>
     </section>
 
-    <!-- 2 · Social history -->
     <section class="scene s-file" data-stop="life" data-step="history" data-step-label="History">
       <div class="wrap">
         <div class="sheet" data-tab="Social history" data-a="left">
-          <p class="eyebrow">His story</p>
+          <p class="eyebrow">Psychological Impact</p>
           <h2>Two years of breakouts, out of every photo</h2>
           <p class="lead">Omar’s acne has become more noticeable over the past two years. Because of repeated inflammatory breakouts, he has started avoiding photos and social occasions.</p>
         </div>
@@ -53,62 +59,28 @@
       </div>
     </section>
 
-    <!-- 3 · Concerns: each one raises a flag -->
-    <section class="scene s-hist s-flags" data-stop="concerns" data-step="concerns" data-step-label="Concerns">
+    <section class="scene s-hook s-casecover" data-stop="omar" data-veil=".35" data-step="voice" data-step-label="Patient voice">
       <div class="wrap">
         <div>
-          <p class="eyebrow" data-a="up">His concerns</p>
-          <h2 data-a="rise">Worried about the next step</h2>
-          <div class="hist" data-a="each">
-            <button class="hstep" data-pic="0"><i data-icon="clock"></i><span><b>Getting worse</b>Topical treatments used inconsistently, with insufficient control of inflammatory lesions.</span></button>
-            <button class="hstep" data-pic="1"><i data-icon="phone"></i><span><b>Read about isotretinoin online</b>Its potential side effects make him hesitant to consider it.</span></button>
-            <button class="hstep" data-pic="0"><i data-icon="drop"></i><span><b>Dry skin</b>He already experiences dry skin.</span></button>
-            <button class="hstep" data-pic="1"><i data-icon="eye"></i><span><b>History of dry eyes</b>He wants a treatment his doctor can monitor and he can continue comfortably.</span></button>
-            <div class="flag-meter"><small>Concerns about isotretinoin</small><i></i></div>
-          </div>
+          <p class="chap" data-a="up"><b>Patient profile 3</b> Illustrative</p>
+          <h1 class="title" data-a="rise">Omar, 35</h1>
+          <p class="sub" data-a="up">Working professional · Moderate-to-severe inflammatory acne · Concerned about isotretinoin</p>
+          <blockquote class="voice" data-a="none"><span class="q">“My acne is getting worse. I’ve heard about isotretinoin on social media, but I’m concerned about the dryness and eye irritation, especially since I already have dry eyes. I want an effective treatment that my doctor can monitor and that I can continue comfortably.”</span></blockquote>
         </div>
-        <div class="hist-frame" data-a="none">
-          <img class="hist-pic" src="assets/story/omar/week0.webp?v=4" alt="Omar’s severe inflammatory acne">
-          <img class="hist-pic" src="assets/story/omar/concerns.webp?v=4" alt="Omar reading about isotretinoin on his phone" style="object-position:70% 50%">
-          <span class="symptom" data-step="0" style="--x:78;--y:40"><i data-icon="flame"></i>Inflammatory lesions</span>
-          <span class="symptom" data-step="1" style="--x:20;--y:74"><i data-icon="phone"></i>Side effects he read about</span>
-          <span class="symptom" data-step="2" style="--x:76;--y:40"><i data-icon="drop"></i>Dry skin</span>
-          <span class="symptom" data-step="3" style="--x:24;--y:24"><i data-icon="eye"></i>Dry eyes</span>
-          <span class="seq-tag">Illustrative · AI-generated</span>
+        <div class="idcard" data-a="none">
+          <span class="id-tab">Case file 03</span>
+          <div class="id-photo"><img src="assets/story/omar/portrait-moderate.png" alt="Omar, illustrative patient"></div>
+          <dl class="id-fields">
+            <div><dt>Age</dt><dd>35</dd></div>
+            <div><dt>Occupation</dt><dd>Working professional</dd></div>
+            <div><dt>Diagnosis</dt><dd>Moderate-to-severe inflammatory acne</dd></div>
+            <div><dt>Relevant history</dt><dd>Dry skin · history of dry eyes</dd></div>
+          </dl>
+          <span class="id-flag"><i data-icon="eye"></i>Concerned about isotretinoin</span>
         </div>
       </div>
     </section>
 
-    <!-- 4 · Examination: hotspots + severity scale -->
-    <section class="scene s-present s-exam" data-stop="presentation" data-step="exam" data-step-label="Examination">
-      <div class="wrap">
-        <div>
-          <p class="eyebrow" data-a="up">Presentation</p>
-          <h2 data-a="rise">What you see in clinic</h2>
-          <div class="facts-list" data-a="each">
-            <div><i data-icon="clipboard"></i><div><small>Diagnosis</small><b>Severe inflammatory acne vulgaris</b></div></div>
-            <div><i data-icon="face"></i><div><small>Lesions</small><b>Numerous papules and pustules with a few nodular lesions</b></div></div>
-            <div><i data-icon="drop"></i><div><small>Relevant history</small><b>Dry skin and a history of dry eyes</b></div></div>
-          </div>
-          <div class="sevscale" data-a="up">
-            <small>Severity</small>
-            <ol><li>Clear</li><li>Almost clear</li><li>Mild</li><li>Moderate</li><li class="hit">Severe</li></ol>
-            <i class="sevscale-mark"></i>
-          </div>
-          <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*1.6)">Tap the glowing points on Omar’s face.</p>
-        </div>
-        <div class="face-frame" data-a="pop">
-          <img src="assets/story/omar/week0.webp?v=4" alt="Omar at week 0">
-          <button class="spot" style="--x:48;--y:27" data-k="forehead" aria-label="Forehead"></button>
-          <button class="spot" style="--x:37;--y:52" data-k="cheek" aria-label="Right cheek"></button>
-          <button class="spot" style="--x:64;--y:58" data-k="nodule" aria-label="Nodule on the left cheek"></button>
-          <button class="spot" style="--x:42;--y:64" data-k="jaw" aria-label="Jawline"></button>
-          <div class="spot-card" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 · Decision tree -->
     <section class="scene s-tree" data-stop="decision" data-step="decision" data-step-label="Decision">
       <div class="wrap">
         <div class="tree-head">
@@ -117,8 +89,8 @@
         </div>
         <div class="tree">
           <div class="tree-root" data-a="pop">
-            <img src="assets/story/omar/week0.webp?v=4" alt="">
-            <div><b>Severe inflammatory acne</b><span>Dry skin · history of dry eyes</span></div>
+            <img src="assets/story/omar/portrait-moderate.png" alt="">
+            <div><b>Moderate-to-severe inflammatory acne</b><span>Dry skin · history of dry eyes</span></div>
           </div>
           <svg class="tree-lines" viewBox="0 0 400 60" preserveAspectRatio="none" data-a="draw" aria-hidden="true">
             <path data-branch="a03d" d="M200 0 V30 H50 V60"/><path data-branch="a01" d="M200 0 V30 H150 V60"/>
@@ -138,8 +110,6 @@
       </div>
     </section>
 
-
-    <!-- Recommended (deck: "Recommended for Omar") -->
     <section class="scene rec" data-stop="recommended" data-step="plan" data-step-label="Treatment plan">
       <div class="wrap">
         <div class="rec-head">
@@ -150,13 +120,12 @@
         <div class="card rec-card" data-a="up">
           <h3>Why?</h3>
           <ul class="rec-why" data-a="each-left"><li><i data-icon="check"></i><span>Designed for severe inflammatory acne requiring combination treatment</span></li><li><i data-icon="check"></i><span>Combines adapalene 0.3%/BPO 2.5% with oral doxycycline for a comprehensive treatment approach</span></li><li><i data-icon="check"></i><span>Provides an effective treatment option for patients with severe inflammatory acne, including as an option before oral isotretinoin or when oral isotretinoin is unsuitable</span></li><li><i data-icon="check"></i><span>Omar may not be an appropriate candidate for oral isotretinoin at this time due to his tendency toward dry skin and dry eyes, which may be exacerbated by isotretinoin treatment.<sup data-ref="25"></sup></span></li></ul>
-          <div class="rec-ev"><small>Evidence</small><p>For physician-selected patients with severe inflammatory acne in whom oral isotretinoin is unsuitable, Adzoy™ 0.3%/2.5% used with oral doxycycline is an effective and well-tolerated non-isotretinoin treatment option.</p></div>
+
         </div>
       </div>
     </section>
 
-    <!-- 6 · Routine -->
-    <section class="scene s-photo s-routine" data-stop="routine" data-dark="1" data-step="plan" data-dock="min">
+    <section class="scene s-photo s-routine" data-stop="routine" data-step="plan" data-dock="min">
       <div class="photo" data-a="zoom"><img src="assets/story/omar/routine.webp?v=4" alt="Omar applying gel at bedtime"></div>
       <div class="wrap">
         <div class="photo-text">
@@ -173,104 +142,30 @@
       </div>
     </section>
 
-    <!-- 7–9 · Follow-up visits: the video follows the swipe along the visit track -->
-    <section class="scene s-week" data-stop="week-0" data-step="followup" data-step-label="Follow-up">
-      <div class="wrap">
-        <p class="kicker" data-a="up">Week 0</p>
-        <h2 data-a="rise">Starting Adzoy™ 0.3% + doxycycline</h2>
-        <p class="lead" data-a="up">Severe inflammatory acne.</p>
-      </div>
-    </section>
-    <section class="scene s-week" data-stop="week-4" data-step="followup">
-      <div class="wrap">
-        <p class="kicker" data-a="up">Week 4</p>
-        <h2 data-a="rise">Inflammation settling</h2>
-        <div class="wk-stat" data-a="up"><b><span data-a="count" data-to="41.9">0</span>%</b><span>were no longer considered isotretinoin candidates as early as Week 4<sup data-ref="26"></sup></span></div>
-      </div>
-    </section>
-    <section class="scene s-week" data-stop="week-12" data-step="followup">
-      <div class="wrap">
-        <p class="kicker" data-a="up">Week 12</p>
-        <h2 data-a="rise">Breakouts under control</h2>
-        <div class="wk-stat" data-a="up"><b><span data-a="count" data-to="90.2">0</span>%</b><span>reported at least moderate improvement in their acne<sup data-ref="26"></sup></span></div>
-        <div class="wk-stat" data-a="up"><b><span data-a="count" data-to="83.2">0</span>%</b><span>were “satisfied” or “very satisfied” with treatment overall<sup data-ref="26"></sup></span></div>
-      </div>
-    </section>
+    <section class="scene study study-summary-only" data-step="evidence" data-step-label="Evidence" data-stop="study">
+<div class="wrap">
+<div>
+<span class="kicker" data-a="up">Clinical study 4</span>
+<h2 data-a="rise">Proven Efficacy in Severe Inflammatory Acne<sup data-ref="26"></sup></h2><p class="study-subtitle" data-a="up">Start with adapalene 0.3%/BPO 2.5% + doxycycline before oral isotretinoin</p>
 
-    <div class="seq-wrap">
-      <div class="seq-frame"><canvas class="seq"></canvas><span class="seq-tag">Illustrative · AI-generated</span><b class="rail-week">Week <span>0</span></b></div>
-      <div class="rail visits">
-        <div class="rail-track"><i class="rail-fill"></i></div>
-        <button class="rail-dot" data-stop="week-0" aria-label="Week 0" data-visit="Baseline">0</button><button class="rail-dot" data-stop="week-4" aria-label="Week 4" data-visit="Week 4">4</button><button class="rail-dot" data-stop="week-12" aria-label="Week 12" data-visit="Week 12">12</button>
-      </div>
-    </div>
+<p class="desc outcome-callout" data-a="up"><b>Outcome:</b> Adapalene 0.3%/BPO 2.5% + doxycycline demonstrated efficacy in severe inflammatory acne and may provide a treatment option before oral isotretinoin or when oral isotretinoin cannot be used.</p>
+</div>
 
-    <!-- 10 · Before / after -->
-    <section class="scene s-mirror" data-stop="mirror" data-step="followup">
-      <div class="wrap">
-        <div>
-          <p class="eyebrow" data-a="up">Week 0 → Week 12</p>
-          <h2 data-a="rise">See the difference</h2>
-          <p class="lead" data-a="up">Drag across the mirror to compare Omar before and after 12 weeks of Adzoy™ 0.3% with oral doxycycline.</p>
-          <p class="fine" data-a="fade" style="margin-top:calc(var(--u)*2)">Illustrative, AI-generated images.</p>
-        </div>
-        <div class="mirror" data-a="pop" data-noswipe>
-          <img class="m-after" src="assets/story/omar/week12.webp?v=4" alt="Omar at week 12">
-          <div class="m-before"><img src="assets/story/omar/week0.webp?v=4" alt="Omar at week 0"></div>
-          <div class="m-handle"><span>Week 0</span><i></i><span>Week 12</span></div>
-        </div>
-      </div>
-    </section>
+</div>
+</section>
 
+    <section class="scene study results study-results-amended" data-step="evidence" data-stop="results">
+<div class="wrap"><header class="study-header"><p class="eyebrow" data-a="up">Clinical study 4</p><h2 data-a="rise">Clinical outcomes</h2><button aria-haspopup="dialog" class="ghost study-design-btn" data-design="doxy" data-title="Clinical study 4">Study design <span aria-hidden="true">↗</span></button></header><div class="study-results-pair"><div class="card chart-card" data-a="up">
+<div data-a="chart" id="c-il"></div>
+<button class="ghost sm" data-zoom="assets/img/content/study4-lesions.png">Original figure</button>
+</div><div class="card chart-card" data-a="up">
+<p class="cap">Study outcomes (%)<sup data-ref="26"></sup></p>
+<div data-a="chart" id="c-doxy"></div>
+<button class="ghost sm" data-zoom="assets/img/content/study4-outcomes.png">Original figure</button>
+</div></div><div class="study-glance"><p class="cap-s">Study at a glance</p><div class="datagrid"><div><i data-icon="calendar"></i><small>Duration</small><b>12 weeks, Phase 4</b></div><div><i data-icon="clipboard"></i><small>Design</small><b>Single-arm, open-label, multicenter</b></div><div><i data-icon="people"></i><small>Patients</small><b>N = 186, males and females ≥ 12 years</b></div><div><i data-icon="sliders"></i><small>Severity</small><b>IGA 4, nonnodulocystic, nonconglobate, ≤ 4 nodulocystic lesions</b></div><div><i data-icon="pill"></i><small>Treatment</small><b>Adapalene 0.3%/BPO 2.5% once daily + doxycycline 100 mg twice daily</b></div><div><i data-icon="pulse"></i><small>Endpoints</small><b>IL reduction, IGA success, % lesion reduction, questionnaires</b></div></div></div></div>
+</section>
 
-    <!-- Clinical study 4 (deck slide 34) -->
-    <section class="scene study" data-stop="study" data-step="evidence" data-step-label="Evidence">
-      <div class="wrap">
-        <div>
-          <span class="kicker" data-a="up">Clinical study 4</span>
-          <h2 data-a="rise">Start with adapalene 0.3%/BPO 2.5% + doxycycline before oral isotretinoin: proven efficacy in severe inflammatory acne<sup data-ref="26"></sup></h2>
-          <p class="desc" data-a="up">A 12-week, Phase 4, multicenter, single-arm, open-label study in <b>186 patients</b> aged ≥ 12 years with severe inflammatory acne vulgaris who were considered candidates for oral isotretinoin. Patients received once-daily adapalene 0.3%/BPO 2.5% gel plus oral doxycycline 100 mg twice daily, with efficacy and oral isotretinoin candidacy assessed throughout the study.</p>
-          <p class="desc" data-a="up"><b>Outcome:</b> Adapalene 0.3%/BPO 2.5% + doxycycline demonstrated efficacy in severe inflammatory acne and may provide a treatment option before oral isotretinoin or when oral isotretinoin cannot be used.</p>
-        </div>
-        <div class="stack">
-          <div class="card" data-a="right"><i data-icon="star"></i><div class="stat-row" style="margin:0"><div><b><span data-a="count" data-to="90.2">0</span>%</b><span>of patients reported at least moderate improvement in their acne</span></div></div></div>
-          <div class="card" data-a="right"><i data-icon="clock"></i><div class="stat-row" style="margin:0"><div><b><span data-a="count" data-to="41.9">0</span>%</b><span>were no longer considered isotretinoin candidates as early as Week 4</span></div></div></div>
-          <div class="card" data-a="right"><i data-icon="heart"></i><div class="stat-row" style="margin:0"><div><b><span data-a="count" data-to="83.2">0</span>%</b><span>were “satisfied” or “very satisfied” with treatment overall</span></div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="scene study results" data-stop="results" data-step="evidence">
-      <div class="wrap">
-        <div class="card chart-card" data-a="up">
-          <div id="c-il" data-a="chart"></div>
-          <button class="ghost sm" data-zoom="assets/img/content/study4-lesions.png">Original figure</button>
-        </div>
-        <div class="card chart-card" data-a="up">
-          <p class="cap">Study outcomes (%)<sup data-ref="26"></sup></p>
-          <div id="c-doxy" data-a="chart"></div>
-          <button class="ghost sm" data-zoom="assets/img/content/study4-outcomes.png">Original figure</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="scene study design" data-stop="design" data-step="evidence">
-      <div class="wrap">
-        <div>
-          <span class="kicker" data-a="up">Clinical study 4 · Study design</span>
-          <h2 data-a="rise">Phase 4, 12-week, single-arm, open-label, multicenter study</h2>
-          <p class="desc design-text" data-a="up">Phase 4, 12-week, single-arm, open-label, multicenter study (N=186) in males and females aged ≥ 12 years with severe (nonnodulocystic, nonconglobate) inflammatory acne vulgaris (IGA 4, ≤ 4 nodulocystic lesions), considered oral isotretinoin candidates at baseline. All subjects received once-daily adapalene 0.3%/BPO 2.5% gel plus oral doxycycline 100 mg twice daily for 12 weeks. Isotretinoin candidacy was reassessed at each visit. Efficacy endpoints: inflammatory lesion reduction (week 12), IGA success (weeks 4, 8, 12), percent lesion reduction (weeks 4, 8, 12), and subject questionnaires (week 12).<sup data-ref="26"></sup></p>
-          <button class="ref-btn" data-ref="26" data-a="up"><i data-icon="book"></i><span><small>Reference</small>26 · view source</span></button>
-        </div>
-        <div class="card" data-a="up" style="padding:calc(var(--u)*2.2)">
-          <p class="cap-s">Study at a glance</p>
-          <div class="datagrid"><div><i data-icon="calendar"></i><small>Duration</small><b>12 weeks, Phase 4</b></div><div><i data-icon="clipboard"></i><small>Design</small><b>Single-arm, open-label, multicenter</b></div><div><i data-icon="people"></i><small>Patients</small><b>N = 186, males and females ≥ 12 years</b></div><div><i data-icon="sliders"></i><small>Severity</small><b>IGA 4, nonnodulocystic, nonconglobate, ≤ 4 nodulocystic lesions</b></div><div><i data-icon="pill"></i><small>Treatment</small><b>Adapalene 0.3%/BPO 2.5% once daily + doxycycline 100 mg twice daily</b></div><div><i data-icon="pulse"></i><small>Endpoints</small><b>IL reduction, IGA success, % lesion reduction, questionnaires</b></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11 · Outcome -->
-    <section class="scene s-photo s-outcome" data-stop="outcome" data-dark="1" data-step="outcome" data-step-label="Outcome">
+    <section class="scene s-photo s-outcome" data-stop="outcome" data-step="outcome" data-step-label="Outcome">
       <div class="photo" data-a="zoom"><img src="assets/story/omar/office-after.webp?v=4" alt="Omar smiling in the centre of a team photo"></div>
       <div class="wrap">
         <div class="photo-text">
@@ -278,13 +173,14 @@
           <blockquote class="voice light" data-a="up">“With Adzoy Gel, I was able to better control my breakouts, which gave me more confidence about managing my acne and preventing it from getting worse.”</blockquote>
           <div class="btn-row" data-a="up">
             <a class="cta light" href="how-to-use.html" data-href="how-to-use.html">How to use Adzoy™ <em>→</em></a>
-            <a class="ghost" href="index.html#patients" data-href="index.html#patients">All patients</a>
+            <a class="ghost" href="patients.html" data-href="patients.html">All patients</a>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+<template id="omar-history"><p class="eyebrow">Omar’s clinical presentation</p><h3>Treatment history &amp; concerns</h3><ul class="history-detail"><li>Getting worse Topical treatments used inconsistently, with insufficient control of inflammatory lesions.</li><li>Read about isotretinoin online Its potential side effects make him hesitant to consider it.</li><li>Dry skin He already experiences dry skin.</li><li>History of dry eyes He wants a treatment his doctor can monitor and he can continue comfortably.</li></ul></template>
   <nav class="case-bar" aria-label="Case file steps"><span class="cb-id"><i data-icon="clipboard"></i>Case 03</span><ol></ol></nav>
 
   <script src="assets/vendor/gsap.min.js"></script>
@@ -292,15 +188,13 @@
   <script src="assets/vendor/SplitText.min.js"></script>
   <script src="assets/vendor/CustomEase.min.js"></script>
   <script src="assets/vendor/DrawSVGPlugin.min.js"></script>
-  <script src="assets/js/mosaic.js?v=78"></script>
-  <script src="assets/js/refs.js?v=78"></script>
-  <script src="assets/js/core.js?v=78"></script>
-  <script src="assets/js/charts.js?v=78"></script>
-  <script src="assets/js/scenes.js?v=78"></script>
-  <script src="assets/js/story.js?v=78"></script>
+  <script src="assets/js/mosaic.js?v=79"></script>
+  <script src="assets/js/refs.js?v=79"></script>
+  <script src="assets/js/core.js?v=79"></script>
+  <script src="assets/js/charts.js?v=79"></script>
+  <script src="assets/js/scenes.js?v=79"></script>
+  <script src="assets/js/story.js?v=79"></script>
   <script>
-    const FRAMES = 72;
-    const seq = (p) => [...Array(FRAMES)].map((_, i) => `assets/story/omar/frames/${p}_${String(i + 1).padStart(3, '0')}.webp?v=4`);
     Story.run({
       charts() {
         // Redrawn from the deck charts (slide 34).
@@ -323,26 +217,24 @@
             .from('.id-flag', { autoAlpha: 0, scale: 0.6, duration: 0.6, ease: 'back.out(2)' }, t + 1.1);
         },
         presentation(tl, t) {
-          // The severity marker slides along the scale and settles on "Severe".
+          // The severity marker slides along the scale and settles on "Moderate-to-severe".
           tl.from('.sevscale-mark', { left: '10%', duration: 1.3, ease: 'power2.inOut' }, t + 1);
         },
       },
       id: 'omar',
       world: '03',
-      frames: seq('a').concat(seq('b')),
-      weeks: [0, 4, 12],
-      zoomSrc: 'assets/story/omar/week0-hd.webp?v=4',
+      zoomSrc: 'assets/story/omar/portrait-moderate.png',
       spots: {
         forehead: { t: 'Forehead', d: 'Inflamed papules and pustules', k: 'Inflammatory lesions' },
         cheek: { t: 'Cheeks', d: 'Numerous papules and pustules', k: 'Inflammatory lesions' },
-        nodule: { t: 'Nodule', d: 'A few nodular lesions', k: 'Severe inflammatory acne' },
+        nodule: { t: 'Left cheek', d: 'Inflammatory papules and pustules', k: 'Inflammatory lesions' },
         jaw: { t: 'Jawline', d: 'Papules, pustules and a nodule', k: 'Inflammatory lesions' },
       },
       decision: {
         correct: 'a03d',
         feedback: {
           a03d: 'Recommended. Adzoy™ 0.3%/2.5% once daily plus oral doxycycline, when clinically appropriate, is designed for severe inflammatory acne requiring combination treatment.',
-          a01: 'Adzoy™ 0.1% suits mild-to-moderate acne. Omar’s severe inflammatory acne calls for the 0.3% strength combined with oral doxycycline.',
+          a01: 'Adzoy™ 0.1% suits mild-to-moderate acne. Omar’s moderate-to-severe inflammatory acne calls for the 0.3% strength combined with oral doxycycline.',
           iso: 'Omar may not be an appropriate candidate for oral isotretinoin at this time: his dry skin and history of dry eyes may be exacerbated by isotretinoin treatment.',
           abx: 'Topical antibiotic monotherapy is not recommended by the AAD and NICE guidelines.',
         },
@@ -350,5 +242,6 @@
       },
     });
   </script>
+  <script src="assets/js/amendments.js?v=79"></script>
 </body>
 </html>
